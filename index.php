@@ -31,13 +31,11 @@ session_start();
 
     ?>
   </ul>
-  naoko
-  nakazawa
 
+  <header>
+      <div>っっっh</div>
+  </header>
 
-  fkdsokd
-
-  fdijflsid
 
 
 
