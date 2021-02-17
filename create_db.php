@@ -19,7 +19,6 @@ user_email VARCHAR(50),
 user_password VARCHAR(50)
 )";
   $res = $dbh->query($sql);
-  print_r($res);
 } catch (Exception $e) {
   echo $e;
 }
