@@ -1,9 +1,6 @@
 <?php
-include_once('./create_db.php');
-$dbhost = 'localhost';
-$user = "root";
-$root_pass = "root";
-$db_name = "gominet";
+include_once('create_db.php');
+
 
 
 try {

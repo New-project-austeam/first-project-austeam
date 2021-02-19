@@ -1,6 +1,6 @@
 <?php
 
-include_once('./db.php');
+include_once('./includes/db.php');
 session_start();
 
 // $stmt = $pdo->query("SELECT * FROM users");
@@ -23,6 +23,8 @@ if (isset($_POST['submit_login'])) {
 
   if ($result) {
     $_SESSION['user_email'] = $result['user_email'];
+    $_SESSION['user_nickname'] = $result['user_nickname'];
+
     header('Location: ./index.php');
   } else {
     echo "<b style='color: orange;'>Sorry the user is not registered yet with that email address and password... please try again..</b>";
@@ -45,11 +47,13 @@ if (isset($_POST['submit_login'])) {
     <h3>Log in page</h3>
 
     <ul style="border: 1px solid orange">
+      <li><a href="./index.php">Top Page</a></li>
       <li><a href="./signup.php">sign up</a></li>
-      <li><a href="./login.php">login up</a></li>
+
     </ul>
 
     <form method="post" action="login.php">
+
       <div class="row">
         <label for="email">Email</label>
         <input type="text" id="email" name="user_email">
