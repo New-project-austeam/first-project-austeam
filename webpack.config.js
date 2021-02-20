@@ -12,10 +12,27 @@ module.exports = {
 
   output: {
     filename: "[name].js",
-    path: path.resolve(__dirname, './dist/js')
+    path: path.resolve(__dirname, './dist/js'),
+    publicPath: ""
   },
   module: {
     rules: [
+      {
+        test: /\.(svf|png|jpg|gif)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: '[name].[ext]',
+              outputPath: "../images",
+              publicPath: "../images"
+            }
+          }
+
+        ]
+      },
+
+
       {
         test: /\.(css|scss|sass)$/,
         use: [
