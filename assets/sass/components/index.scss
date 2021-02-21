@@ -1,3 +1,91 @@
 
 /* メインパーツにid or class をindexをボディにつけ、その中に入れ子にしてCSSを記述する */
 /* プラウザのキャッシュクリア　ショートカット　Command ＋shift + R */
+
+/* 画像スライドショーにする */
+/* または、msg-1、２が数秒後に現れる */
+.top-visual {
+  width:100vw;
+  height:100vh;
+
+  background-image: url(../img/garbage-4277613_1920.jpg);
+  background-position:center center;
+  background-size:cover ;
+  height:60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: white;
+  margin-bottom:50px;
+
+
+  .msg-1,.msg-2{
+    margin-left:50px;
+    h2{
+      background-color: rgb(128, 128, 134, 0.4);
+      /* スマホサイズだと謎に横に伸びる */
+
+    }
+  }
+
+  .msg-2{
+    margin-left:130px;
+  }
+
+
+
+
+}
+
+@media(min-width:768px){
+  .top-visual {
+    background-size: 1300px;
+    background: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+
+    .msg-1,.msg-2{
+      padding-top:150px;
+      font-size:1.5rem;
+
+    }
+
+    .msg-2{
+      padding-top: 300px;
+
+    }
+
+
+@media(min-width:1200px){
+
+  .msg-1,.msg-2{
+
+    font-size:1.8rem;
+
+  }
+
+
+  .msg-1{
+    padding-left:150px;
+  }
+
+  .msg-2{
+    padding-right:200px;
+  }
+}
+
+
+
+
+
+
+
+
+
+}
+
+
+}

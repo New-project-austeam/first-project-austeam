@@ -18,7 +18,7 @@ session_start();
 <body id="index">
 
   <header　id="header">
-    <div class="header-wrapper">
+    <div class="header-content">
       <h1 class="logo"><a href="index.php">ゴミ<i class="fas fa-trash-alt"></i>マップ</a></h1>
 
 
@@ -38,14 +38,20 @@ session_start();
     </div>
   </header>
   <main>
-    <section className={styel.top-wrapper}>
-      <div className={msg-1}>
-        <h2>ゴミ拾いで<br>繋がる出会い</h2>
+    <section class="top-visual">
 
+      <div class="msg-1">
+        <h2>ゴミ拾いで</h2>
+        <span  class="slide">
+        <h2>繋がる出会い</h2>
+        </span>
       </div>
 
       <div class="msg-2">
-        <h2>仲間と一緒に<br>海を守りませんか？</h2>
+        <h2>仲間と一緒に</h2>
+        <span  class="slide">
+          <h2> 海を守りませんか？</h2>
+          </span>
       </div>
     </section>
 

@@ -3,8 +3,8 @@
 
 
 /* フォントファミリー　あとで決める */
-/*           入れ子できない！！！　入れ子にすると効かない！！！　要確認 */
-
+/* headerレスポンシブする 320px する　ハンバーガー考慮 */
+/* Scss記述に修正する。 */
 a{
   text-decoration: none;
 }
@@ -13,6 +13,7 @@ a{
   margin:10px;
   padding-left:10px;
   letter-spacing: 0.1;
+  font-size: 1.3rem;
 
 
 }
@@ -22,7 +23,7 @@ a{
 }
 
 
-.header-wrapper {
+.header-content {
   display: flex;
   justify-content: space-between;
 }
@@ -30,11 +31,13 @@ a{
 .header-list {
   display: flex;
   justify-content: space-between;
-  margin:20px;
+  margin:20px 0 10px 20px;
+  padding-left:20px;
 }
 
 .header-list li{
-  margin:10px 0 0 20px;
+  margin:0 0 0 20px;
+  font-size:0.7rem;
 
 }
 
@@ -57,4 +60,51 @@ a{
   h1{
     color: blue;
   }
+}
+
+@media(max-width:380px){
+  .header-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    .logo{
+      font-size: 1rem;
+    }
+  }
+}
+
+@media(max-width:320px){
+
+  /* レスポンシブ　320pxだと、headerバランス悪い 位置考える いっそのことハンバーガーにするか。*/
+
+    .header-list {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      margin-left:100px;
+      margin-top: -0.3px;
+
+    }
+
+    .logo{
+      font-size: 1rem;
+    }
+
+}
+
+@media(min-width:768px){
+  .header-content{
+    padding: 20px 30px;
+  }
+
+  .logo{
+    font-size: 2rem;
+  }
+
+  .header-list li{
+    font-size:1rem;
+    margin-right:20px;
+  }
+
 }
