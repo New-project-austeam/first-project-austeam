@@ -19,7 +19,7 @@ session_start();
 
   <header　id="header">
     <div class="header-content">
-      <h1 class="logo"><a href="index.php">GoMimap<i class="fas fa-trash-alt"></i></a></h1>
+      <h1 class="logo"><a href="index.php"><span class="logo-g">G</span>oMimap<i class="fas fa-trash-alt"></i></a></h1>
 
 
       <ul class="header-list">
@@ -168,7 +168,7 @@ session_start();
       <footer class="footer">
         <div class="footer-content">
 
-            <h5 class="logo"><a href="index.php"><i class="fas fa-trash-alt"></i>GoMimap</a></h5>
+            <h5 class="logo"><a href="index.php"><i class="fas fa-trash-alt"></i><span class="logo-g">G</span>oMimap</a></h5>
 
 
 
