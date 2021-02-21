@@ -2,8 +2,11 @@
 /* プラウザのキャッシュクリア　ショートカット　Command ＋shift + R */
 
 
+
+
+
 /* フォントファミリー　あとで決める */
-/* headerレスポンシブする 320px する　ハンバーガー考慮 */
+/* ハンバーガー作る！！！！！！！！！！！！！！！ */
 /* Scss記述に修正する。 */
 a{
   text-decoration: none;
@@ -16,25 +19,29 @@ a{
   font-size: 1.3rem;
 
 
+
+
 }
 
 .logo a{
   color: rgb(99, 90, 90);
+
 }
 
 
 .header-content {
   display: flex;
   justify-content: space-between;
-}
+  background-color: rgb(202, 199, 195, 0.4);
+
 
 .header-list {
   display: flex;
   justify-content: space-between;
-  margin:20px 0 10px 20px;
+  margin:15px 0 10px 20px;
   padding-left:20px;
 }
-
+}
 .header-list li{
   margin:0 0 0 20px;
   font-size:0.7rem;
@@ -103,8 +110,15 @@ a{
   }
 
   .header-list li{
-    font-size:1rem;
+    font-size:1.1em;
     margin-right:20px;
+    line-height: 1;
+
+    span{
+      font-size:0.8rem;
+      line-height:0.5;
+      margin-left:5px;
+    }
   }
 
 }

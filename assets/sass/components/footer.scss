@@ -1,0 +1,50 @@
+
+
+
+.footer {
+  background-color: rgb(202, 199, 195, 0.4);
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(202, 199, 195, 0.4);
+  text-align: center;
+
+  .footer-content{
+    text-align: center;
+    margin: auto;
+
+    .logo{
+      font-size: 1.2rem;
+    }
+
+
+  .footer-list {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0 0px 20px;
+
+    text-align: center;
+
+    li {
+      margin: 0 15px 0 15px;
+      font-size: 0.7rem;
+
+      a {
+        color: $main-letter-color;
+      }
+      & a:hover {
+        color: rgb(24, 23, 23);
+      }
+  }
+
+
+
+    }
+  }
+}
+
+
+@media(min-width:768px){
+  .footer-list li a{
+    font-size: 1rem;
+  }
+}

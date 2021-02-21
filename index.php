@@ -19,7 +19,7 @@ session_start();
 
   <header　id="header">
     <div class="header-content">
-      <h1 class="logo"><a href="index.php">ゴミ<i class="fas fa-trash-alt"></i>マップ</a></h1>
+      <h1 class="logo"><a href="index.php">GoMimap<i class="fas fa-trash-alt"></i></a></h1>
 
 
       <ul class="header-list">
@@ -28,9 +28,9 @@ session_start();
           echo "<li><a>My page</a></li>";
           echo "<li><a href='./logout.php'>Log out</a></li>";
         } else {
-          echo "<li><a href='./login.php'>Sign In</a></li>";
-          echo "<li><a href='#'>Join Us</a></li>";
-          echo "<li><a href='#'>English</a><li>";
+          echo "<li><a href='./login.php'>Log In<br><span>ログイン</span></a></li>";
+          echo "<li><a href='#'>Join Us<br><span>会員登録</span></a></li>";
+          echo "<li><a href='#'>English<br>　<span>言語</span></a><li>";
         }
 
         ?>
@@ -60,7 +60,7 @@ session_start();
 
     <section class="main-contents">
 
-        <span class="space">スペース</span>
+      <span class="space">スペース</span>
 
       <section class="instruction">
 
@@ -68,7 +68,7 @@ session_start();
 
 
           <h3>HOW TO START</h3>
-          <p>このサイトの使い方</p>
+          <p>このサイトのはじめ方</p>
         </div>
 
         <div class="how-to">
@@ -141,36 +141,66 @@ session_start();
         <div class="join-button">
           <button type="submit"><a href="#">Join Us</a></button>
         </div>
+
+        </div>
         <div class="sns">
-          <i class="fab fa-facebook"></i>
-          <i class="fab fa-twitter"></i>
-          <i class="fab fa-instagram-square"></i>
+          <a href="#">
+            <i class="fab fa-facebook"></i>
+          </a>
+
+
+          <a href="#">
+            <i class="fab fa-twitter"></i>
+          </a>
+
+
+
+          <a href="#">
+            <i class="fab fa-instagram-square"></i>
+          </a>
+
 
         </div>
       </section>
+      <span class="space">スペース</span>
 
-      <footer>
-        <div>
-          <h5 class="logo"><a href="index.php">ゴミ<i class="fas fa-trash-alt"></i>マップ</a></h5>
 
-          <uL>
+      <footer class="footer">
+        <div class="footer-content">
+
+            <h5 class="logo"><a href="index.php"><i class="fas fa-trash-alt"></i>GoMimap</a></h5>
+
+
+
+
+          <ul class="footer-list">
             <li><a href="#">サイトポリシー</a></li>
+            <span>|</span>
             <li><a href="#">サイト設立の経緯</a></li>
+            <span>|</span>
             <li><a href="#">お問い合わせ</a></li>
-          </uL>
+          </ul>
+
         </div>
+      </footer>
+
 
     </section><!-- main-contents -->
 
 
-
-    </footer>
-
+    </main>
 
 
 
 
-  </main>
+
+
+
+
+
+
+
+
 </body>
 
 
