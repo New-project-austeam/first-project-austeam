@@ -1,20 +1,87 @@
 <?php
-require '../Core/Router.php';
+// require '../App/Controllers/Posts.php';
+// require '../Core/Router.php';
 
-$router = new Router();
+spl_autoload_register(function ($class) {
+  $root = dirname(__DIR__); //get the parent directory;
+  $file = $root . "/" . str_replace('\\', '/', $class) . '.php';
+  if (is_readable($file)) {
+
+    require $root . '/' . str_replace('\\', '/', $class) . '.php';
+  }
+});
+
+$router = new Core\Router();
+
+
 
 //echo get_class($router);
 
-// Add the routes
+//Add the routes
 $router->add('', ['controller' => 'Home', 'action' => 'index']);
-$router->add('posts', ['controller' => 'Posts', 'action' => 'index']);
-$router->add('posts/new', ['controller' => 'Posts', 'action' => 'new']);
+// $router->add('posts', ['controller' => 'Posts', 'action' => 'index']);
+// $router->add('posts/new', ['controller' => 'Posts', 'action' => 'new']);
+$router->add('{controller}/{action}');
+// $router->add('admin/{action}/{controller}');
+$router->add('{controller}/{id:\d+}/{action}');
+
 
 // Display the routing table
-echo '<pre>';
-var_dump($router->getRoutes());
-echo '</pre>';
+// echo '<pre>';
+// var_dump($router->getRoutes());
+// echo '</pre>';
 
+
+// $url = $_SERVER['QUERY_STRING'];
+
+$router->dispatch($_SERVER['QUERY_STRING']);
+
+
+// if ($router->match($url)) {
+//   // echo '<pre>';
+//   // var_dump($router->getParams());
+//   // echo '</pre>';
+
+//   echo '<pre>';
+//   echo htmlspecialchars(print_r($router->getRoutes(), true));
+//   echo '</pre>';
+//   print_r($router->getParams());
+// } else {
+//   echo "No route found for URL";
+// }
+// echo "<hr>";
+
+
+// $reg_exp = '/\s+/';
+// $replacement = ",";
+// $string = "I am abc";
+// $result = preg_replace($reg_exp, $replacement, $string);
+// echo $result;
+// echo "<hr>";
+// $reg_exp = '/abc(.+)/';
+// $replacement = "honda$1";
+// $string = "I am abcだよ";
+// $result = preg_replace($reg_exp, $replacement, $string);
+// echo $result;
+
+// echo "<hr>";
+// $reg_exp = '/(\w+) and (\w+)/';
+// $replacement = "$1 OR $2";
+// $string = "Yuki and Yuka";
+// $result = preg_replace($reg_exp, $replacement, $string);
+// echo $result;
+
+
+
+// echo "<br>";
+// echo preg_match("/^re*d\d+.+$/i", "Rd1331!%", $matches);
+// echo "<br>";
+// echo preg_match("/^a[123]+c[^a-z123]+/i", "a2313c44", $matches);
+// echo "<br>";
+
+// echo preg_match("/a(b)c(?P<honda>\d*)/", "abc9999", $matches);
+// print_r($matches);
+// echo $matches['honda'];
 
 ?>
 
