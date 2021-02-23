@@ -19,7 +19,7 @@ session_start();
 
   <header　id="header">
     <div class="header-content">
-      <h1 class="logo"><a href="index.php">ゴミ<i class="fas fa-trash-alt"></i>マップ</a></h1>
+      <h1 class="logo"><a href="index.php"><span class="logo-g">G</span>oMimap<i class="fas fa-trash-alt"></i></a></h1>
 
 
       <ul class="header-list">
@@ -28,16 +28,18 @@ session_start();
           echo "<li><a>My page</a></li>";
           echo "<li><a href='./logout.php'>Log out</a></li>";
         } else {
-          echo "<li><a href='./login.php'>Sign In</a></li>";
-          echo "<li><a href='#'>Join Us</a></li>";
-          echo "<li><a href='#'>English</a><li>";
+          echo "<li><a href='./login.php'>Log In<br><span>ログイン</span></a></li>";
+          echo "<li><a href='#'>Join Us<br><span>会員登録</span></a></li>";
+          echo "<li><a href='#'>English<br>　<span>言語</span></a><li>";
         }
 
         ?>
       </ul>
     </div>
   </header>
+
   <main>
+
     <section class="top-visual">
 
       <div class="msg-1">
@@ -56,85 +58,174 @@ session_start();
     </section>
 
 
-    <section　class="instruction">
-      <div>
-        <div class="sec-title">
-          <h3>このサイトの使い方</h3>
+    <section class="main-contents">
+
+      <span class="space">スペース</span>
+
+      <section class="instruction">
+
+        <div class="section-title">
+
+
+          <h3>HOW TO START</h3>
+          <p>このサイトのはじめ方</p>
+        </div>
+
+        <div class="how-to">
+          <h4 class="step-ribbon">Step.1</h4>
+          <div class="how-to-contents">
+            <p>
+              アカウント登録をして、マイページを作成！
+            </p>
+            <img src="./dist/images/g0462.png" width="150px">
+          </div>
+
         </div>
 
 
         <div class="how-to">
-          <h4>Step 1</h4>
-          <img>
-          <p>マイアカウントを作る</p>
+          <h4 class="step-ribbon">Step.2</h4>
+          <div class="how-to-contents">
+            <p>イベントに参加・作成</p>
+            <img src="./dist/images/y0805.png" width="150px" 　alt="イベントを開催、参加" 　>
+
+          </div>
+
         </div>
 
         <div class="how-to">
-          <h4>Step 2</h4>
-          <img>
-          <p>イベントに参加・作成</p>
+          <h4 class="step-ribbon">Step.3</h4>
+          <div class="how-to-contents">
+            <p>準備　地方自治体のゴミ処分の仕方を確認。必要な持ち物を用意する。天候に合わせた服装</p>
+            <img src="./dist/images/r0590.png" width="150px" 　alt="準備をしてイベントに参加">
+          </div>
+
         </div>
 
         <div class="how-to">
-          <h4>Step 3</h4>
-          <img>
-          <p>準備　地方自治体のゴミ処分の仕方を確認。必要な持ち物を用意する。天候に合わせた服装</p>
+          <h4 class="step-ribbon">Step.4</h4>
+          <div class="how-to-contents">
+            <p>イベント後、あなたの経験を記録やシェア</p>
+            <img src="./dist/images/g0313.png" width="150px" alt="イベントの経験をシェア">
+          </div>
+
+
+          <div　class="how-to">
+
+
+            <div class="how-to-contents">
+              <div>
+                <i class="fas fa-angle-double-down arrow"></i>
+              </div>
+              <p>あなたの行動が<br>環境破壊を止め、野生動物や自然を守る</p>
+
+              <img src="./dist/images/Wavy_Eco-08_Single-04.jpg" width="230px" alt="地球のと動物">
+              <p><a href='https://jp.freepik.com/vectors/abstract'>Vectorjuice - jp.freepik.com</a></p>
+
+
+
+            </div>
+          </div>
+
         </div>
 
-        <div class="how-to">
-          <h4>Step 4</h4>
-          <img>
-          <p>イベント後、あなたの経験を記録やシェア</p>
+      </section><!-- instruction -->
+      <span class="space">スペース</span>
+
+
+
+      <section class="new-event">
+        <div class="section-title">
+          <h3>NEW EVENT</h3>
+          <p>新着のイベント</p>
         </div>
 
-      </div>
-    </section>
+        <div>
+          <!-- ここでイベントを反映させたい -->
+          <img>
+          <img>
+          <img>
+          <img>
+        </div>
+      </section>
+      <span class="space">スペース</span>
 
-    <section class="new-event">
-      <div>
-        <h3 class="sec-title">新着のイベント</h3>
-      </div>
+      <section class="registration">
+        <div class="section-title">
+          <h3>JOIN US</h3>
+          <p>ゴミマップに登録する</p>
+        </div>
 
-      <div>
-        <!-- ここでイベントを反映させたい -->
-        <img>
-        <img>
-        <img>
-        <img>
-      </div>
-    </section>
+        <div class="join-button">
+          <button type="submit"><a href="#">Join Us</a></button>
+        </div>
 
-    <section>
-      <h3 class="sec-title">ゴミマップに登録する</h3>
-      <button type="submit"><a href="#">Join Us</a></button>
-      <div class="sns">
-        <i class="fab fa-facebook"></i>
-        <i class="fab fa-twitter"></i>
-        <i class="fab fa-instagram-square"></i>
+        </div>
+        <div class="sns">
+          <a href="#">
+            <i class="fab fa-facebook"></i>
+          </a>
 
-      </div>
-    </section>
 
-    <footer>
-      <div>
-        <h5 class="logo"><a href="index.php">ゴミ<i class="fas fa-trash-alt"></i>マップ</a></h5>
-
-        <uL>
-          <li><a href="#">サイトポリシー</a></li>
-          <li><a href="#">サイト設立の経緯</a></li>
-          <li><a href="#">お問い合わせ</a></li>
-        </uL>
-      </div>
+          <a href="#">
+            <i class="fab fa-twitter"></i>
+          </a>
 
 
 
-    </footer>
+          <a href="#">
+            <i class="fab fa-instagram-square"></i>
+          </a>
+
+          <div class="eco-image">
+            <img src="./dist/images/8441.jpg" width="190px">
+            <p><a href='https://www.freepik.com/vectors/tree'>Tree vector created by pch.vector - www.freepik.com</a>
+            </p>
+          </div>
+
+
+        </div>
+      </section>
+      <span class="space">スペース</span>
+
+
+      <footer class="footer">
+        <div class="footer-content">
+
+          <h5 class="logo"><a href="index.php"><i class="fas fa-trash-alt"></i><span class="logo-g">G</span>oMimap</a>
+          </h5>
 
 
 
+
+          <ul class="footer-list">
+            <li><a href="#">サイトポリシー</a></li>
+            <span>|</span>
+            <li><a href="#">サイト設立の経緯</a></li>
+            <span>|</span>
+            <li><a href="#">お問い合わせ</a></li>
+          </ul>
+
+        </div>
+      </footer>
+
+
+    </section><!-- main-contents -->
 
 
   </main>
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 
 
