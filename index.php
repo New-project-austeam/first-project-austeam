@@ -117,10 +117,10 @@ session_start();
               <div>
                 <i class="fas fa-angle-double-down arrow"></i>
               </div>
-              <p>あなたの行動が<br>環境改善に貢献し野生動物や自然を守る</p>
+              <p>あなたの行動が<br>環境破壊を止め、野生動物や自然を守る</p>
 
               <img src="./dist/images/Wavy_Eco-08_Single-04.jpg" width="230px" alt="地球のと動物">
-              <p><a href='https://jp.freepik.com/vectors/abstract'>イラスト提供：Vectorjuice - jp.freepik.com</a></p>
+              <p><a href='https://jp.freepik.com/vectors/abstract'>Vectorjuice - jp.freepik.com</a></p>
 
 
 
@@ -178,7 +178,7 @@ session_start();
           </a>
 
           <div class="eco-image">
-            <img src="./dist/images/8441.jpg" width="300px">
+            <img src="./dist/images/8441.jpg" width="190px">
             <p><a href='https://www.freepik.com/vectors/tree'>Tree vector created by pch.vector - www.freepik.com</a></p>
           </div>
 
