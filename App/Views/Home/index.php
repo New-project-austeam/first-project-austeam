@@ -1,6 +1,6 @@
 <main>
 
-  <section class="top-visual">
+  <section id="slideshow" class="top-visual">
 
     <div class="msg-1">
       <h2>ゴミ拾いで</h2>

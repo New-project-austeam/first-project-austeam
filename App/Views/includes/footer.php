@@ -24,6 +24,11 @@
 </main>
 
 
+<script src="/dist/js/index.js"></script>
+</body>
+
+</html>
+
 
 
 

@@ -1,9 +1,0 @@
-[23-Feb-2021 05:23:32 UTC] <p>Uncought exception: 'ErrorException'</p><p>Message: 'include(../Views/includes/head.php): failed to open stream: No such file or directory'</p><p>Stack trace:<pre>#0 /Applications/MAMP/htdocs/first-project-austeam/App/Views/Home/index.php(3): Core\Error::errorHandler(2, 'include(../View...', '/Applications/M...', 3, Array)
-#1 /Applications/MAMP/htdocs/first-project-austeam/App/Views/Home/index.php(3): include()
-#2 /Applications/MAMP/htdocs/first-project-austeam/Core/View.php(18): require('/Applications/M...')
-#3 /Applications/MAMP/htdocs/first-project-austeam/App/Controllers/Home.php(27): Core\View::render('Home/index.php', Array)
-#4 [internal function]: App\Controllers\Home->indexAction()
-#5 /Applications/MAMP/htdocs/first-project-austeam/Core/Controller.php(33): call_user_func_array(Array, Array)
-#6 /Applications/MAMP/htdocs/first-project-austeam/Core/Router.php(126): Core\Controller->__call('index', Array)
-#7 /Applications/MAMP/htdocs/first-project-austeam/public/index.php(61): Core\Router->dispatch('')
-#8 {main}</pre></p><p>Trown in '/Applications/MAMP/htdocs/first-project-austeam/App/Views/Home/index.php' on line 3</p>

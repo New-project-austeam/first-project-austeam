@@ -12,6 +12,7 @@ session_start();
   <title>Document</title>
   <script src="https://kit.fontawesome.com/cdd8505698.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="/dist/css/main.css">
+
 </head>
 
 <body id="index">
