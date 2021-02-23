@@ -1,1 +1,1 @@
-console.log("js loaded");
+(()=>{console.log("js loaded");const e=["sunset-4937813_1920.jpg","beach-4914403_1920.jpg","garbage-3745004_1920.jpg","kiss-1489654_1920.jpg,","nature-4202702_1920.jpg","woman-332278_1920.jpg","flowers-1190773_1920.jpg"];let g=-1;setInterval((function(){2===g?g=0:g++,document.getElementById("slide_img").src=e[g]}),2e3),console.log(g)})();

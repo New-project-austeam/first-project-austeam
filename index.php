@@ -40,7 +40,8 @@ session_start();
 
   <main>
 
-    <section class="top-visual">
+    <section class="top-visual" >
+      <img src="" id="slide_img">
 
       <div class="msg-1">
         <h2>ゴミ拾いで</h2>
