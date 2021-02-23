@@ -1,25 +1,25 @@
 <?php
 
 
-include_once('./db.php');
+include_once('./includes/db.php');
 $message = "";
 
 if (isset($_SESSION["login"])) {
   session_regenerate_id(TRUE);
-  header("Location: success.php");
+  header("Location: index.php");
   exit();
 }
 
 if (isset($_POST['submit'])) {
 
-
+  $user_nickname = $_POST['user_nickname'];
   $user_email = $_POST['user_email'];
   $user_password = $_POST['user_password'];
 
 
   //ユーザー名またはパスワードが送信されて来なかった場合
-  if (empty($user_email) || empty($user_password)) {
-    $message = "ユーザー名とパスワードを入力してください";
+  if (empty($user_email) || empty($user_password) || empty($user_nickname)) {
+    $message = "Please fill all the blanks";
   }
   //ユーザー名とパスワードが送信されて来た場合
   else {
@@ -34,9 +34,9 @@ if (isset($_POST['submit'])) {
 
 
         echo "no one";
-        $sql = 'insert into users (user_email, user_password) values (?, ?)';
+        $sql = 'insert into users (user_email, user_password, user_nickname) values (?, ?, ?)';
         $stmt = $pdo->prepare($sql);
-        $flag = $stmt->execute(array($user_email, $user_password));
+        $flag = $stmt->execute(array($user_email, $user_password, $user_nickname));
         header("Location: login.php?newuser=true", true, 307);
       } else {
         echo "<b style='color: orange;'>that email address is already used...<br>Please try diffrent email address for signing up</b>";
@@ -91,11 +91,15 @@ echo $message;
     <h3>sign up page</h3>
 
     <ul style="border: 1px solid orange">
-      <li><a href="./signup.php">sign up</a></li>
+      <li><a href="./index.php">Top Page</a></li>
       <li><a href="./login.php">login up</a></li>
     </ul>
 
     <form method="post" action="signup.php">
+      <div class="row">
+        <label for="nickname">Nick Name</label>
+        <input type="text" id="nickname" name="user_nickname">
+      </div>
       <div class="row">
         <label for="email">Email</label>
         <input type="text" id="email" name="user_email">
