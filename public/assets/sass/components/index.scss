@@ -1,0 +1,269 @@
+@import "variable.scss";
+
+/* メインパーツにid or class をindexをボディにつけ、その中に入れ子にしてCSSを記述する */
+/* プラウザのキャッシュクリア　ショートカット　Command ＋shift + R */
+
+/* index.scss全体共通 */
+
+/* -----------------------TOP VISUAL-------------------- */
+/* 画像スライドショーにする */
+/* または、msg-1、２が数秒後に現れる */
+.top-visual {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../images/sunset-4937813_1920.jpg);
+  background-position: center center;
+  background-size: cover;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: white;
+
+  .msg-1,
+  .msg-2 {
+    margin-left: 50px;
+    text-shadow: 0 0 40px rgb(19, 19, 18);
+  }
+
+  .msg-1 {
+    padding-left: 30px;
+    padding-top: 10px;
+  }
+  .msg-2 {
+    margin-left: 130px;
+  }
+}
+
+@media (min-width: 768px) {
+  .top-visual {
+    background-size: 1300px;
+    background: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    .msg-1,
+    .msg-2 {
+      padding-top: 150px;
+      font-size: 1.5rem;
+    }
+
+    .msg-2 {
+      padding-top: 300px;
+    }
+
+    @media (min-width: 1200px) {
+      .msg-1,
+      .msg-2 {
+        font-size: 1.8rem;
+      }
+
+      .msg-1 {
+        padding-left: 150px;
+      }
+
+      .msg-2 {
+        padding-right: 200px;
+      }
+    }
+  }
+}
+
+/* --------------------MAIN-CONTENTS---------------------- */
+
+/* モバイル版ーー全体共通*/
+@mixin mobile-section-setting {
+  max-width: 345px;
+  margin: 0 auto;
+  background-color: white;
+  padding-bottom: 30px;
+  font-family: $font;
+}
+
+@mixin mobile-section-title {
+  font-size: 0.9rem;
+  color: $main-letter-color;
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 20px;
+}
+
+@mixin mobile-section-title-ja {
+  font-size: 0.5rem;
+}
+
+.space {
+  opacity: 0;
+}
+
+/* モバイル版ーーーー全体共通　終 */
+
+/*---------------MAIN-CONTENTS INSTRUCTION------------- */
+/* -----------------※要、768px PCサイズの編集 ！！！！ーーー*/
+/* step1-4は折り目付きリボンのデザインにする */
+/* section-title　と　step1-4はアニメーションつけたい */
+/* step1-4の下はフワッとコンテンツ出てくる */
+
+/*----------モバイル版　MAIN-CONTENTS-INSTRUCTION--------- */
+/* instruction モバイル版--全体共通 */
+
+@mixin mobile-how-to-section {
+  text-align: center;
+  color: $main-letter-color;
+  padding: 20px;
+  font-size: 0.9rem;
+}
+
+/* instruction モバイル版--全体共通 */
+
+.main-contents {
+  background-color: $background-color;
+  .instruction {
+    @include mobile-section-setting();
+    .section-title {
+      @include mobile-section-title();
+      p {
+        @include mobile-section-title-ja();
+      }
+    }
+
+    .how-to {
+      /* step　候補１
+      .step-ribbon {
+        position: absolute;
+        left: -20px;
+        padding: 10px 40px;
+        margin: 10px 0 10px;
+        text-align: start;
+        color: $main-letter-color;
+        display: inline-block;
+        position: relative;
+        background:#19eeb9;
+        &::before {
+          position: absolute;
+          content: "";
+          top: 100%;
+          left: 0;
+          border: none;
+          border-bottom: solid 15px transparent;
+          border-right: solid 20px rgb(149, 158, 155);
+
+        }
+      }*/
+
+      /* 候補２ */
+      .step-ribbon {
+        margin-left: 5px;
+        border-bottom: black;
+        position: relative;
+        padding: 1rem 2rem calc(1rem + 10px);
+        background: #19eeb9;
+        width: 40%;
+        height: 30px;
+        font-family: $font;
+        text-align: center;
+        color: $main-letter-color;
+        &::before {
+          position: absolute;
+          top: -7px;
+          left: -7px;
+          width: 100%;
+          height: 100%;
+          content: "";
+          border: 1px solid #000;
+        }
+      }
+
+      .how-to-contents {
+        @include mobile-how-to-section();
+        a {
+          color: $main-letter-color;
+          font-size: 0.3rem;
+          &:hover {
+            color: rgb(20, 190, 241);
+          }
+        }
+      }
+    }
+  }
+}
+
+.fa-angle-double-down {
+  font-size: 3rem;
+  padding-bottom: 40px;
+}
+
+/* -------------- モバイル版 NEW-EVENT----------- */
+.new-event {
+  @include mobile-section-setting();
+  .section-title {
+    @include mobile-section-title();
+    p {
+      @include mobile-section-title-ja();
+    }
+  }
+}
+
+/* ----------モバイル版 registration------------- */
+
+.registration {
+  @include mobile-section-setting();
+  .section-title {
+    @include mobile-section-title();
+    p {
+      @include mobile-section-title-ja();
+    }
+  }
+
+  .join-button,
+  .sns {
+    text-align: center;
+  }
+
+  .join-button {
+    padding: 5px 0 20px;
+
+    button {
+      padding: 10px 30px;
+      background: #19eeb9;
+      border: transparent;
+    }
+  }
+  & a {
+    color: $main-letter-color;
+  }
+
+  & a:hover {
+    color: black;
+  }
+
+  .sns {
+    font-size: 1.8rem;
+
+    & a {
+      margin: 15px;
+    }
+    & .fa-facebook:hover {
+      color: #1a77f2;
+    }
+    & .fa-twitter:hover {
+      color: #1ea2f1;
+    }
+
+    & .fa-instagram-square:hover {
+      color: #9508b8;
+    }
+  }
+
+  .eco-image {
+    a {
+      color: $main-letter-color;
+      font-size: 0.3rem;
+      &:hover {
+        color: rgb(20, 190, 241);
+      }
+    }
+  }
+}
