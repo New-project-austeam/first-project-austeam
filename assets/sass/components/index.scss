@@ -1,10 +1,12 @@
 /* メインパーツにid or class をindexをボディにつけ、その中に入れ子にしてCSSを記述する */
 /* プラウザのキャッシュクリア　ショートカット　Command ＋shift + R */
 
+/* index.scss全体共通 */
+
 $main-letter-color: rgb(99, 90, 90);
-.space {
-  opacity: 0;
-}
+$background-color: rgb(202, 199, 195, 0.4);
+$font:'Tsukushi A Round Gothic';
+
 
 /* -----------------------TOP VISUAL-------------------- */
 /* 画像スライドショーにする */
@@ -13,7 +15,7 @@ $main-letter-color: rgb(99, 90, 90);
   width: 100vw;
   height: 100vh;
 
-  background-image: url(../img/garbage-4277613_1920.jpg);
+  background-image: url(../img/sunset-4937813_1920.jpg);
   background-position: center center;
   background-size: cover;
   height: 60vh;
@@ -25,7 +27,7 @@ $main-letter-color: rgb(99, 90, 90);
   .msg-1,
   .msg-2 {
     margin-left: 50px;
-    text-shadow:0 0 30px rgb(19, 19, 18);
+    text-shadow:0 0 40px rgb(19, 19, 18);
 
   }
 
@@ -76,19 +78,40 @@ $main-letter-color: rgb(99, 90, 90);
 }
 
 /* --------------------MAIN-CONTENTS---------------------- */
-/* 使いわます */
-@mixin section-title {
+
+
+
+/* モバイル版ーー全体共通*/
+@mixin mobile-section-setting{
+  max-width: 345px;
+    margin: 0 auto;
+    background-color: white;
+    padding-bottom:30px;
+    font-family: $font;
+    }
+
+@mixin mobile-section-title {
   font-size: 0.9rem;
   color: $main-letter-color;
   text-align: center;
+  margin-bottom:10px;
   padding: 20px;
 }
 
-@mixin how-to-section {
-  text-align: center;
-  color: $main-letter-color;
-  padding: 20px;
+
+
+@mixin mobile-section-title-ja{
+  font-size :0.5rem;
+  }
+
+.space {
+  opacity: 0;
 }
+
+
+
+/* モバイル版ーーーー全体共通　終 */
+
 
 /*---------------MAIN-CONTENTS INSTRUCTION------------- */
 /* -----------------※要、768px PCサイズの編集 ！！！！ーーー*/
@@ -96,20 +119,31 @@ $main-letter-color: rgb(99, 90, 90);
 /* section-title　と　step1-4はアニメーションつけたい */
 /* step1-4の下はフワッとコンテンツ出てくる */
 
+
+/*----------モバイル版　MAIN-CONTENTS-INSTRUCTION--------- */
+/* instruction モバイル版--全体共通 */
+
+@mixin mobile-how-to-section {
+  text-align: center;
+  color: $main-letter-color;
+  padding: 20px;
+  font-size:0.8rem;
+}
+
+/* instruction モバイル版--全体共通 */
+
 .main-contents {
-  background-color: rgb(202, 199, 195, 0.4);
+  background-color: $background-color;
   .instruction {
-    max-width: 350px;
-    margin: 0 auto;
-    background-color: white;
+    @include mobile-section-setting();
     .section-title {
-      @include section-title();
+      @include mobile-section-title();
       p {
-        font-size: 0.5rem;
-      }
+        @include mobile-section-title-ja();      }
     }
 
     .how-to {
+      /* step　候補１
       .step-ribbon {
         position: absolute;
         left: -20px;
@@ -128,41 +162,79 @@ $main-letter-color: rgb(99, 90, 90);
           border: none;
           border-bottom: solid 15px transparent;
           border-right: solid 20px rgb(149, 158, 155);
+
         }
+      }*/
+
+      /* 候補２ */
+      .step-ribbon{
+        margin-left:5px;
+        border-bottom:black;
+        position: relative;
+        padding: 1rem 2rem calc(1rem + 10px);
+        background: #19eeb9;
+        width:40%;
+        height: 30px;
+        font-family: $font;
+        text-align: center;
+        color: $main-letter-color;
+        &::before{
+          position: absolute;
+          top: -7px;
+          left: -7px;
+          width: 100%;
+          height: 100%;
+          content: '';
+          border: 1px solid #000;
+        }
+
+
       }
 
       .how-to-contents {
-        @include how-to-section();
+        @include mobile-how-to-section();
+        a{
+          color: $main-letter-color;
+          font-size: 0.3rem;
+          &:hover{
+            color: rgb(20, 190, 241);
+          }
+        }
       }
     }
   }
 }
 
-/* --------------NEW-EVENT----------- */
+.fa-angle-double-down{
+  font-size: 3rem;
+  padding-bottom:40px;
+}
+
+/* -------------- モバイル版 NEW-EVENT----------- */
 .new-event {
-  max-width: 350px;
-  margin: 0 auto;
-  background-color: white;
+  @include mobile-section-setting();
   .section-title {
-    @include section-title();
+    @include mobile-section-title();
     p {
-      font-size: 0.5rem;
+      @include mobile-section-title-ja();
     }
   }
 }
 
-/* ----------registration------------- */
+/* ----------モバイル版 registration------------- */
 
 .registration {
-  max-width: 350px;
-  margin: 0 auto;
-  background-color: white;
+  @include mobile-section-setting();
   .section-title {
-    @include section-title();
+    @include mobile-section-title();
     p {
-      font-size: 0.5rem;
+      @include mobile-section-title-ja();
     }
+
+
+
   }
+
   .join-button,
   .sns {
     text-align: center;
@@ -204,4 +276,18 @@ $main-letter-color: rgb(99, 90, 90);
     color: #9508B8;
   }
   }
+
+.eco-image{
+
+    a{
+     color: $main-letter-color;
+     font-size: 0.3rem;
+     &:hover{
+       color: rgb(20, 190, 241);
+    }
+
+}
+}
+
+
 }
