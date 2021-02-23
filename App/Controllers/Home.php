@@ -22,7 +22,7 @@ class Home extends \Core\Controller
 
     // echo "Hello from the index action in the Home controller";
     View::render(
-      ['includes/head.php', 'includes/navigation.php', 'Home/index.php',],
+      ['includes/head.php', 'includes/navigation.php', 'Home/index.php', 'includes/footer.php'],
       []
     );
 
