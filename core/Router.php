@@ -102,29 +102,36 @@ class Router
 
   public function dispatch($url)
   {
+
+    $url = $this->removeQueryStringVariables($url);
     if ($this->match($url)) {
       $controller = $this->params['controller'];
       $controller = $this->convertToStudlyCaps($controller);
-      $controller = "App/Controllers\\$controller";
-      echo $controller;
+      // $controller = "App\Controllers\\$controller";
+
+      $controller = $this->getNamespace() . $controller;
+
       if (class_exists($controller)) {
-        $controller_object = new $controller();
+        $controller_object = new $controller($this->params);
 
         $action = $this->params['action'];
 
         $action = $this->convertToCamelCase($action);
-        print_r($action);
-        echo "<br>";
-        if (is_callable([$controller_object, $action])) {
+        // print_r($action);
+        // echo "<br>";
+        // var_dump($controller_object);
+        // print_r(is_callable([$controller_object, $action], true, $callablename));
+        if (is_callable([$controller_object, "hofda"], true, $callablename)) {
+          // print_r($callablename);
           $controller_object->$action();
         } else {
-          echo "Method $action (in controller $controller) not found";
+          throw new \Exception("Method $action (in controller $controller)not found ");
         }
       } else {
-        echo "Controller class $controller not found";
+        throw new \Exception("Controller class $controller not found ");
       }
     } else {
-      echo "No route matched";
+      throw new \Exception("No route not matched");
     }
   }
 
@@ -154,5 +161,38 @@ class Router
   protected function convertToCamelCase($string)
   {
     return lcfirst($this->convertToStudlyCaps($string));
+  }
+
+
+
+
+
+
+  protected function removeQueryStringVariables($url)
+  {
+    if ($url != '') {
+      $parts = explode('&', $url, 2);
+
+      if (strpos($parts[0], '=') === false) {
+        $url = $parts[0];
+      } else {
+        $url = '';
+      }
+    }
+
+    return $url;
+  }
+
+
+
+  protected function getNamespace()
+  {
+    $namespace = 'App\Controllers\\';
+
+    if (array_key_exists('namespace', $this->params)) {
+      $namespace .= $this->params['namespace'] . '\\';
+    }
+
+    return $namespace;
   }
 }

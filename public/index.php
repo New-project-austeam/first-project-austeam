@@ -2,14 +2,37 @@
 // require '../App/Controllers/Posts.php';
 // require '../Core/Router.php';
 
-spl_autoload_register(function ($class) {
-  $root = dirname(__DIR__); //get the parent directory;
-  $file = $root . "/" . str_replace('\\', '/', $class) . '.php';
-  if (is_readable($file)) {
 
-    require $root . '/' . str_replace('\\', '/', $class) . '.php';
-  }
-});
+
+
+require_once  '../vendor/autoload.php';
+
+
+// テンプレートファイルがあるディレクトリ（本サンプルではカレントディレクトリ）
+// $loader = new Twig_Loader_Filesystem('.');
+
+// $twig = new Twig_Environment($loader);
+
+// $template = $twig->loadTemplate('sample.html.twig');
+// $data = array(
+//   'title' => 'sample',
+//   'message'  => 'My Webpage!',
+// );
+// echo $template->render($data);
+
+// spl_autoload_register(function ($class) {
+
+//   $root = dirname(__DIR__); //get the parent directory;
+//   $file = $root . "/" . str_replace('\\', '/', $class) . '.php';
+
+//   if (is_readable($file)) {
+//     require $file;
+//   }
+// });
+
+error_reporting(E_ALL);
+set_error_handler('Core\Error::errorHandler');
+set_exception_handler('Core\Error::exceptionHandler');
 
 $router = new Core\Router();
 
@@ -24,6 +47,7 @@ $router->add('', ['controller' => 'Home', 'action' => 'index']);
 $router->add('{controller}/{action}');
 // $router->add('admin/{action}/{controller}');
 $router->add('{controller}/{id:\d+}/{action}');
+$router->add('admin/{controller}/{action}', ['namespace' => 'Admin']);
 
 
 // Display the routing table
@@ -36,6 +60,12 @@ $router->add('{controller}/{id:\d+}/{action}');
 
 $router->dispatch($_SERVER['QUERY_STRING']);
 
+
+// $url = "honda&yuki&yukari";
+// $parts = explode('&', $url, 4);
+// print_r($parts);
+// $pos = strpos($url, "yukari");
+// echo $pos;
 
 // if ($router->match($url)) {
 //   // echo '<pre>';
@@ -110,3 +140,5 @@ $router->dispatch($_SERVER['QUERY_STRING']);
 <?php
 
 // include('./includes/footer.php');
+// phpinfo();
+?>
