@@ -6,9 +6,10 @@ namespace App\Models;
 use PDO;
 
 
+
+
 class Database extends \Core\Model
 {
-
 
 
   public static function getAll()

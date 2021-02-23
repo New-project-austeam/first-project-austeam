@@ -19,7 +19,7 @@ abstract class Model
     if ($db == null) {
       try {
 
-        echo Config::DB_HOST;
+        // echo Config::DB_HOST;
         /* リクエストから得たスーパーグローバル変数をチェックするなどの処理 */
 
         // データベースに接続

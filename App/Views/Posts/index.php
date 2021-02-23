@@ -12,7 +12,7 @@
 <body>
   <h1>welcome</h1>
   <p>Hello from the view!</p>
-  <?php echo getcwd(); ?>
+
 
   <ul>
     <?php foreach ($test_data as $data) : ?>

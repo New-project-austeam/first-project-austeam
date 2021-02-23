@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -6,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <script src="https://kit.fontawesome.com/cdd8505698.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="./dist/css/main.css">
+  <link rel="stylesheet" href="/dist/css/main.css">
 </head>
 
 <body id="index">

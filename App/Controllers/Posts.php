@@ -18,11 +18,12 @@ show the index page
 
   public function indexAction()
   {
-    $data = new Database();
-    $data = $data->getAll();
+    $data = Database::getAll();
+
+
     // echo "Hello from the index action in the Home controller";
     View::render(
-      'Posts/index.php',
+      ['Posts/index.php'],
       [
         "data" => $data
       ]

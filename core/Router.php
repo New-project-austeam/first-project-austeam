@@ -50,7 +50,7 @@ class Router
 
     // Add start and end delimiters, and case insensitive flag
     $route = '/^' . $route . '$/i';
-
+    // print_r($route);
 
     $this->routes[$route] = $params;
   }
@@ -75,7 +75,7 @@ class Router
       if (preg_match($route, $url, $matches)) {
         // Get named capture group values
         // $params = [];
-        // print_r($matches);
+
         foreach ($matches as $key => $match) {
           if (is_string($key)) {
             $params[$key] = $match;
