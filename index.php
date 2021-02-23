@@ -40,8 +40,8 @@ session_start();
 
   <main>
 
-    <section class="top-visual" >
-      <img src="" id="slide_img">
+    <section class="top-visual" id=slideshow>
+
 
       <div class="msg-1">
         <h2>ゴミ拾いで</h2>
@@ -224,7 +224,7 @@ session_start();
 
 
 
-
+<script src="./dist/js/index.js"></script>
 </body>
 
 
