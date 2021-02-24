@@ -16,7 +16,7 @@ $font:'Tsukushi A Round Gothic';
   height: 100vh;
 
   background-image: url(../img/sunset-4937813_1920.jpg);
-
+  transition: background-image 3S ease; //2.5秒
   background-position: center center;
   background-size: cover;
   height: 60vh;
