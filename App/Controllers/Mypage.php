@@ -64,4 +64,22 @@ show the index page
     //   'data' => $data
     // ]);
   }
+
+  public function myeventsAction()
+  {
+
+
+
+    // echo "Hello from the index action in the Home controller";
+    View::render(
+      ['includes/head.php', 'includes/navigation.php', 'Mypage/myevents.php', 'includes/footer.php'],
+      []
+    );
+
+
+
+    // View::renderTemplate('Posts/index.twig', [
+    //   'data' => $data
+    // ]);
+  }
 }

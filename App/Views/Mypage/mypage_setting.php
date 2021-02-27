@@ -7,7 +7,7 @@
       <li><a href="/mypage/main">マイページトップ</a></li>
       <li><a href="/mypage/setting">プロフィール設定</a></li>
       <li><a href="#">参加予定のイベント</a></li>
-      <li><a href="#">応募中のイベント</a></li>
+      <li><a href="/mypage/myevents">応募中のイベント</a></li>
       <li><a href="#">そのほか</a></li>
     </ul>
 

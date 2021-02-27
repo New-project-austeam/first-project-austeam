@@ -5,12 +5,14 @@
 
 /* index.scss全体共通 */
 
+
 /* -----------------------TOP VISUAL-------------------- */
 /* 画像スライドショーにする */
 /* または、msg-1、２が数秒後に現れる */
 .top-visual {
   width: 100vw;
   height: 100vh;
+  transition: background-image 3S ease; //2.5秒
   background-image: url(../images/sunset-4937813_1920.jpg);
   background-position: center center;
   background-size: cover;
