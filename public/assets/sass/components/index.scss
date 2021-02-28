@@ -108,8 +108,14 @@
 /* section-title　と　step1-4はアニメーションつけたい */
 /* step1-4の下はフワッとコンテンツ出てくる */
 
+
+
+
+
+
 /*----------モバイル版　MAIN-CONTENTS-INSTRUCTION--------- */
-/* instruction モバイル版--全体共通 */
+/* instruction & about モバイル版--全体共通 */
+
 
 @mixin mobile-how-to-section {
   text-align: center;
@@ -118,7 +124,48 @@
   font-size: 0.9rem;
 }
 
+
 /* instruction モバイル版--全体共通 */
+
+
+/* -------------- モバイル版 about----------- */
+
+.main-contents {
+  background-color: $background-color;
+  .about {
+    @include mobile-section-setting();
+    .section-title {
+      @include mobile-section-title();
+      p {
+        @include mobile-section-title-ja();
+      }
+    }
+  }
+  .about-contents{
+    text-align: center;
+    color: $main-letter-color;
+    padding:20px;
+    margin-top:-46px;
+    font-size: 0.9rem;
+
+    p{
+      margin-top: -10px;
+      text-align:start;
+
+      }
+    }
+  }
+
+  .about-list li{
+    text-align: left;
+  }
+
+/* -------------- モバイル版 instruction----------- */
+
+
+
+
+
 
 .main-contents {
   background-color: $background-color;
@@ -161,7 +208,7 @@
         border-bottom: black;
         position: relative;
         padding: 1rem 2rem calc(1rem + 10px);
-        background: #19eeb9;
+        background:$button-color;
         width: 40%;
         height: 30px;
         font-family: $font;
@@ -229,7 +276,7 @@
 
     button {
       padding: 10px 30px;
-      background: #19eeb9;
+      background: $button-color;
       border: transparent;
     }
   }

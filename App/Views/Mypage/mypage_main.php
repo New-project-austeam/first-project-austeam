@@ -34,7 +34,73 @@
           accusamus ea hic quos vel earum culpa a rerum iste autem soluta ratione consequuntur accusantium harum
           cupiditate repellat nesciunt libero?</div>
       </li>
-
     </div>
   </div>
+
+  <section class="post-event">
+        <h2 class="mypage-section-title">イベント作成する</h2>
+        <form action="" post="" class="event-form">
+        <dl class="event-form-list">
+            <div class="form-items">
+              <dt>イベントのタイトル :</dt>
+              <dd><input type="text" name=""></dd>
+            </div>
+
+            <div class="form-items">
+              <dt>イベントの日時 :</dt>
+              <dd><input type="date" name=""></dd>
+            </div>
+
+            <div class="form-items">
+              <dt>イベントの場所 :</dt>
+              <dd><input type="text" name=""></dd>
+            </div>
+
+            <div class="form-items">
+              <dt>環境テーマ（仮）</dt>
+              <select class="event-category" name="">
+                <option value="">ごみ拾い</option>
+                <option value="">リサイクル</option>
+                <option value="">植林</option>
+              </select>
+            </div>
+
+            <div class="form-items">
+              <dt>服装 （仮）:</dt>
+              <dd><input type="text" name=""></dd>
+            </div>
+
+            <div class="form-items">
+              <dt>持ち物 （仮）:</dt>
+              <dd><input type="text" name=""></dd>
+            </div>
+
+            <div class="form-items">
+              <dt>体力レベル（仮） :</dt>
+              <dd><label><input type="radio" name="" checked>初級</label>
+              <label><input type="radio" name="">中級</label>
+              <label><input type="radio" name="">上級</label>
+            </dd>
+            </div>
+
+            <div>
+              <dt>イベントの詳細 （仮）</dt>
+              <dd><textarea class="form-items-textarea" placeholder="シュノーケリング前にごみ拾いでウォーミングアップ"></textarea></dd>
+            </div>
+
+            <div class="post-event-button">
+              <input type="submit" value="作成">
+            </div>
+
+
+
+
+
+
+
+
+
+          </dl>
+        </form>
+      </section>
 </div>

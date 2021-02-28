@@ -15,16 +15,18 @@ function slideimage(){
     if( num === 4){
 
         num = 0;
+
        /* ≈document.getElementById(‘’).style.display = ‘block’;
       Or
        const show = document.getElementById(‘’);
        Show.style.display =‘block’;*/
 
-　　　return
+　　　
     } else{
 
 
       num ++
+
     }
     document.getElementById( "slideshow" ).style.backgroundImage = "url(" + setImage[num];
 

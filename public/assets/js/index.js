@@ -25,6 +25,7 @@ function slideimage(){
 
 
       num ++
+
     }
     document.getElementById( "slideshow" ).style.backgroundImage = "url(" + setImage[num];
 
