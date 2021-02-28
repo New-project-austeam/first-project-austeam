@@ -11,10 +11,23 @@ abstract class Model
 {
 
 
+
+
+
+  protected static function createColumns()
+  {
+
+    add_column_if_not_exist("users", "user_intro");
+    add_column_if_not_exist("users", "user_experience");
+    add_column_if_not_exist("users", "user_hobbies");
+  }
+
   protected static function getDB()
   {
 
-    static $db = null;
+
+
+    $db = null;
 
     if ($db == null) {
       try {
@@ -45,6 +58,25 @@ abstract class Model
         exit($e->getMessage());
       }
       return $db;
+    }
+  }
+
+  protected static function add_column_if_not_exist($table, $column, $column_attr = "VARCHAR( 255 ) NULL")
+  {
+    $dbh = self::getDB();
+    $exists = false;
+    $stmt = $dbh->prepare("show columns from $table");
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($result as $col) {
+      if ($col['Field'] == $column) {
+        $exists = true;
+        break;
+      }
+    }
+    if (!$exists) {
+      $dbh->query("ALTER TABLE `$table` ADD `$column`  $column_attr");
+    } else {
     }
   }
 }

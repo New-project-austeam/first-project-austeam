@@ -21,7 +21,7 @@ class User extends \Core\Model
       if (!$result) {
 
 
-        echo "no one";
+
         $sql = 'insert into users (user_email, user_password, user_nickname) values (?, ?, ?)';
         $stmt = $pdo->prepare($sql);
         $stmt->execute(array($user_email, $user_password, $user_nickname));
