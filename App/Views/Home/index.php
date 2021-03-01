@@ -1,4 +1,3 @@
-
 <main>
 
   <section id="slideshow" class="top-visual">
@@ -23,9 +22,12 @@
 
   <section class="main-contents">
 
-  <span class="space">スペース</span>
+    <span class="space">スペース</span>
 
-  <section class="about">
+
+
+
+    <section class="about">
       <div class="section-title">
         <h3>WHAT`S GOMIMAP?</h3>
         <p>ゴミマップとは？</p>
@@ -33,46 +35,46 @@
 
       <div class="about-contents">
 
-      <img src="/dist/images/g0781.png" width="250px">
-          <p>　環境破壊が著しい昨今、
-ニュースなどを見て自然を守りたいと
-思ったことはありませんか？</p>
-　　　　　　　　　　　　
-　　　　　　　　
-理屈を理解していても
-環境破壊を止めるのは途方もない事に思えませんか？
-また、仕事や学校でボランティア活動のためのまとまった時間も取るのが難しいかもしれません。
-</p>
-<br>
+        <img src="/dist/images/g0781.png" width="250px">
+        <p>　環境破壊が著しい昨今、
+          ニュースなどを見て自然を守りたいと
+          思ったことはありませんか？</p>
+        　　　　　　　　　　　　
+        　　　　　　　　
+        理屈を理解していても
+        環境破壊を止めるのは途方もない事に思えませんか？
+        また、仕事や学校でボランティア活動のためのまとまった時間も取るのが難しいかもしれません。
+        </p>
+        <br>
 
-<img src="/dist/images/r0553.png" width="250px">
+        <img src="/dist/images/r0553.png" width="250px">
 
-<p>
-そこで！
-ゴミマップは
-もっと身近に、もっと気軽に環境改善に貢献できる
-ボランティア型SNSとして
-人と人を繋ぎ、自然を守るという想いの下
-生まれました。
+        <p>
+          そこで！
+          ゴミマップは
+          もっと身近に、もっと気軽に環境改善に貢献できる
+          ボランティア型SNSとして
+          人と人を繋ぎ、自然を守るという想いの下
+          生まれました。
 
-あなたのアイディアから様々なイベントを開催できます。
-</p>　　　　　　　　　　　　　　　　　　　　　　　
-　　　　　　　　
-<ul class="about-list">
-<li>・サーフィン講習のついでにゴミ拾い</li>
-<li>・ハイキングがでら植林</li>
-<li>・ウォーキングがてらリサイクルゴミの回収</li>
-</ul>
-
-
+          あなたのアイディアから様々なイベントを開催できます。
+        </p>　　　　　　　　　　　　　　　　　　　　　　　
+        　　　　　　　　
+        <ul class="about-list">
+          <li>・サーフィン講習のついでにゴミ拾い</li>
+          <li>・ハイキングがでら植林</li>
+          <li>・ウォーキングがてらリサイクルゴミの回収</li>
+        </ul>
 
 
 
-<img src="/dist/images/y0393.png" width="250px">
-<p>隙間時間や予定のない休日にイベント開催または参加して
-みませんか？</p>
 
-        </div>
+
+        <img src="/dist/images/y0393.png" width="250px">
+        <p>隙間時間や予定のない休日にイベント開催または参加して
+          みませんか？</p>
+
+      </div>
 
 
     </section>
@@ -205,3 +207,8 @@
       </div>
     </section>
     <span class="space">スペース</span>
+
+    <!-- トップ戻るボタン -->
+    <div class="back-to-top">
+      <a href="#" class="back-to-top-button">▲</a>
+    </div>
