@@ -49,7 +49,7 @@ class Home extends \Core\Controller
       $result = User::login($user_email, $user_password);
 
       if ($result) {
-        header("Location: /home/index");
+        header("Location: " . URLROOT . "/home/index");
         exit();
       } else {
         $args["is_login"] = "failed";

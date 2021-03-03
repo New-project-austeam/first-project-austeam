@@ -11,7 +11,7 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <script src="https://kit.fontawesome.com/cdd8505698.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="./dist/css/main.css">
+  <link rel="stylesheet" href="<?php echo URLROOT; ?>/dist/css/main.css">
 
 </head>
 

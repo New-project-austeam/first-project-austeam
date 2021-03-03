@@ -4,7 +4,7 @@
 
 
 
-
+require_once  '../App/global.php';
 require_once  '../vendor/autoload.php';
 
 

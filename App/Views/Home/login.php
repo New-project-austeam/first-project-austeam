@@ -8,7 +8,7 @@
   <?php echo $test_is_signup == true ? "Please Log in with the registered user email and password" : null; ?>
 </p>
 
-<form method="post" action="/home/login">
+<form method="post" action="<?php echo URLROOT; ?>/home/login">
 
   <div class="row">
     <label for="email">Email</label>
