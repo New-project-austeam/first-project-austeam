@@ -11,6 +11,7 @@
 .top-visual {
   width: 100vw;
   height: 100vh;
+  transition: background-image 3s ease; //2.5秒
   background-image: url(../images/sunset-4937813_1920.jpg);
   background-position: center center;
   background-size: cover;
@@ -107,7 +108,7 @@
 /* step1-4の下はフワッとコンテンツ出てくる */
 
 /*----------モバイル版　MAIN-CONTENTS-INSTRUCTION--------- */
-/* instruction モバイル版--全体共通 */
+/* instruction & about モバイル版--全体共通 */
 
 @mixin mobile-how-to-section {
   text-align: center;
@@ -117,6 +118,39 @@
 }
 
 /* instruction モバイル版--全体共通 */
+
+/* -------------- モバイル版 about----------- */
+
+.main-contents {
+  background-color: $background-color;
+  .about {
+    @include mobile-section-setting();
+    .section-title {
+      @include mobile-section-title();
+      p {
+        @include mobile-section-title-ja();
+      }
+    }
+  }
+  .about-contents {
+    text-align: center;
+    color: $main-letter-color;
+    padding: 20px;
+    margin-top: -46px;
+    font-size: 0.9rem;
+
+    p {
+      margin-top: -10px;
+      text-align: start;
+    }
+  }
+}
+
+.about-list li {
+  text-align: left;
+}
+
+/* -------------- モバイル版 instruction----------- */
 
 .main-contents {
   background-color: $background-color;
@@ -159,7 +193,7 @@
         border-bottom: black;
         position: relative;
         padding: 1rem 2rem calc(1rem + 10px);
-        background: #19eeb9;
+        background: $button-color;
         width: 40%;
         height: 30px;
         font-family: $font;
@@ -227,7 +261,7 @@
 
     button {
       padding: 10px 30px;
-      background: #19eeb9;
+      background: $button-color;
       border: transparent;
     }
   }
@@ -265,5 +299,42 @@
         color: rgb(20, 190, 241);
       }
     }
+  }
+}
+
+/* トップ戻るボタン　back-to-top */
+/* モバイル版 */
+.back-to-top {
+  display: none;
+  width: 40px;
+  height: 40px;
+  background-color: rgb(173, 169, 169, 0.1);
+  text-align: center;
+  position: fixed;
+  bottom: 40px;
+  right: 130px;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  .back-to-top-button {
+    border-bottom: 2px solid;
+    color: $button-color;
+    opacity: 0.6;
+    font-size: 1.3rem;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+/* PC版 */
+
+@media (min-width: 768px) {
+  .back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 200px;
   }
 }
