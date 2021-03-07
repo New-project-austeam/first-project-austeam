@@ -3,11 +3,14 @@
 /* メインパーツにid or class をindexをボディにつけ、その中に入れ子にしてCSSを記述する */
 /* プラウザのキャッシュクリア　ショートカット　Command ＋shift + R */
 
+
+/* 要修正：：：：320pxi　と　pad proサイズ */
+
 /* index.scss全体共通 */
 
 /* -----------------------TOP VISUAL-------------------- */
-/* 画像スライドショーにする */
-/* または、msg-1、２が数秒後に現れる */
+/* 画像スライドショーにする ---ok*/
+
 .top-visual {
   width: 100vw;
   height: 100vh;
@@ -32,7 +35,7 @@
     padding-top: 10px;
   }
   .msg-2 {
-    margin-left: 130px;
+    margin-left: 110px;
   }
 }
 
@@ -312,7 +315,7 @@
   text-align: center;
   position: fixed;
   bottom: 40px;
-  right: 130px;
+  right: 110px;
 
   &:hover {
     opacity: 1;
@@ -336,5 +339,44 @@
     position: fixed;
     bottom: 40px;
     right: 200px;
+  }
+}
+
+
+
+/* hidden-message */
+#hidden-message{
+  display: none;
+  background-color: rgba(66, 65, 65, 0.6);
+  text-align: center;
+  width:100vw;
+  height: 60vh;
+  position: absolute;
+  color: white;
+  font-size: 0.75rem;
+  padding:15px;
+
+
+}
+
+/* hidedn-message 320px version */
+@media(max-width:320px){
+  #hidden-message{
+    font-size: 0.65rem;
+  }
+}
+
+/* hidden-message PC version*/
+@media(min-width:768px){
+  #hidden-message{
+    padding-top:70px;
+    font-size: 1.1rem;
+}
+}
+
+@media(min-width:1000px){
+  #hidden-message{
+    padding-top: 100px;
+    line-height: 1.6;
   }
 }
