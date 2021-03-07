@@ -9,53 +9,33 @@ const setImage = [
 
 let num = -1;
 
-function slideimage(){
+function slideimage() {
 
   if (num === 4) {
 
-        clearInterval();
+    clearInterval();
 
-        //$('.msg-1').fadeOut(1000);
-        //$('.msg-2').fadeOut(1000);
-        //$('#hidden-message').fadeIn(2500);
-         $('.msg-1').addClass('hide');
-        $('.msg-2').addClass('hide');
+    $('.msg-1').fadeOut(1500);
+    $('.msg-2').fadeOut(1500);
+    $('#hidden-message').fadeIn(2500);
 
+    //jsでfadeOut/Inの時間設定が難しい。。。
+    //document.querySelector('.msg-1').style.display='none';
+    //document.querySelector('.msg-2').style.display='none';
 
+    //const showMessage = document.getElementById('hidden-message');
+    //showMessage.style.display ='block';
+    //showMessage.fadeIn('slow');
 
-
-        setTimeout(function(){
-          $('.msg-1').css({display:"none"});
-          $('.msg-2').css({display:"none"});
-
-        },3000);
-
-
-
-        $('#hidden-message').css({display:"block"});
-        setTimeout(function(){
-          $('#hidden-message').addClass('show');
-
-        },1000);
-
-
-        //jsでfadeOut/Inの時間設定が難しい。。。
-        //document.querySelector('.msg-1').style.display='none';
-        //document.querySelector('.msg-2').style.display='none';
-
-        //const showMessage = document.getElementById('hidden-message');
-        //showMessage.style.display ='block';
-        //showMessage.fadeIn('slow');
-　　　
-    } else if(num < 4 ){
-         num++;
+  } else if (num < 4) {
+        num++;
   }
-    document.getElementById( "slideshow" ).style.backgroundImage = "url(" + setImage[num];
-    return;
+  document.getElementById("slideshow").style.backgroundImage = "url(" + setImage[num];
+  return;
 
 }
 
-setInterval(slideimage,3500);
+setInterval(slideimage, 3500);
 
 
 
@@ -75,10 +55,10 @@ const backTop = () => {
 $(window).on('scroll', backTop);
 
 
-$('.back-to-top').on('click',(e)=>{
+$('.back-to-top').on('click', (e) => {
   e.preventDefault();
 
-  $('html,body').animate({scrollTop : 0},600);
+  $('html,body').animate({ scrollTop: 0 }, 600);
 });
 
 
