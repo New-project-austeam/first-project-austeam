@@ -38,7 +38,7 @@ function slideimage(){
 
         },1000);
 
-          //
+          ////
         //jsでfadeOut/Inの時間設定が難しい。。。
         //document.querySelector('.msg-1').style.display='none';
         //document.querySelector('.msg-2').style.display='none';
