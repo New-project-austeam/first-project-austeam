@@ -4,6 +4,7 @@
   <section id="slideshow" class="top-visual">
 
     <div id="hidden-message" padding-top="10px">
+      <div class="message-content">
       <h3>ゴミマップより</h3>
       　　　<p>
 
@@ -32,6 +33,7 @@
 
 
       </p>
+      </div>
     </div>
 
     <div class="msg-1">

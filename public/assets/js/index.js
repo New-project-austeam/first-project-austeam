@@ -9,25 +9,35 @@ const setImage = [
 
 let num = -1;
 
-<<<<<<< HEAD
-
-function slideimage() {
-=======
 function slideimage(){
->>>>>>> top.php
 
   if (num === 4) {
 
-<<<<<<< HEAD
-    num = 0;
-
-=======
         clearInterval();
 
-        $('.msg-1').fadeOut(1500);
-        $('.msg-2').fadeOut(1500);
-        $('#hidden-message').fadeIn(2500);
->>>>>>> top.php
+        //$('.msg-1').fadeOut(1000);
+        //$('.msg-2').fadeOut(1000);
+        //$('#hidden-message').fadeIn(2500);
+         $('.msg-1').addClass('hide');
+        $('.msg-2').addClass('hide');
+
+
+
+
+        setTimeout(function(){
+          $('.msg-1').css({display:"none"});
+          $('.msg-2').css({display:"none"});
+
+        },3000);
+
+
+
+        $('#hidden-message').css({display:"block"});
+        setTimeout(function(){
+          $('#hidden-message').addClass('show');
+
+        },1000);
+
 
         //jsでfadeOut/Inの時間設定が難しい。。。
         //document.querySelector('.msg-1').style.display='none';
@@ -38,28 +48,14 @@ function slideimage(){
         //showMessage.fadeIn('slow');
 　　　
     } else if(num < 4 ){
-
-  } else {
-
-
-<<<<<<< HEAD
-    num++
-
+         num++;
   }
-  document.getElementById("slideshow").style.backgroundImage = "url(" + setImage[num];
-
-
-}
-setInterval(slideimage, 3500);
-=======
-    }
     document.getElementById( "slideshow" ).style.backgroundImage = "url(" + setImage[num];
     return;
 
 }
 
 setInterval(slideimage,3500);
->>>>>>> top.php
 
 
 
@@ -79,17 +75,10 @@ const backTop = () => {
 $(window).on('scroll', backTop);
 
 
-<<<<<<< HEAD
-$('.go-to-top').on('click', (e) => {
-  e.preventDefault();
-
-  $('html,body').animate({ scrollTop: 0 }, 600);
-=======
 $('.back-to-top').on('click',(e)=>{
   e.preventDefault();
 
   $('html,body').animate({scrollTop : 0},600);
->>>>>>> top.php
 });
 
 

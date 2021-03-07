@@ -8,6 +8,7 @@
 /* Scss記述に修正する。 */
 
 
+
 a {
   text-decoration: none;
 }
@@ -28,11 +29,13 @@ a {
 }
 
 .header-content {
+
   display: flex;
   justify-content: space-between;
-  background-color: rgb(202, 199, 195, 0.4);
+
 
   .header-list {
+
     display: flex;
     justify-content: space-between;
     padding: 15px 10px 10px 40px;
@@ -62,7 +65,8 @@ a {
 }
 
 #header {
-  widows: 100%;
+  max-width: 1200px;
+  width:100%;
   h1 {
     color: blue;
   }
@@ -99,8 +103,15 @@ a {
 }
 
 @media (min-width: 768px) {
+  .main_header{
+    background-color:$background-color;
+
+  }
   .header-content {
-    padding: 5px 50px;
+    max-width:1200px;
+    width:100%;
+    margin:0 auto;
+
     .logo {
       margin: 5px 10px 0;
       padding-left: 15px;

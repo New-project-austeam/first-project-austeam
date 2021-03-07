@@ -8,17 +8,29 @@
 
 /* index.scss全体共通 */
 
+/* 使い回す
+ .wrap {
+  width:100%;
+  max-width:1200px;
+ } */
+
+ /* font-size・line-height に　vwを使う
+  幅によってサイズ帰る
+  heightも幅によって高さを調節してくれる */
+
 /* -----------------------TOP VISUAL-------------------- */
 /* 画像スライドショーにする ---ok*/
 
 .top-visual {
   width: 100vw;
-  height: 100vh;
+  height: 60vh;
   transition: background-image 3s ease; //2.5秒
   background-image: url(../images/sunset-4937813_1920.jpg);
+  background-color:$background-color;
   background-position: center center;
   background-size: cover;
-  height: 60vh;
+
+
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -26,27 +38,40 @@
 
   .msg-1,
   .msg-2 {
+
     margin-left: 50px;
     text-shadow: 0 0 40px rgb(19, 19, 18);
+
   }
 
   .msg-1 {
+    transition:all 0.3s ease;
     padding-left: 30px;
     padding-top: 10px;
+    &.hide{
+      display:none;
+
+    }
   }
   .msg-2 {
+    transition:all 0.3s ease;
     margin-left: 110px;
+    &.hide{
+      display:none;
+
+    }
   }
 }
 
 @media (min-width: 768px) {
   .top-visual {
-    background-size: 1300px;
-    background: cover;
+    width: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+
 
     .msg-1,
     .msg-2 {
@@ -74,6 +99,75 @@
     }
   }
 }
+
+
+/* hidden-message */
+#hidden-message{
+  transition:all 1s ease;
+  display: none;
+  opacity: 0;
+  background-color: rgba(66, 65, 65, 0.6);
+  text-align: center;
+  width:100vw;
+  height: 60vh;
+ position: relative;
+  color: white;
+  font-size: 0.75rem;
+  padding:15px;
+  &.show{
+
+    animation-name: fadeIn;
+    animation-duration: 3s;
+    animation-fill-mode:forwards ;
+    /* toで止める */
+  }
+
+  .message-content{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width:70%;
+  }
+
+
+}
+
+@keyframes fadeIn {
+  from {
+      opacity:0;
+      transform: translateY(-500px);
+  }
+  to {
+      opacity:1;
+      transform: none;
+  }
+}
+
+
+
+/* hidden-message 320px version */
+@media(max-width:320px){
+  #hidden-message{
+    font-size: 0.65rem;
+  }
+}
+
+/* hidden-message PC version*/
+@media(min-width:768px){
+  #hidden-message{
+    padding-top:70px;
+    font-size: 1.1rem;
+}
+}
+
+@media(min-width:1000px){
+  #hidden-message{
+    padding-top: 100px;
+    line-height: 1.6;
+  }
+}
+
 
 /* --------------------MAIN-CONTENTS---------------------- */
 
@@ -339,44 +433,5 @@
     position: fixed;
     bottom: 40px;
     right: 200px;
-  }
-}
-
-
-
-/* hidden-message */
-#hidden-message{
-  display: none;
-  background-color: rgba(66, 65, 65, 0.6);
-  text-align: center;
-  width:100vw;
-  height: 60vh;
-  position: absolute;
-  color: white;
-  font-size: 0.75rem;
-  padding:15px;
-
-
-}
-
-/* hidedn-message 320px version */
-@media(max-width:320px){
-  #hidden-message{
-    font-size: 0.65rem;
-  }
-}
-
-/* hidden-message PC version*/
-@media(min-width:768px){
-  #hidden-message{
-    padding-top:70px;
-    font-size: 1.1rem;
-}
-}
-
-@media(min-width:1000px){
-  #hidden-message{
-    padding-top: 100px;
-    line-height: 1.6;
   }
 }

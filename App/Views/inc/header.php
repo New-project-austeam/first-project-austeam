@@ -1,4 +1,4 @@
-  <header　id="header">
+  <header class="main_header">
     <div class="header-content">
       <h1 class="logo"><a href="<?php echo URLROOT; ?>/"><span class="logo-g">G</span>oMimap<i
             class="fas fa-trash-alt"></i></a></h1>
