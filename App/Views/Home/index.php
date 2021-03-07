@@ -2,6 +2,37 @@
 
   <section id="slideshow" class="top-visual">
 
+    <div id="hidden-message" padding-top="10px">
+      <h3>ゴミマップより</h3>
+      　　　<p>
+
+        ゴミマップは会員、自らがイベントを企画し
+        参加者を募ります。<br>
+
+        楽しいと思えるイベントを企画したり参加したりできます。<br>
+        　　　</p>
+
+      <p>
+
+        環境破壊が著しい昨今の現状を鑑み人々との出会いとイベントを楽しみつつ<br>自然も守ちゃおう！
+        という目的があります。<br>
+
+        どんな短時間であっても、どんなに小さい事でも、沢山の人々が、その些細と思えることを行うと<br>
+        大きな成果を出します。
+
+        そこで、ゴミマップからお願い一つあります。<br>
+
+        イベントに、ゴミ拾いなどの環境保全活動を1つだけ盛り込んでください。<br><br>
+
+        もちろんゴミ拾い等の環境改善、そのものをイベントにして頂いても結構ですし<br>
+        イベントは1人からでも始められます。<br>
+
+        さぁ、気軽にゴミ拾いから始めましょうか？
+
+
+      </p>
+    </div>
+
     <div class="msg-1">
       <h2>ゴミ拾いで</h2>
       <span class="slide">
@@ -12,9 +43,10 @@
     <div class="msg-2">
       <h2>仲間と一緒に</h2>
       <span class="slide">
-        <h2> 海を守りませんか？</h2>
+        <h2> 自然を守りませんか？</h2>
       </span>
     </div>
+
   </section>
 
 
@@ -164,8 +196,8 @@
       <div class="event-contents">
         <!-- ここでイベントを反映させたい -->
 
-         <!-- 最初に表示するイベント -->
-          <div id="main_image" class="event-content1">
+        <!-- 最初に表示するイベント -->
+        <div id="main_image" class="event-content1">
           <h5>浜辺でごみ拾い・その後BBQ</h5>
           <ul>
             <li>開催者：ニックネーム</li>
@@ -174,7 +206,7 @@
             <li>環境テーマ：ごみ拾い</li>
             <p>詳細</p>
           </ul>
-        <img src="/dist/images/woman-332278_1920.jpg" width="200px">
+          <img src="/dist/images/woman-332278_1920.jpg" width="200px">
         </div>
         <!-- 最初に表示するイベント -->
 
@@ -190,7 +222,7 @@
           <img src="/dist/images/kiss-1489654_1920.jpg" width="200px">
         </div>
 
-          <div class="event-content1">
+        <div class="event-content1">
           <h5>浜辺でごみ拾い・その後BBQ</h5>
           <ul>
             <li>開催者：ニックネーム</li>

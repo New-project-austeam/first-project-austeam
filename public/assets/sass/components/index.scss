@@ -32,7 +32,7 @@
     padding-top: 10px;
   }
   .msg-2 {
-    margin-left: 130px;
+    margin-left: 110px;
   }
 }
 
@@ -337,4 +337,29 @@
     bottom: 40px;
     right: 200px;
   }
+}
+
+
+
+/* hidden-message */
+#hidden-message{
+  display: none;
+  background-color: rgba(66, 65, 65, 0.6);
+  text-align: center;
+  width:100vw;
+  height: 60vh;
+  position: absolute;
+  color: white;
+  font-size: 0.75rem;
+  padding:15px;
+
+
+}
+
+/* hidden-message PC version*/
+@media(min-width:768px){
+  #hidden-message{
+    padding-top:70px;
+    font-size: 1.1rem;
+}
 }

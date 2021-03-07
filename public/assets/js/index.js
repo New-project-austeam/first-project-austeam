@@ -10,28 +10,43 @@ const setImage =[
 let num = -1;
 
 
+
+
 function slideimage(){
 
     if( num === 4){
 
-        num = 0;
- /* ≈document.getElementById(‘’).style.display = ‘block’;
-      Or
-       const show = document.getElementById(‘’);
-       Show.style.display =‘block’;*/
 
+        clearInterval();
+
+
+        $('.msg-1').fadeOut(1500);
+        $('.msg-2').fadeOut(1500);
+        $('#hidden-message').fadeIn(2500);
+
+        //jsでfadeOut/Inの時間設定が難しい。。。
+        //document.querySelector('.msg-1').style.display='none';
+        //document.querySelector('.msg-2').style.display='none';
+
+        //const showMessage = document.getElementById('hidden-message');
+        //showMessage.style.display ='block';
+        //showMessage.fadeIn('slow');
 　　　
-    } else{
+    } else if(num < 4 ){
 
 
       num ++
 
+
     }
     document.getElementById( "slideshow" ).style.backgroundImage = "url(" + setImage[num];
+    return;
 
 
 }
 setInterval(slideimage,3500);
+
+
 
 /*  画像は最初の一枚に戻ってから、ループを止めて、htmlとcssで用意したメッセージを表示する。　cssで非表示にしておいて、JSで０（最初の画像）に戻ったらループを止めて、メッセージを表示する。*/
 
