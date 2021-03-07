@@ -1,65 +1,59 @@
 <?php
 
-
-namespace App\Models;
-
-use PDO;
-
-
-class User extends \Core\Model
+class User
 {
+  private $db;
 
-  public static function signup($user_nickname, $user_email, $user_password)
+  public function __construct()
   {
-    try {
-      $pdo = static::getDB();
-      $stmt = $pdo->prepare('SELECT * FROM users WHERE user_email=?');
-      $stmt->bindParam(1, $user_email, PDO::PARAM_STR);
-      $stmt->execute();
-      $result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-      if (!$result) {
-
-
-
-        $sql = 'insert into users (user_email, user_password, user_nickname) values (?, ?, ?)';
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute(array($user_email, $user_password, $user_nickname));
-
-        return true;
-      } else {
-        return false;
-      }
-    } catch (\PDOException $e) {
-      throw new \Exception("No route not matched");
-    }
+    $this->db = new Database;
   }
 
-
-  public static function login($user_email, $user_password)
+  public function register($data)
   {
-    $pdo = static::getDB();
-    $stmt = $pdo->prepare('SELECT * FROM users WHERE user_email=? AND user_password=?');
-    $stmt->bindParam(1, $user_email, PDO::PARAM_STR);
-    $stmt->bindParam(2, $user_password, PDO::PARAM_STR);
-    $stmt->execute();
-    $result = $stmt->fetch(PDO::FETCH_ASSOC);
-    if ($result) {
-      session_start();
-      $_SESSION['user_email'] = $result['user_email'];
-      $_SESSION['user_nickname'] = $result['user_nickname'];
-      session_write_close();
+    $this->db->query('INSERT INTO users (user_name, user_password, user_email) VALUES(:name, :password, :email)');
 
+    $this->db->bind(':name', $data['user_name']);
+    $this->db->bind(':password', $data['user_password']);
+    $this->db->bind(':email', $data['user_email']);
+
+    if ($this->db->execute()) {
       return true;
     } else {
       return false;
     }
   }
 
-  public static function logout()
+
+  public function login($email, $password)
   {
-    session_start();
-    $_SESSION = array();
-    session_write_close();
+    $this->db->query("SELECT * FROM users WHERE user_email = :email");
+    $this->db->bind(':email', $email);
+
+    $row = $this->db->single();
+
+    $hashed_password = $row->user_password;
+    if (password_verify($password, $hashed_password)) {
+      return $row;
+    } else {
+      return false;
+    }
+  }
+
+
+  // Find user by email
+  public function findUserByEmail($email)
+  {
+
+    $this->db->query('SELECT * FROM users WHERE user_email = :email');
+
+    $this->db->bind(':email', $email);
+    $row = $this->db->single();
+
+    if ($this->db->rowCount() > 0) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

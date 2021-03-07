@@ -1,85 +1,71 @@
 <?php
 
-namespace App\Controllers;
 
-use \Core\View;
-use App\Models\Database;
-
-class Mypage extends \Core\Controller
+class Mypage extends Controller
 {
 
 
-
-  /*
-show the index page
-
-
-  */
-
-  public function mainAction()
+  public function __construct()
   {
-
-
-
-    // echo "Hello from the index action in the Home controller";
-    View::render(
-      ['includes/head.php', 'includes/navigation.php', 'Mypage/mypage_main.php', 'includes/footer.php'],
-      []
-    );
-
-
-
-    // View::renderTemplate('Posts/index.twig', [
-    //   'data' => $data
-    // ]);
+    $this->userModel = $this->model('Mypage_M');
   }
 
-  // public function addNewAction()
-  // {
-  //   echo "Hello from the addNew Action in the Posts controller!";
-  // }
 
-
-  // public function editAction()
-  // {
-  //   echo "Hello from the edit action in the Posts controller!";
-  //   echo "<p>Route parameters: <pre>" .
-  //     htmlspecialchars(print_r($this->route_params, true)) . '</pre></p>';
-  // }
-  public function settingAction()
+  public function mypageTop()
   {
 
+    $userInfo = $this->userModel->getUserInfo();
+    // echo "<pre>";
+    // var_dump($userInfo);
+    // echo "</pre>";
+
+    $data = [
+      "user_info" => $userInfo
+    ];
 
 
-    // echo "Hello from the index action in the Home controller";
-    View::render(
-      ['includes/head.php', 'includes/navigation.php', 'Mypage/mypage_setting.php', 'includes/footer.php'],
-      []
-
-    );
-
-
-
-    // View::renderTemplate('Posts/index.twig', [
-    //   'data' => $data
-    // ]);
+    $this->view('Mypage/mypage_main', $data);
   }
 
-  public function myeventsAction()
+  public function setting()
   {
 
+    if ($_SERVER['REQUEST_METHOD']  == 'POST') {
+      $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+      $data = [
+        'user_email' => $_SESSION['user_email'],
+        'user_name' => trim($_POST['user_name']),
+        "user_intro" => nl2br(
+          trim($_POST['user_intro'])
+        ),
+        "user_experience" => nl2br(
+          trim($_POST['user_experience'])
+        ),
+        "user_hobbies" => nl2br(
+          trim($_POST['user_hobbies'])
+        ),
+        "user_location" => nl2br(
+          trim($_POST['user_location'])
+        ),
+      ];
+
+      $result = $this->userModel->editUserInfo($data);
+
+      if ($result) {
+        echo "success";
+      } else {
+        echo "failed";
+      }
+    } else {
+
+      $userInfo = $this->userModel->getUserInfo();
+      $data = [
+        "user_info" => $userInfo
+      ];
 
 
-    // echo "Hello from the index action in the Home controller";
-    View::render(
-      ['includes/head.php', 'includes/navigation.php', 'Mypage/myevents.php', 'includes/footer.php'],
-      []
-    );
 
-
-
-    // View::renderTemplate('Posts/index.twig', [
-    //   'data' => $data
-    // ]);
+      $this->view('Mypage/mypage_setting', $data);
+    }
   }
 }

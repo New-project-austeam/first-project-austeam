@@ -1,51 +1,24 @@
 <?php
 
-namespace App\Controllers;
-
-use \Core\View;
-use App\Models\Database;
-
-class Posts extends \Core\Controller
+class Posts extends Controller
 {
-
-
-
-  /*
-show the index page
-
-
-  */
-
-  public function indexAction()
+  public function __construct()
   {
-    $data = Database::getAll();
-
-
-    // echo "Hello from the index action in the Home controller";
-    View::render(
-      ['Posts/index.php'],
-      [
-        "data" => $data
-      ]
-    );
-
-
-
-    // View::renderTemplate('Posts/index.twig', [
-    //   'data' => $data
-    // ]);
+    // echo "Posts loaded";
   }
 
-  public function addNewAction()
+  public function index($id = null)
   {
-    echo "Hello from the addNew Action in the Posts controller!";
+
+    $data = [
+      "title" => 'Posts Page'
+    ];
+    $this->view('posts/index', $data);
+    // echo $id;
   }
 
-
-  public function editAction()
+  public function about($id = null, $id2 = null)
   {
-    echo "Hello from the edit action in the Posts controller!";
-    echo "<p>Route parameters: <pre>" .
-      htmlspecialchars(print_r($this->route_params, true)) . '</pre></p>';
+    echo "about " . $id . " " . $id2;
   }
 }

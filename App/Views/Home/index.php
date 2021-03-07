@@ -1,3 +1,7 @@
+<?php require APPROOT . '/views/inc/head.php'; ?>
+<?php require APPROOT . '/views/inc/header.php'; ?>
+
+
 <main>
 
   <section id="slideshow" class="top-visual">
@@ -212,3 +216,5 @@
     <div class="back-to-top">
       <a href="#" class="back-to-top-button">▲</a>
     </div>
+
+    <?php require APPROOT . '/views/inc/footer.php' ?>
