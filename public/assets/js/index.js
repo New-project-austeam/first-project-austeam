@@ -49,10 +49,10 @@ const backTop = () =>{
 $(window).on('scroll',backTop);
 
 
-$('.go-to-top').on('click',(e)=>{
-   e.preventDefault();
+$('.back-to-top').on('click',(e)=>{
+  e.preventDefault();
 
-   $('html,body').animate({scrollTop : 0},600);
+  $('html,body').animate({scrollTop : 0},600);
 });
 
 

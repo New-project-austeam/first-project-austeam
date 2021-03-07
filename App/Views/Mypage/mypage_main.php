@@ -1,3 +1,7 @@
+
+<!-- Vue.jsで　それぞれの項目をタブ表示にする？？？ -->
+
+
 <div style="width: 80%;margin: 50px auto;">
 
   <h1 style="margin-bottom:10px;">My Page</h1>

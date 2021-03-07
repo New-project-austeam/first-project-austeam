@@ -161,13 +161,48 @@
         <p>新着のイベント</p>
       </div>
 
-      <div>
+      <div class="event-contents">
         <!-- ここでイベントを反映させたい -->
-        <img>
-        <img>
-        <img>
-        <img>
-      </div>
+
+         <!-- 最初に表示するイベント -->
+          <div id="main_image" class="event-content1">
+          <h5>浜辺でごみ拾い・その後BBQ</h5>
+          <ul>
+            <li>開催者：ニックネーム</li>
+            <li>場所：沖縄</li>
+            <li>日時：2021/10/20</li>
+            <li>環境テーマ：ごみ拾い</li>
+            <p>詳細</p>
+          </ul>
+        <img src="/dist/images/woman-332278_1920.jpg" width="200px">
+        </div>
+        <!-- 最初に表示するイベント -->
+
+        <div class="event-content1">
+          <h5>浜辺でごみ拾い・その後BBQ</h5>
+          <ul>
+            <li>開催者：ニックネーム</li>
+            <li>場所：沖縄</li>
+            <li>日時：2021/10/20</li>
+            <li>環境テーマ：ごみ拾い</li>
+          </ul>
+          <p>詳細</p>
+          <img src="/dist/images/kiss-1489654_1920.jpg" width="200px">
+        </div>
+
+          <div class="event-content1">
+          <h5>浜辺でごみ拾い・その後BBQ</h5>
+          <ul>
+            <li>開催者：ニックネーム</li>
+            <li>場所：沖縄</li>
+            <li>日時：2021/10/20</li>
+            <li>環境テーマ：ごみ拾い</li>
+          </ul>
+          <p>詳細</p>
+          <img src="/dist/images/kiss-1489654_1920.jpg" width="200px">
+        </div>
+
+      </div><!-- event-contents -->
     </section>
     <span class="space">スペース</span>
 
