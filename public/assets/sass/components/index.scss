@@ -3,7 +3,6 @@
 /* メインパーツにid or class をindexをボディにつけ、その中に入れ子にしてCSSを記述する */
 /* プラウザのキャッシュクリア　ショートカット　Command ＋shift + R */
 
-
 /* 要修正：：：：320pxi　と　pad proサイズ */
 
 /* index.scss全体共通 */
@@ -342,40 +341,36 @@
   }
 }
 
-
-
 /* hidden-message */
-#hidden-message{
+#hidden-message {
   display: none;
   background-color: rgba(66, 65, 65, 0.6);
   text-align: center;
-  width:100vw;
+  width: 100vw;
   height: 60vh;
   position: absolute;
   color: white;
   font-size: 0.75rem;
-  padding:15px;
-
-
+  padding: 15px;
 }
 
 /* hidedn-message 320px version */
-@media(max-width:320px){
-  #hidden-message{
+@media (max-width: 320px) {
+  #hidden-message {
     font-size: 0.65rem;
   }
 }
 
 /* hidden-message PC version*/
-@media(min-width:768px){
-  #hidden-message{
-    padding-top:70px;
+@media (min-width: 768px) {
+  #hidden-message {
+    padding-top: 70px;
     font-size: 1.1rem;
-}
+  }
 }
 
-@media(min-width:1000px){
-  #hidden-message{
+@media (min-width: 1000px) {
+  #hidden-message {
     padding-top: 100px;
     line-height: 1.6;
   }
