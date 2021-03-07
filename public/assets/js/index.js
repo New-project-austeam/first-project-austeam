@@ -18,17 +18,20 @@ function slideimage(){
         //$('.msg-1').fadeOut(1000);
         //$('.msg-2').fadeOut(1000);
         //$('#hidden-message').fadeIn(2500);
-         $('.msg-1').addClass('hide');
+
+
+
+        $('.msg-1').addClass('hide');
         $('.msg-2').addClass('hide');
 
-
-
-
         setTimeout(function(){
-          $('.msg-1').css({display:"none"});
-          $('.msg-2').css({display:"none"});
 
-        },3000);
+          $('.msg-1').css({opacity:"0"});
+          $('.msg-2').css({opacity:"0"});
+
+        },2500);
+
+
 
 
 
