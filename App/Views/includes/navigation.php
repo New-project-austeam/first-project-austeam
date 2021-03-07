@@ -1,3 +1,7 @@
+
+<!--/* 要修正：：：：320pxi　と　pad proサイズ */  -->
+
+
   <header　id="header">
     <div class="header-content">
       <h1 class="logo"><a href="index.php"><span class="logo-g">G</span>oMimap<i class="fas fa-trash-alt"></i></a></h1>

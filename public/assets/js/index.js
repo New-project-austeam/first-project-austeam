@@ -9,16 +9,11 @@ const setImage =[
 
 let num = -1;
 
-
-
-
 function slideimage(){
 
     if( num === 4){
 
-
         clearInterval();
-
 
         $('.msg-1').fadeOut(1500);
         $('.msg-2').fadeOut(1500);
@@ -34,16 +29,14 @@ function slideimage(){
 　　　
     } else if(num < 4 ){
 
-
       num ++
-
 
     }
     document.getElementById( "slideshow" ).style.backgroundImage = "url(" + setImage[num];
     return;
 
-
 }
+
 setInterval(slideimage,3500);
 
 
@@ -72,3 +65,18 @@ $('.back-to-top').on('click',(e)=>{
 
 
 backTop();
+
+
+//セクションタイトルもアニメつける
+
+//コンテンツをフワッと出す
+
+
+//ログインとサインアップのモーダル
+
+
+/* const loginModal = getElementById('');
+loginModal.addEventListener('click',(){
+    $('').fadeIn();
+})
+ */
