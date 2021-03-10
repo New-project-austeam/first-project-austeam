@@ -7,8 +7,6 @@
 
 /* Scss記述に修正する。 */
 
-
-
 a {
   text-decoration: none;
 }
@@ -29,18 +27,13 @@ a {
 }
 
 .header-content {
-
   display: flex;
   justify-content: space-between;
 
-
   .header-list {
-
     display: flex;
     justify-content: space-between;
     padding: 15px 10px 10px 40px;
-
-
   }
 }
 .header-list li {
@@ -50,7 +43,7 @@ a {
   span {
     font-weight: normal;
     font-size: 0.1em;
-    margin:0 auto;
+    margin: 0 auto;
   }
 }
 
@@ -66,7 +59,7 @@ a {
 
 #header {
   max-width: 1200px;
-  width:100%;
+  width: 100%;
   h1 {
     color: blue;
   }
@@ -81,8 +74,6 @@ a {
     .logo {
       font-size: 1rem;
     }
-
-
   }
 }
 
@@ -103,14 +94,13 @@ a {
 }
 
 @media (min-width: 768px) {
-  .main_header{
-    background-color:$background-color;
-
+  .main_header {
+    background-color: $background-color;
   }
   .header-content {
-    max-width:1200px;
-    width:100%;
-    margin:0 auto;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
 
     .logo {
       margin: 5px 10px 0;
@@ -118,13 +108,11 @@ a {
       letter-spacing: 0.1;
       font-size: 1.7rem;
 
-      .logo-g{
-        font-size:2.3rem;
+      .logo-g {
+        font-size: 2.3rem;
       }
     }
   }
-
-
 
   .header-list li {
     font-size: 1.1em;
@@ -135,7 +123,6 @@ a {
       font-size: 0.8rem;
       line-height: 0.5;
       margin-left: 5px;
-
     }
   }
 }
