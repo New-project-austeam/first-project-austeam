@@ -14,7 +14,7 @@
       foreach ($myposts as $post) {
 
       ?>
-     <a href="<?php echo URLROOT . "/mypage/post_edit/" . $post->post_id ?>" class="myevent_list">
+     <a href="#" class="myevent_list">
 
        <p>
          <span class="title">イベントタイトル</span><?php echo $post->event_title ?><span
@@ -31,3 +31,4 @@
 
    </div>
  </div>
+ <?php require APPROOT . '/views/inc/footer.php' ?>

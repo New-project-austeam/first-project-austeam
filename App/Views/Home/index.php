@@ -8,4 +8,3 @@ if (isset($_SESSION['user_email'])) {
   require APPROOT . '/views/Home/include/guide.php';
 }
 ?>
-<?php require APPROOT . '/views/inc/footer.php' ?>
