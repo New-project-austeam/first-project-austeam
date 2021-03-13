@@ -15,6 +15,7 @@ function slideimage() {
 
     clearInterval();
 
+<<<<<<< HEAD
 
 
     //jsでfadeOut/Inの時間設定が難しい。。。
@@ -34,7 +35,16 @@ function slideimage() {
           $('.msg-2').css({display:"none"});
 
         },3000);
+=======
+        //$('.msg-1').fadeOut(1000);
+        //$('.msg-2').fadeOut(1000);
+        //$('#hidden-message').fadeIn(2500);
 
+
+>>>>>>> index.php
+
+        $('.msg-1').addClass('hide');
+        $('.msg-2').addClass('hide');
 
 
         $('#hidden-message').css({display:"block"});

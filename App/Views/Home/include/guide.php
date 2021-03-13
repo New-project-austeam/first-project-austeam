@@ -1,7 +1,7 @@
 
 <main>
 
-  <section id="slideshow" class="top-visual">
+  <section id="slideshow" class="top-visual" >
 
     <div id="hidden-message" padding-top="10px">
       <div class="message-content">
@@ -19,8 +19,8 @@
         環境破壊が著しい昨今の現状を鑑み人々との出会いとイベントを楽しみつつ<br>自然も守ちゃおう！
         という目的があります。<br>
 
-        どんな短時間であっても、どんなに小さい事でも、沢山の人々が、その些細と思えることを行うと<br>
-        大きな成果を出します。
+        どんな短時間であっても、どんなに小さい事でも、沢山の人々が、その些細と思えることを行うと
+        大きな成果を出します。<br>
 
         そこで、ゴミマップからお願い一つあります。<br>
 
@@ -62,7 +62,7 @@
 
 
 
-    <section class="about">
+    <section class="about section-wrapper">
       <div class="section-title">
         <h3>WHAT`S GOMIMAP?</h3>
         <p>ゴミマップとは？</p>
@@ -117,7 +117,7 @@
 
     <span class="space">スペース</span>
 
-    <section class="instruction">
+    <section class="instruction section-wrapper">
 
       <div class="section-title">
 
@@ -190,7 +190,7 @@
 
 
 
-    <section class="new-event">
+    <section class="new-event section-wrapper">
       <div class="section-title">
         <h3>NEW EVENT</h3>
         <p>新着のイベント</p>
@@ -219,7 +219,7 @@
     </section>
     <span class="space">スペース</span>
 
-    <section class="registration">
+    <section class="registration section-wrapper">
       <div class="section-title">
         <h3>JOIN US</h3>
         <p>ゴミマップに登録する</p>
