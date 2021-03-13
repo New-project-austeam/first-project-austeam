@@ -1,0 +1,146 @@
+@import "variable.scss";
+
+/* .wrap{
+  width:100%;
+  max-width:1200px;
+} */
+
+/* timeline mibile　共通 */
+
+@mixin time-line-contents {
+  background-color: white;
+  border: solid 0.5px rgba(134, 132, 132, 0.3);
+  border-radius: 1.4%;
+
+  min-width: 330px;
+}
+
+/* timeline-contents mobile version */
+.timeline-wrapper {
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/white-concrete-wall.jpg);
+  background-size: cover;
+  background-repeat: repeat-Y;
+  .timeline-contents {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    width: 80%;
+    max-width: 345px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 900px) {
+    .timeline-contents {
+      flex-direction: row-reverse;
+
+      width: 90%;
+      max-width: 1200px;
+    }
+  }
+
+  .timeline {
+    @include time-line-contents();
+    width: 95%;
+  }
+
+  .recommendation {
+    @include time-line-contents();
+    width: 95%;
+    height: 330px;
+    margin-bottom: 10px;
+  }
+}
+
+/* timeline-contents tablet/PC verstion・PC/タブレットサイズのflex設定に関してのみモバイル版に記載*/
+
+@media (min-width: 850px) {
+  .timeline {
+    width: 65%;
+    max-width: 1200px;
+    min-width: 700px;
+  }
+
+  .recommendation {
+    max-width: 360px;
+    min-width: 360px;
+    margin-left: 30px;
+  }
+}
+
+/* timeline */
+
+/* post-event */
+
+.posted-event {
+  border: 1px solid cadetblue;
+  width:95%;
+  margin: auto;
+
+}
+.post-event-top {
+  display: flex;
+
+  border: 1px solid cadetblue;
+  .icon-border {
+    border: double 4px $button-color;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: white 4px solid;
+    }
+
+  }
+}
+
+.event-title{
+  border: black 1px solid;
+  width:100%;
+  text-align: left;
+  margin: auto;
+  padding-left:20px;
+  font-size: 1rem;
+  ul li,&a{
+    font-size:0.8rem;
+  }
+}
+
+
+.summary{
+  border:black 1px solid;
+  width:95%;
+  margin: auto;
+}
+
+
+/* post-event pc verstion */
+@media(min-width:760px){
+.post-event-top {
+  display: flex;
+  border: 1px solid cadetblue;
+  .icon-border {
+    border: double 4px $button-color;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: white 4px solid;
+    }
+  }.event-title{
+    font-size: 1.3rem;
+    margin: auto;
+    ul li,&a{
+      font-size:1rem;
+    }
+  }
+}
+}
