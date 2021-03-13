@@ -42,9 +42,8 @@
         <div class="summary">
           <div class="event-summary">
             <p>Viewport Height（vh）：viewportの高さに基づく。1vhはviewportの高さの1%に相当する
-              Viewport Width（vw）：viewportの幅に基づく。1vwはviewportの幅の1%に相当する
-              Viewport Minimum（vmin）：viewportの（高さと幅のうち）小さいほうの寸法に基づく。viewportの高さが幅より小さい場合、1vminはviewportの高さの1%に相当する。同様にviewportの幅が高さより小さい場合、1vminはviewportの幅の1%に相当する
-              Viewport Maximum（vmax）：viewportの（高さと幅のうち）大きいほうの寸法に基づく。viewportの高さが幅より大きい場合、1vmaxはviewportの高さの1%に相当する。同様にviewportの幅が高さより大きい場合、1vmaxはviewportの幅の1%に相当する
+              Viewport Width（vw）：viewportの幅に基づく。1vwはviewportの幅の1%に相当する...続きは
+
 
 
             </p>
