@@ -24,16 +24,6 @@ function slideimage(){
         $('.msg-1').addClass('hide');
         $('.msg-2').addClass('hide');
 
-        setTimeout(function(){
-
-          $('.msg-1').css({opacity:"0"});
-          $('.msg-2').css({opacity:"0"});
-
-        },2500);
-
-
-
-
 
         $('#hidden-message').css({display:"block"});
         setTimeout(function(){

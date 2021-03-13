@@ -7,11 +7,13 @@
       <?php if (isset($_SESSION["user_name"])) : ?>
       <!-- もしユーザーがログインしてたら -->
 
+
       <ul class="header-list">
         <li><?php echo $_SESSION["user_name"] . "さん　ようこそ！"; ?></li>
         <li><a href="<?php echo URLROOT; ?>/">Top</a></li>
         <li><a href="<?php echo URLROOT; ?>/users/logout">Log Out</a></li>
         <li><a href="<?php echo URLROOT; ?>/mypage/mypageTop">My Page</a></li>
+        <li><a href="#">Message 1️⃣</a></li>
         <li><a href="#">English</a></li>
       </ul>
 

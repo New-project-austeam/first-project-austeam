@@ -3,7 +3,6 @@
 /* メインパーツにid or class をindexをボディにつけ、その中に入れ子にしてCSSを記述する */
 /* プラウザのキャッシュクリア　ショートカット　Command ＋shift + R */
 
-
 /* 要修正：：：：320pxi　と　pad proサイズ */
 
 /* index.scss全体共通 */
@@ -14,7 +13,7 @@
   max-width:1200px;
  } */
 
- /* font-size・line-height に　vwを使う
+/* font-size・line-height に　vwを使う
   幅によってサイズ帰る
   heightも幅によって高さを調節してくれる */
 
@@ -26,7 +25,7 @@
   height: 60vh;
   transition: background-image 3s ease; //2.5秒
   background-image: url(../images/sunset-4937813_1920.jpg);
-  background-color:$background-color;
+  background-color: $background-color;
   background-position: center center;
   background-size: cover;
   position: relative;
@@ -38,34 +37,25 @@
 
   .msg-1,
   .msg-2 {
-
-    margin-left: 50px;
+    margin-left: 40px;
     text-shadow: 0 0 40px rgb(19, 19, 18);
-    transition:all 3s ease;
+    transition: all 1.5s ease;
     z-index: 10;
 
-    &.hide{
-
+    &.hide {
       opacity: 0;
-
     }
-
   }
 
   .msg-1 {
-
     left: 9%;
     top: 20%;
     position: absolute;
-
-
   }
   .msg-2 {
-    top:60%;
+    top: 60%;
     right: 10%;
     position: absolute;
-
-
   }
 }
 
@@ -79,15 +69,10 @@
     justify-content: space-around;
     position: relative;
 
-
     .msg-1,
     .msg-2 {
-
       font-size: 1.5rem;
-
     }
-
-
 
     @media (min-width: 1200px) {
       .msg-1,
@@ -106,75 +91,67 @@
   }
 }
 
-
 /* hidden-message */
-#hidden-message{
-
-  transition:all 1s ease;
+#hidden-message {
+  transition: all 1s ease;
   display: none;
   opacity: 0;
   background-color: rgba(66, 65, 65, 0.6);
   text-align: center;
-  width:100vw;
+  width: 100vw;
   height: 60vh;
- position: relative;
+  position: relative;
   color: white;
   font-size: 0.75rem;
-  padding:15px;
-  &.show{
-
+  padding: 15px;
+  &.show {
     animation-name: fadeIn;
     animation-duration: 3s;
-    animation-fill-mode:forwards ;
+    animation-fill-mode: forwards;
     /* toで止める */
   }
 
-  .message-content{
+  .message-content {
     position: absolute;
     top: 50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    width:70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
   }
-
-
 }
 
 @keyframes fadeIn {
   from {
-      opacity:0;
-      transform: translateY(-500px);
+    opacity: 0;
+    /*  transform: translateY(-500px); */
   }
   to {
-      opacity:1;
-      transform: none;
+    opacity: 1;
+    transform: none;
   }
 }
 
-
-
 /* hidden-message 320px version */
-@media(max-width:320px){
-  #hidden-message{
+@media (max-width: 320px) {
+  #hidden-message {
     font-size: 0.65rem;
   }
 }
 
 /* hidden-message PC version*/
-@media(min-width:768px){
-  #hidden-message{
-    padding-top:70px;
+@media (min-width: 768px) {
+  #hidden-message {
+    padding-top: 70px;
     font-size: 1.1rem;
-}
+  }
 }
 
-@media(min-width:1000px){
-  #hidden-message{
+@media (min-width: 1000px) {
+  #hidden-message {
     padding-top: 100px;
     line-height: 1.6;
   }
 }
-
 
 /* --------------------MAIN-CONTENTS---------------------- */
 
@@ -193,6 +170,7 @@
   text-align: center;
   margin-bottom: 10px;
   padding: 20px;
+  transition: all 1s ease;
 }
 
 @mixin mobile-section-title-ja {
@@ -230,6 +208,7 @@
   .about {
     @include mobile-section-setting();
     .section-title {
+
       @include mobile-section-title();
       p {
         @include mobile-section-title-ja();
@@ -253,6 +232,8 @@
 .about-list li {
   text-align: left;
 }
+
+
 
 /* -------------- モバイル版 instruction----------- */
 
@@ -416,7 +397,7 @@
   text-align: center;
   position: fixed;
   bottom: 40px;
-  right: 110px;
+  right: 20px;
 
   &:hover {
     opacity: 1;
@@ -440,5 +421,27 @@
     position: fixed;
     bottom: 40px;
     right: 200px;
+  }
+}
+
+
+/* ーーーーーーーーーーーーーーーアニメーーーテストーーーーーーーーーーーーーーーー */
+/* スクロールしたらフワッ出てくるようにしたい */
+.section-title{
+  animation: test 2s;
+}
+
+.section-wrapper{
+  animation: test 4s;
+}
+
+@keyframes test{
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to{
+    opacity: 1;
   }
 }

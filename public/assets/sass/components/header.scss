@@ -7,7 +7,10 @@
 
 /* Scss記述に修正する。 */
 
+.main_header{
+  background-color:$background-color;
 
+}
 
 a {
   text-decoration: none;
@@ -139,3 +142,7 @@ a {
     }
   }
 }
+
+
+
+/* ログインしたときの色 */
