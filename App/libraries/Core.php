@@ -84,7 +84,8 @@ class Core
   public function redirectForzerofor_list($controller = null)
   {
     $list = [
-      "users"
+      "users",
+      "mypage"
     ];
 
 

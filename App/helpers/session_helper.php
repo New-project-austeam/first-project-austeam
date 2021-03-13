@@ -14,7 +14,7 @@ function flash($name = '', $message = '', $class = 'alert alert-success')
   if (!empty($name)) {
     // setting the session to show the flash card right after registered
     if (!empty($message) && empty($_SESSION[$name])) {
-      echo "honda";
+
       if (!empty($_SESSION['name'])) {
         unset($_SESSION['name']);
       }

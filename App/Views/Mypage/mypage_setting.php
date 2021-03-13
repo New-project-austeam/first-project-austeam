@@ -16,7 +16,8 @@
     </ul>
 
     <form style="flex: 0 0 60%;" method="post" action="<?php echo URLROOT; ?>/mypage/setting">
-
+      <h2>あなたのプロフィール</h2>
+      <?php flash('edit_intro_success'); ?>
       <div class="row">
         <div for="email">ニックネーム</div>
         <input type="text" id="email" name="user_name" value="<?php echo $data['user_info']->user_name; ?>">

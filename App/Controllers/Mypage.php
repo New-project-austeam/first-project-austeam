@@ -8,6 +8,7 @@ class Mypage extends Controller
   public function __construct()
   {
     $this->userModel = $this->model('Mypage_M');
+    $this->postsModel = $this->model('Post');
   }
 
 
@@ -15,9 +16,7 @@ class Mypage extends Controller
   {
 
     $userInfo = $this->userModel->getUserInfo();
-    // echo "<pre>";
-    // var_dump($userInfo);
-    // echo "</pre>";
+
 
     $data = [
       "user_info" => $userInfo
@@ -52,7 +51,13 @@ class Mypage extends Controller
       $result = $this->userModel->editUserInfo($data);
 
       if ($result) {
-        echo "success";
+        flash('edit_intro_success', "編集は成功しました。");
+        $userInfo = $this->userModel->getUserInfo();
+        $data = [
+          "user_info" => $userInfo
+        ];
+
+        $this->view('Mypage/mypage_setting', $data);
       } else {
         echo "failed";
       }
@@ -67,5 +72,30 @@ class Mypage extends Controller
 
       $this->view('Mypage/mypage_setting', $data);
     }
+  }
+
+  public function myevents()
+  {
+
+    $user_id = $_SESSION['user_id'];
+    $allPosts = $this->postsModel->getUserPosts($user_id);
+
+    $data = [
+      "myposts" => $allPosts
+    ];
+
+    $this->view('Mypage/myevents', $data);
+  }
+
+
+  public function post_edit($postId = null)
+  {
+
+    $result = $this->postsModel->getPostDetails($postId);
+
+    $data = [
+      "post_detail" => $result
+    ];
+    $this->view('Mypage/myeventDetail', $result);
   }
 }

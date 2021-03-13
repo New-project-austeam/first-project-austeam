@@ -4,19 +4,18 @@ class Home extends Controller
 {
   public function __construct()
   {
-    // $this->postModel = $this->model('home');
+    $this->postModel = $this->model('Post');
   }
 
 
   public function index($param1 = null, $param2 = null)
   {
 
-
-    $data = [
-      "title" => 'Home Page'
-    ];
-
-
+    $data =  array();
+    if (isset($_SESSION['user_id'])) {
+      $allPosts = $this->postModel->getAllPosts();
+      $data = array_merge($data, array("allPosts" => $allPosts));
+    }
 
     $this->view('Home/index', $data);
     // echo $id;
