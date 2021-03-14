@@ -1,5 +1,6 @@
 @import "variable.scss";
 
+
 /* .wrap{
   width:100%;
   max-width:1200px;
@@ -89,7 +90,7 @@ a{
   color: $main-letter-color;
 
 &:hover{
-  color: $button-color
+  color: $button-color;
 }
 .detail-btn{
   color: $main-letter-color;
@@ -103,39 +104,12 @@ text-align: center;
   margin: 0 auto;
   @include button();
   padding:0 30px;
-}
-}
-/*----------------------- .seach */
-.search {
-  text-align: center;
-
-  .aside-title {
-    padding-top:20px;
-    margin: auto;
-    width: 70%;
-    color: $main-letter-color;
-    font-size: 1.5vw;/* -------------フォントサイズ　仮------------- */
-  }
-
-  form {
-    padding: 10px 0 15px;
-
-    dd input[type="search"],
-    [type="date"] {
-      width: 70%;
-      padding: 5px 8px;
-      margin: 5px;
-    }
-    dd input[type="submit"] {
-     @include button();
-    }
-  }
-
-  .source-quote {
-    @include quote();
+  &:hover {
+    color: black;
+    box-shadow:1px 1px rgb(12, 128, 12) ;
   }
 }
-
+}
 
 
 
@@ -145,8 +119,7 @@ text-align: center;
 
   width:95%;
   margin: 0 auto ;
-  padding-bottom:50px;
-  border-bottom: rgb(189, 185, 185,0.2) 1px solid;
+
   .filter{
     margin-bottom: 30px;
     text-align: center;
@@ -160,6 +133,8 @@ text-align: center;
   /* icon */
 
   .posted{
+    padding:20px 0 50px;
+    border-bottom: rgb(189, 185, 185,0.2) 1px solid;
     .posted-event{
 
       display: flex;
@@ -215,7 +190,7 @@ text-align: center;
 
     .event-title{
 
-      font-size: 1rem;/* -------------フォントサイズ　仮------------- */
+      font-size: 1.1rem;/* -------------フォントサイズ　仮------------- */
 
        width:85%;
        padding-top: 5px;
@@ -251,13 +226,22 @@ text-align: center;
 
 .detail{
 text-align: center;
-padding:10px 0;
+padding:10px 0 30px;
+border:solid black 1px;
+
 
 
 .detail-btn{
   margin: 0 auto;
   @include button();
+
+  &:hover {
+
+    box-shadow:1px 1px rgb(12, 128, 12) ;
+  }
 }
+
+
 }
 
 
@@ -266,13 +250,18 @@ padding:10px 0;
 
 .event-detail{
   display: flex;
-  font-size: 1rem;
+  font-size: 0.9rem;
   padding-top:10px;
   span{
     min-width:15%;
   }
 }
 
+/* hover時。。なぜか入れ子内で効かないからここに記述 */
+
+.detail-btn a:hover{
+  color: black;
+}
 
 
 @media(max-width:768px){
@@ -281,6 +270,7 @@ padding:10px 0;
     flex-direction: column;
 
   }
+
 
 }
 
@@ -296,17 +286,19 @@ padding:10px 0;
 
   }
 
+
+
 }
  /* ---------------------record-------------------- */
 
  .record-contents{
 
   width: 95%;
-  margin: 40px auto;
+  margin: 20px auto;
  }
  .record{
    border-bottom: rgb(189, 185, 185,0.2) 1px solid;
-   padding-bottom:50px;
+   padding:20px 0 50px;
  .posted{
   .posted-event{
 
