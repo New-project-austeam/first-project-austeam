@@ -33,10 +33,10 @@
 
 
       <section class="wanted">
-        <i class="fas fa-trash-alt"></i>
+
         　　　　　<form class="filter">
 
-          <select>
+        <i class="fas fa-trash-alt"></i>　<select>
           <option></option>
             <option selected>近日中のイベント</option>
             <option>新着の投稿</option>
@@ -45,8 +45,13 @@
         </form>
 
 
+        <?php
+      $myposts = $data['allPosts'];
+      foreach ($myposts as $post) {
 
+      ?>
         <div class="posted">
+
 
           <div class="posted-event">     <!-- flex -->
 
@@ -59,19 +64,20 @@
 
 
             <div class="poseted-event-contents">
+
               <div class="posted-event-title">     <!-- flex -->
               <div class="event-title">
 
-                <h4><a>急募!!海岸でのごみ拾い員募集</a></h4>
+                <h4><a><?php echo $post->event_title ?></a></h4>
                 </div>
                 <div class="favorite-icon">
-                   <h3><a>☆</a></h3><!-- 仮 -->
+                   <h3><a href="#">☆</a></h3><!-- 仮 -->
                 </div>
               </div><!-- イベントタイトル -->
 
 
               <ul class="event-info-list">     <!-- flex -->
-                <li><i class="fas fa-trash-alt"></i> 開催日:</li>
+                <li><i class="fas fa-trash-alt"></i> 開催日:<?php echo $post->event_date; ?></li>
                 <li><i class="fas fa-trash-alt"></i> 場所:</li>
                 <li><i class="fas fa-trash-alt"></i> 環境テーマ:</li>
               </ul>
@@ -87,7 +93,7 @@
 
           <div  class="event-detail">
               <span style="font-weight: bold;">詳細:</span>
-              <p> 突如、大量に漂流ゴミが海岸に打ち上げられてるため清掃必須..突如、大量に漂流ゴミが海岸に打ち上げられてるため清掃必須..</p>
+              <p> <?php echo $post->event_details; ?></p>
               </div>
 
               <div  class="event-detail">
@@ -95,7 +101,7 @@
               <p>3人</p>
               </div>
           <div class="detail">
-          <button class="detail-btn"><a>詳細</a></button>
+          <button class="detail-btn"><a href="<?php echo URLROOT; ?>/posts/details">詳細</a></button>
           </div>
 
 
@@ -103,6 +109,12 @@
 
 
         </div><!-- posted-->
+
+        <?php
+      }
+      ?>
+
+
       </section><!-- wanted -->
 
 
@@ -182,6 +194,9 @@
 
       <?php
       $myposts = $data['allPosts'];
+      echo "<pre>";
+      print_r($myposts); /* print_r($myposts)は中身を表示する */
+      echo "</pre>";
       foreach ($myposts as $post) {
 
       ?>

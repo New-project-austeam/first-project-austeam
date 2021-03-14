@@ -1,7 +1,11 @@
   <header class="main_header">
-    <div class="header-content">
+    <div class="header-content <?php echo isset($_SESSION["user_name"]) ? "header-color" : "";?>">
       <h1 class="logo"><a href="<?php echo URLROOT; ?>/"><span class="logo-g">G</span>oMimap<i
             class="fas fa-trash-alt"></i></a></h1>
+
+            <!--
+              <div class="header-content <?php echo isset($_SESSION["user_name"]) ? "header-color" : "";?>">
+             -->
 
 
       <?php if (isset($_SESSION["user_name"])) : ?>

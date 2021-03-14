@@ -92,4 +92,7 @@ class Posts extends Controller
     } else {
     }
   }
+  public function details(){
+    $this->view('Posts/details', null);
+  }
 }
