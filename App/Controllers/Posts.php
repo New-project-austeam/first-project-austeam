@@ -92,7 +92,14 @@ class Posts extends Controller
     } else {
     }
   }
-  public function details(){
-    $this->view('Posts/details', null);
+  public function details($post_id = null)
+  {
+
+    $postData = $this->postModel->getPostDetails($post_id);
+    $data = [
+      "postData" => $postData
+    ];
+
+    $this->view('Posts/details', $data);
   }
 }

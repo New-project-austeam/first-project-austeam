@@ -10,6 +10,7 @@ class Core
   public function __construct()
   {
     $url = $this->getUrl();
+    $controller = null;
 
     if (!$url) {
 
@@ -39,6 +40,7 @@ class Core
         exit();
       }
     } else {
+
       $this->redirectForzerofor_list($controller);
       $this->setMethod("index", null);
       exit();
@@ -85,7 +87,8 @@ class Core
   {
     $list = [
       "users",
-      "mypage"
+      "mypage",
+      "posts"
     ];
 
 

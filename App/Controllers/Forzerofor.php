@@ -14,9 +14,9 @@ class Forzerofor extends Controller
       "title" => 'Error Page'
     ];
 
-    $posts = $this->postModel->getPosts();
+    // $posts = $this->postModel->getPosts();
 
-    $data = array_merge($data, array("posts" => $posts));
+    // $data = array_merge($data, array("posts" => $posts));
 
 
     $this->view('Error/index', $data);
