@@ -78,8 +78,8 @@
 
               <ul class="event-info-list">     <!-- flex -->
                 <li><i class="fas fa-trash-alt"></i> 開催日:<?php echo $post->event_date; ?></li>
-                <li><i class="fas fa-trash-alt"></i> 場所:</li>
-                <li><i class="fas fa-trash-alt"></i> 環境テーマ:</li>
+                <li><i class="fas fa-trash-alt"></i> 場所:<?php echo $post->event_location; ?></li>
+                <li><i class="fas fa-trash-alt"></i> 環境テーマ:<?php echo $post->event_category; ?></li>
               </ul>
 
 
