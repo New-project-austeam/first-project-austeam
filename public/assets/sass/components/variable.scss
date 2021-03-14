@@ -2,3 +2,13 @@ $main-letter-color: rgb(99, 90, 90);
 $background-color: rgb(202, 199, 195, 0.4);
 $button-color: #19eeb9;
 $font: "Tsukushi A Round Gothic";
+$mobile-section-title-font-size:0.9rem;
+@mixin quote{
+  a {
+      color: $main-letter-color;
+      font-size: 0.3rem;
+      &:hover {
+        color: rgb(20, 190, 241);
+      }
+    }
+}

@@ -5,142 +5,373 @@
   max-width:1200px;
 } */
 
-/* timeline mibile　共通 */
-
-@mixin time-line-contents {
+/* ------------------タイムラインとサーチの（枠）の設定---------------------- */
+/* timelineとrecommendationの枠の共通設定 */
+@mixin timeline-wrap {
   background-color: white;
-  border: solid 0.5px rgba(134, 132, 132, 0.3);
-  border-radius: 1.4%;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px 2px rgb(186, 186, 186);
+  margin: 10px;
+  color: $main-letter-color;
 
-  min-width: 330px;
 }
+/* timelineとrecommendationの　共通設定 */
 
-/* timeline-contents mobile version */
-.timeline-wrapper {
-  width: 100%;
-  height: 100%;
-  background-image: url(../images/white-concrete-wall.jpg);
+.bg-img {
+  background-image: url(../images/4858794.jpg);
   background-size: cover;
-  background-repeat: repeat-Y;
-  .timeline-contents {
+}
+
+.timeline-wrapper {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  .search {
+    @include timeline-wrap();
+
+  }
+  .timeline {
+    @include timeline-wrap();
+
+  }
+}
+
+/* timeline-wrapper　枠　/wrap PC */
+@media (min-width: 769px) {
+  .timeline-wrapper {
     display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    width: 80%;
-    max-width: 345px;
-    margin: 0 auto;
-  }
-
-  @media (min-width: 900px) {
-    .timeline-contents {
-      flex-direction: row-reverse;
-
-      width: 90%;
-      max-width: 1200px;
+    flex-direction: row;
+    justify-content: space-between;
+    .search{
+      width: 30%;
+      min-width: 300px;
     }
-  }
 
-  .timeline {
-    @include time-line-contents();
-    width: 95%;
-  }
-
-  .recommendation {
-    @include time-line-contents();
-    width: 95%;
-    height: 330px;
-    margin-bottom: 10px;
-  }
-}
-
-/* timeline-contents tablet/PC verstion・PC/タブレットサイズのflex設定に関してのみモバイル版に記載*/
-
-@media (min-width: 850px) {
-  .timeline {
-    width: 65%;
-    max-width: 1200px;
-    min-width: 700px;
-  }
-
-  .recommendation {
-    max-width: 360px;
-    min-width: 360px;
-    margin-left: 30px;
-  }
-}
-
-/* timeline */
-
-/* post-event */
-
-.posted-event {
-  border: 1px solid cadetblue;
-  width:95%;
-  margin: auto;
-
-}
-.post-event-top {
-  display: flex;
-
-  border: 1px solid cadetblue;
-  .icon-border {
-    border: double 4px $button-color;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      border: white 4px solid;
+    .timeline{
+      width: 80%;
+      min-width: 500px;
     }
 
   }
 }
 
-.event-title{
-  border: black 1px solid;
-  width:100%;
-  text-align: left;
-  margin: auto;
-  padding-left:20px;
-  font-size: 1rem;
-  ul li,&a{
-    font-size:0.8rem;
-  }
+/* ------------------タイムライン,サーチ中身の設定---------------------- */
+
+
+
+/* ボタン */
+@mixin button {
+  color: $button-color;
+  background-color: $button-color;
+      padding: 6px 15px;
+      border-radius: 2px;
+      border: none;
+      color: $main-letter-color;
+      &:hover {
+        color: black;
+        box-shadow:1px 1px rgb(12, 128, 12) ;
+      }
 }
 
+/* a */
+@mixin a{
+  color: $main-letter-color;
 
-.summary{
-  border:black 1px solid;
-  width:95%;
-  margin: auto;
+        &:hover{
+          color: $button-color
+        }
+}
+a{
+  color: $main-letter-color;
+
+&:hover{
+  color: $button-color
+}
+.detail-btn{
+  color: $main-letter-color;
+}
 }
 
+.detail{
+  padding-top:10px;
+text-align: center;
+.detail-btn{
+  margin: 0 auto;
+  @include button();
+  padding:0 30px;
+}
+}
+/*----------------------- .seach */
+.search {
+  text-align: center;
 
-/* post-event pc verstion */
-@media(min-width:760px){
-.post-event-top {
-  display: flex;
-  border: 1px solid cadetblue;
-  .icon-border {
-    border: double 4px $button-color;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    img {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      border: white 4px solid;
-    }
-  }.event-title{
-    font-size: 1.3rem;
+  .aside-title {
     margin: auto;
-    ul li,&a{
-      font-size:1rem;
+    width: 70%;
+    color: $main-letter-color;
+    font-size: 1.2vw;/* -------------フォントサイズ　仮------------- */
+  }
+
+  form {
+    padding: 10px 0 15px;
+
+    dd input[type="search"],
+    [type="date"] {
+      width: 70%;
+      padding: 5px 8px;
+      margin: 5px;
+    }
+    dd input[type="submit"] {
+     @include button();
+    }
+  }
+
+  .source-quote {
+    @include quote();
+  }
+}
+
+
+
+/*-----------------------  timeline */
+
+.wanted{
+
+  width:95%;
+  margin: 0 auto ;
+  padding-bottom:50px;
+  border-bottom: rgb(189, 185, 185,0.2) 1px solid;
+  .filter{
+    margin-bottom: 50px;
+    text-align: center;
+    select{
+      width:50%;
+      padding: 10px;
+
+    }
+  }
+
+  /* icon */
+
+  .posted{
+    .posted-event{
+
+      display: flex;
+      flex-direction: row;
+
+
+      .icon{
+
+        text-align: center;
+
+
+      .icon-border{
+        border:$button-color 4px double;
+        width:100px;
+        height:100px;
+        border-radius: 50%;
+
+        img{
+
+          width:90px;
+          height:90px;
+          border-radius: 50%;
+          border:5px solid white;
+        }
+
+        }
+
+      }
+      .nickname{
+        font-size:1vw;/* 仮 */
+      }
+      a{
+        @include a();
+
+      }
     }
   }
 }
+
+/* タイトル */
+
+.poseted-event-contents{
+  width:100%;
+  padding-left:20px;
+
+
+  .posted-event-title{
+    width:100%;
+    display: flex;
+    flex: row;
+    text-align: left;
+
+
+    .event-title{
+
+      font-size: 2vw;/* -------------フォントサイズ　仮------------- */
+
+       width:85%;
+       padding-top: 5px;
+
+
+    }
+
+    .favorite-icon{
+
+
+      padding-top:5px;
+       width:15%;
+       font-size:1.2rem;
+
+
+    }
+    .favorite{
+      font-size: 1rem;
+
+    }
+  }
+
+  .event-info-list{
+    display: flex;
+
+
+    li{
+      padding: 5px;
+      font-weight: bold;
+      font-size: 0.8rem;
+    }
+  }
+
+.detail{
+text-align: center;
+padding:10px 0;
+
+
+.detail-btn{
+  margin: 0 auto;
+  @include button();
 }
+}
+
+
+
+}
+
+.event-detail{
+  display: flex;
+  font-size: 1rem;
+  padding-top:10px;
+  span{
+    min-width:15%;
+  }
+}
+ /* timeleine　中身　pc */
+ @media(min-width:768px){
+ .event-info-list{
+  display: flex;
+  flex-direction: row;
+
+
+  li{
+    padding: 5px;
+    font-weight: bold;
+  }
+}
+}
+
+ /* ---------------------record-------------------- */
+
+ .record-contents{
+
+  width: 95%;
+  margin: 40px auto;
+ }
+ .record{
+   border-bottom: rgb(189, 185, 185,0.2) 1px solid;
+   padding-bottom:50px;
+ .posted{
+  .posted-event{
+
+    display: flex;
+    flex-direction: row;
+
+
+    .icon{
+
+      text-align: center;
+
+
+    .icon-border{
+      border:$button-color 4px double;
+      width:100px;
+      height:100px;
+      border-radius: 50%;
+
+      img{
+
+        width:90px;
+        height:90px;
+        border-radius: 50%;
+        border:5px solid white;
+      }
+
+      }
+
+    }
+    .nickname{
+      font-size:1vw;/* 仮 */
+    }
+    a{
+      @include a();
+
+    }
+  }
+}
+.posted{
+  .posted-event{
+
+    display: flex;
+    flex-direction: row;
+
+
+    .icon{
+
+      text-align: center;
+
+
+    .icon-border{
+      border:$button-color 4px double;
+      width:100px;
+      height:100px;
+      border-radius: 50%;
+
+      img{
+
+        width:90px;
+        height:90px;
+        border-radius: 50%;
+        border:5px solid white;
+      }
+
+      }
+
+    }
+    .nickname{
+      font-size:1vw;/* 仮 */
+    }
+    a{
+      @include a();
+
+    }
+  }
+}
+.record-summary{
+  padding-top:10px;
+  font-size: 0.9rem;
+}
+ }

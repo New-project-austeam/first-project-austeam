@@ -377,13 +377,7 @@
   }
 
   .eco-image {
-    a {
-      color: $main-letter-color;
-      font-size: 0.3rem;
-      &:hover {
-        color: rgb(20, 190, 241);
-      }
-    }
+    @include quote();
   }
 }
 
