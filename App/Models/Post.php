@@ -51,4 +51,17 @@ class Post
     $this->db->bind(':event_details', $data['event_details']);
     return $this->db->execute();
   }
+
+  public function delete($post_id)
+  {
+
+    $post_data = $this->getPostDetails($post_id);
+    $this->db->query("DELETE FROM posts WHERE post_id = :post_id");
+    $this->db->bind(':post_id', $post_id);
+    $result = [
+      "result" => $this->db->execute(),
+      "post_data" => $post_data
+    ];
+    return $result;
+  }
 }

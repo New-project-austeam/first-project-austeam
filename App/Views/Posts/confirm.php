@@ -1,4 +1,4 @@
-<?php require APPROOT . '/views/inc/head.php'; ?>
+=<?php require APPROOT . '/views/inc/head.php'; ?>
 <?php require APPROOT . '/views/inc/header.php'; ?>
 
 
@@ -6,7 +6,7 @@
   <h2>Confirm Page</h2>
 
   <p>以下の内容で登録してよろしいでしょうか？</p>
-  <form action="<?php echo URLROOT; ?>/posts/register" method="post">
+  <form action="<?php echo URLROOT; ?>/mypage/register" method="post">
     <ul>
       <li>
         <p>イベントのタイトル: <?php echo $data['event_title']; ?></p>

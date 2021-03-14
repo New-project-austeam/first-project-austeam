@@ -6,6 +6,7 @@
  <div class="wrap myevents">
    <?php
     flash('register_new_event');
+    flash('delete_myevent');
     ?>
    <h2>応募中のイベント</h2>
 

@@ -1,8 +1,33 @@
+   <?php
+    $title = null;
+    $btn_title = null;
+    $hidden_name  = null;
+    $delete_btn = null;
+
+
+    switch (isset($data["isEditPage"])) {
+      case true:
+        $title = "イベントを編集する";
+        $btn_title = "確定";
+        $delete_btn = '<input class="delete_btn" style="background-color: rgba(115, 115, 115, .7) ;margin-top: 10px;" name="event_delete" type="submit" value="削除">';
+        break;
+      case false:
+        $title = "イベントを作成する";
+        $btn_title = "作成";
+        break;
+      default:
+        $title = "イベントを作成する";
+        $btn_title = "作成";
+        break;
+    }
+
+    ?>
+
    <section class="post-event">
 
 
-     <h2 class="mypage-section-title">イベント作成する</h2>
-     <form action="<?php echo URLROOT; ?>/posts/confirm" method="post" class="event-form">
+     <h2 class="mypage-section-title"><?php echo $title; ?></h2>
+     <form action="<?php echo URLROOT; ?>/mypage/confirm" method="post" class="event-form">
        <dl class="event-form-list">
          <div class="form-items">
            <dt>イベントのタイトル :</dt>
@@ -54,32 +79,40 @@
          </div>
 
          <div class="post-event-button">
-           <input name="event_submit" type="submit" value="作成">
+           <input name="event_submit" type="submit" value="<?php echo $btn_title; ?>" class="event_submit">
+           <?php echo $delete_btn ? $delete_btn : ""; ?>
+           <input type="hidden" class="e_post_id" name="e_post_id">
+
          </div>
 
+
+
+
          <?php
-          if (isset($_POST['submitReturn'])) {
-            $json = json_encode($_POST, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
+
+          ///ここから下は投稿確認ページに戻ってきたケース
+          if (isset($_POST['submitReturn']) || isset($data["isEditPage"])) {
+
+
+            if (isset($_POST['submitReturn'])) {
+              $data = $_POST;
+            } else if (isset($data["isEditPage"])) {
+              $data = $data["post_detail"];
+            }
+            $json = json_encode($data, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
             // print_r($json);
+
           ?>
 
          <script>
          const parsedJson = JSON.parse('<?php echo $json; ?>');
-         console.log(parsedJson);
-         window.addEventListener("load", function() {
-           $("#event_title").val(parsedJson.event_title);
-           $("#event_date").val(parsedJson.event_date);
-           $("#event_location").val(parsedJson.event_location);
-           $(`option[value=${parsedJson.event_cateogry}]`).prop("checked", true);
-           $("#event_clothe").val(parsedJson.event_clothe);
-           $("#event_equipment").val(parsedJson.event_equipment);
-           $(`input[value='${parsedJson.event_level}']`).prop('checked', true);
-           $("#event_details").val(parsedJson.event_details);
-         })
          </script>
          <?php
           }
+
+          //ここまで。
           ?>
+
 
 
 
