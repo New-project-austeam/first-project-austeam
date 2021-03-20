@@ -52,12 +52,32 @@
 
         ?>
           <div class="posted">
-
+<!--  -->
 
             <div class="posted-event">
               <!-- flex -->
               <div class="openning">
-                <p>募集中</p>
+                <p>募集中<!DOCTYPE html>
+                <html lang="ja">
+                <head>
+                  <meta charset="UTF-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                  <title>Document</title>
+                </head>
+                <body>
+
+                </body>
+                </html><!DOCTYPE html>
+                <html lang="ja">
+                <head>
+                  <meta charset="UTF-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                  <title>Document</title>
+                </head>
+                <body>
+
+                </body>
+                </html></p>
               </div>
               <div class="icon">
                 <div class="icon-border">
