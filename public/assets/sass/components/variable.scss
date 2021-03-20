@@ -3,6 +3,8 @@ $background-color: rgb(202, 199, 195, 0.4);
 $button-color: #19eeb9;
 $font: "Tsukushi A Round Gothic";
 $mobile-section-title-font-size:0.9rem;
+$background-img:url(../images/4858794.jpg);
+
 @mixin quote{
   a {
       color: $main-letter-color;
@@ -11,4 +13,126 @@ $mobile-section-title-font-size:0.9rem;
         color: rgb(20, 190, 241);
       }
     }
+}
+
+/* タイムライン・イベント詳細ページ　共通 */
+@mixin bg-img{
+  background-image: $background-img;
+  background-size: cover;
+  background-repeat: repeat-y;
+  width:100%;
+  height: 100％;
+
+}
+
+
+@mixin button {
+  color: $button-color;
+  background-color: $button-color;
+      padding: 6px 15px;
+      border-radius: 2px;
+      border: none;
+      color: $main-letter-color;
+      &:hover {
+        color: black;
+        box-shadow:1px 1px rgb(12, 128, 12) ;
+      }
+}
+
+/* a */
+@mixin a{
+  color: $main-letter-color;
+
+        &:hover{
+          color: $button-color
+        }
+}
+
+
+/* 　　　　　　2カラムの時に使える【　枠　】テンプレートと背景
+　　　　　　　　　　　　timelineとrecommendationの共通設定から拝借 */
+
+
+/* ２カラム両方の【　枠　】設定 */
+@mixin wrap {
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px 2px rgb(186, 186, 186);
+  margin: 10px;
+  color: $main-letter-color;
+
+}
+
+/*  ↓↓↓↓↓↓使用例  それぞれのコンテンツに指定する
+ .side {
+    @include wrap();
+
+  }
+  .main-content {
+    @include wrap();
+
+  }
+*/
+
+
+/* 背景*/
+
+.bg-img {
+  @include bg-img();
+}
+
+/* sideとmain-contentのモバイルのレスポンシブの共通設定　モバイルファースト */
+@mixin contents-wrapper {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+/*
+.contents-wrapper {　　←２カラム入ってる親に指定することで、２カラムがレスポンシブされる
+    @include contents-wrapper();
+}
+
+/* wrap PC　version 　　コピペで貼り付けOK*/
+@media (min-width: 769px) {
+  .contents-wrapper {
+    display: flex;
+    flex-direction: row;
+
+    .side{
+      width: 30%;
+      min-width: 300px;
+    }
+
+    .mian-content{
+      width: 80%;
+      min-width: 500px;
+    }
+
+  }
+}
+
+/* icon */
+@mixin icon {
+  text-align: center;
+
+
+  .icon-border{
+    border:$button-color 4px double;
+    width:100px;
+    height:100px;
+    border-radius: 50%;
+
+    img{
+
+      width:90px;
+      height:90px;
+      border-radius: 50%;
+      border:5px solid white;
+    }
+
+    }
+
 }

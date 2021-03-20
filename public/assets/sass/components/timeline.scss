@@ -7,7 +7,7 @@
 } */
 
 /* ------------------タイムラインとサーチの（枠）の設定---------------------- */
-/* timelineとrecommendationの枠の共通設定 */
+/* timelineとsearchの枠の共通設定 */
 @mixin timeline-wrap {
   background-color: white;
   padding: 10px;
@@ -17,11 +17,13 @@
   color: $main-letter-color;
 
 }
-/* timelineとrecommendationの　共通設定 */
+
+
+
+/* timelineとsearchの　共通設定 */
 
 .bg-img {
-  background-image: url(../images/4858794.jpg);
-  background-size: cover;
+  @include bg-img();
 }
 
 .timeline-wrapper {
@@ -31,11 +33,13 @@
   display: flex;
   flex-direction: column;
 
-  .search {
+
+  .timeline {
     @include timeline-wrap();
 
   }
-  .timeline {
+
+  .search {
     @include timeline-wrap();
 
   }
@@ -68,7 +72,7 @@
 @mixin button {
   color: $button-color;
   background-color: $button-color;
-      padding: 6px 15px;
+      padding: 6px 500px;
       border-radius: 2px;
       border: none;
       color: $main-letter-color;
@@ -133,12 +137,30 @@ text-align: center;
   /* icon */
 
   .posted{
-    padding:20px 0 50px;
+    align-items: center;
+    padding:50px 0 50px;
+    width:95%;
+    margin: 0 auto;
+
     border-bottom: rgb(189, 185, 185,0.2) 1px solid;
     .posted-event{
-
+     position: relative;
+     padding-top:15px;
       display: flex;
       flex-direction: row;
+
+      .openning{
+        position: absolute;
+        top:0;
+
+        P{
+          font-size: 0.8rem;
+          font-weight: bold;
+          background-color:$button-color;
+
+          padding:3px;
+        }
+      }
 
 
       .icon{
@@ -181,16 +203,18 @@ text-align: center;
   padding-left:20px;
 
 
+
+
   .posted-event-title{
     width:100%;
     display: flex;
-    flex: row;
+    flex-direction: row;
     text-align: left;
 
 
     .event-title{
 
-      font-size: 1.1rem;/* -------------フォントサイズ　仮------------- */
+      font-size: 5rem;/* -------------フォントサイズ　仮------------- */
 
        width:85%;
        padding-top: 5px;
@@ -217,6 +241,7 @@ text-align: center;
     display: flex;
 
 
+
     li{
       padding: 5px;
       font-weight: bold;
@@ -224,45 +249,123 @@ text-align: center;
     }
   }
 
-.detail{
-text-align: center;
-padding:10px 0 30px;
-border:solid black 1px;
 
 
-
-.detail-btn{
-  margin: 0 auto;
-  @include button();
-
-  &:hover {
-
-    box-shadow:1px 1px rgb(12, 128, 12) ;
+  /* ボタン */
+  @mixin button {
+    color: $button-color;
+    background-color: $button-color;
+        padding: 6px 15px;
+        border-radius: 2px;
+        border: none;
+        color: $main-letter-color;
+        &:hover {
+          color: black;
+          box-shadow:1px 1px rgb(25, 170, 25) ;
+        }
   }
-}
-
-
-}
 
 
 
-}
+  /* ボタン　*/
+
+  .detail-btn{
+    color: $main-letter-color;
+  }
+  }
+
+  .detail{
+    padding-top:10px;
+  text-align: center;
+  .detail-btn{
+    margin: 30px auto 5px;
+    @include button();
+    padding:5px 100px;
+  }
+  }
+
+
+  .detail-btn a:hover{
+    color: black;
+  }
+
+
+
 
 .event-detail{
   display: flex;
   font-size: 0.9rem;
   padding-top:10px;
-  span{
-    min-width:15%;
-  }
+  width:90%;
+  text-align: center;
+
 }
 
-/* hover時。。なぜか入れ子内で効かないからここに記述 */
 
-.detail-btn a:hover{
-  color: black;
+
+
+.joinning-ppl{
+
+        display: flex;
+       font-size: 0.9rem;
+       justify-content: flex-start;
+       margin-top:10px;
+    span{
+      margin-top:5px;
+    }
+   .joinner-icons{
+
+    width: 28%;
+    position: relative;
+    display: flex;
+    justify-content: start;
+    margin-left:10px;
+
+
+      .icon-border3{
+
+
+
+        &.joinning1{
+          z-index:10;
+          position: absolute;
+          left: 0;
+          top:0;
+
+
+
+        }
+
+        &.joinning2{
+          z-index:20;
+          position: absolute;
+          left: 13%;
+
+
+
+        }
+
+        &.joinning3{
+          z-index:30;
+          position: absolute;
+          left: 26%;
+
+
+
+        }
+
+        img{
+          display: block;
+          width:30px;
+          height:30px;
+          border-radius: 50%;
+          border:5px solid white;
+
+
+        }
+      }
 }
-
+}
 
 @media(max-width:768px){
   .event-info-list{
@@ -295,9 +398,14 @@ border:solid black 1px;
 
   width: 95%;
   margin: 20px auto;
+
+
+
  }
  .record{
-   border-bottom: rgb(189, 185, 185,0.2) 1px solid;
+  width:95%;
+  margin:0 auto;
+
    padding:20px 0 50px;
  .posted{
   .posted-event{
@@ -338,6 +446,7 @@ border:solid black 1px;
   }
 }
 .posted{
+  align-items: center;
   .posted-event{
 
     display: flex;
@@ -378,5 +487,6 @@ border:solid black 1px;
 .record-summary{
   padding-top:10px;
   font-size: 0.9rem;
+  width:90%;
 }
  }
