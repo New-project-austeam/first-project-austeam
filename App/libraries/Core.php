@@ -55,7 +55,16 @@ class Core
     require_once '../App/controllers/' . $controller . '.php';
 
     // Instatiate controller class
+
     $this->currentController = new $controller;
+
+    // if (is_callable($this->currentController, "test2")) {
+    //   echo "yes";
+    //   exit();
+    // } else {
+    //   echo "no";
+    //   exit();
+    // }
   }
 
 

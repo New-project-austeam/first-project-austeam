@@ -4,6 +4,11 @@
 class Mypage extends Controller
 {
 
+  function test2()
+  {
+    echo "test2";
+  }
+
 
   public function __construct()
   {
@@ -103,6 +108,7 @@ class Mypage extends Controller
         }
         // 編集の場合
       } else if (isset($_POST['e_post_id'])) {
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         echo "submit";
       }
       //編集ページに飛んできたとき。
@@ -192,5 +198,10 @@ class Mypage extends Controller
       }
     } else {
     }
+  }
+
+  private function test()
+  {
+    echo "test";
   }
 }
