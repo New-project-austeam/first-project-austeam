@@ -5,6 +5,7 @@
 
             <!--
               <div class="header-content <?php echo isset($_SESSION["user_name"]) ? "header-color" : "";?>">
+
              -->
 
 
