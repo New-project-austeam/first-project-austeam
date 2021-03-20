@@ -150,8 +150,9 @@ module.exports = slideshowFnc;
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
-/******/ 		if(__webpack_module_cache__[moduleId]) {
-/******/ 			return __webpack_module_cache__[moduleId].exports;
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
@@ -183,6 +184,7 @@ var slideshowFnc = __webpack_require__(/*! ./modules/slideshow.js */ "./public/a
 var setPostData = __webpack_require__(/*! ./modules/setPostData.js */ "./public/assets/js/modules/setPostData.js");
 
 if (typeof parsedJson !== "undefined") {
+  console.log(12345);
   setPostData(parsedJson);
 }
 

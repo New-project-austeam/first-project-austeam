@@ -100,6 +100,7 @@ class Mypage extends Controller
 
       //削除の場合
       if (isset($_POST['d_post_id'])) {
+        echo "naoko";
         $post_id = $_POST['d_post_id'];
         $result = $this->postsModel->delete($post_id);
         if ($result["result"]) {
@@ -120,7 +121,8 @@ class Mypage extends Controller
         "post_detail" => $result,
         "isEditPage" => true
       ];
-      echo "honda";
+      echo "hondasan";
+
       $this->view('Mypage/myeventDetail', $data);
     }
   }
