@@ -12,6 +12,7 @@
       <p>参加予定の人</p>
     </aside>
 
+
     <section class="main-content">
       <div class="event-content">
 
@@ -26,7 +27,7 @@
             <div class="posted-event-title">
               <!-- flex -->
               <div class="event-title">
-                <h4>"<?php echo $post->event_title ?> 仮ごみ拾いにいく "</h4>
+                <h4>"<?php echo $data["postData"]->event_title ?> "</h4>
               </div>
 
               <div class="favorite-icon">
@@ -65,10 +66,10 @@
               <ul class="event-info-list">
                 <!-- flex -->
 
-                <li><i class="fas fa-trash-alt"></i> 開催日：<?php echo $post->event_date; ?></li>
+                <li><i class="fas fa-trash-alt"></i> 開催日：<?php echo $data["postData"]->event_date; ?></li>
 
-                <li><i class="fas fa-trash-alt"></i> 場所：<?php echo $post->event_location; ?></li>
-                <li><i class="fas fa-trash-alt"></i> 環境テーマ：<?php echo $post->event_category; ?></li>
+                <li><i class="fas fa-trash-alt"></i> 場所：<?php echo $data["postData"]->event_location; ?></li>
+                <li><i class="fas fa-trash-alt"></i> 環境テーマ：<?php echo $data["postData"]->event_category; ?></li>
 
               </ul>
 
@@ -91,7 +92,7 @@
           <!--"  -->
 
           <div class="about-event">
-            <p><?php echo $post->event_details; ?>フレックスアイテムのデフォルトの order は 0 です。したがって 0 より大きい order をもつアイテムは、明示的に order を指定されていないアイテムの後ろに表示されます。
+            <p><?php echo $data["postData"]->event_details; ?>フレックスアイテムのデフォルトの order は 0 です。したがって 0 より大きい order をもつアイテムは、明示的に order を指定されていないアイテムの後ろに表示されます。
 
               order には負の値を指定することもでき、ほかのアイテムはそのままの順序を保ちながら一つのアイテムだけを先頭に表示したい場合になどに有用です。先頭に表示したいアイテムに order: -1 を設定することで、0 より小さい order のこのアイテムが常に先頭に表示されるようになります。
 

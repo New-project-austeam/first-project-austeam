@@ -2,6 +2,8 @@ console.log("js loaded")
 const backTopFnc = require('./modules/backTop.js');
 const slideshowFnc = require('./modules/slideshow.js');
 const setPostData = require('./modules/setPostData.js');
+const loginModal = require('./modules/loginform.js')
+const signupModal = require('./modules/signupform.js')
 
 
 if (typeof parsedJson !== "undefined") {
@@ -13,7 +15,13 @@ if (typeof parsedJson !== "undefined") {
 if (document.querySelector("#slideshow")) {
   slideshowFnc();
   backTopFnc();
+  loginModal();
+  signupModal();
+
 }
+
+
+
 
 
 
