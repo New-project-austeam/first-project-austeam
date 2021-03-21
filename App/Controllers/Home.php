@@ -1,108 +1,23 @@
 <?php
-
-namespace App\Controllers;
-
-use \Core\View;
-use App\Models\User;
-
-
-class Home extends \Core\Controller
+/// トップページの機能
+class Home extends Controller
 {
-
-  protected function before()
+  public function __construct()
   {
-    // echo "(before)";
-  }
-
-  protected function after()
-  {
-    // echo " (after)";
-  }
-
-  public function indexAction()
-  {
-
-
-
-    View::render(
-      ['includes/head.php', 'includes/navigation.php', 'Home/index.php', 'includes/footer.php'],
-      []
-    );
-    // View::renderTemplate('Home/index.twig', [
-    //   'name' => 'Dave',
-    //   'colors' => ['red', 'green', 'blue']
-    // ]);
+    $this->postModel = $this->model('Post');
   }
 
 
-  public function loginAction()
+  public function index($param1 = null, $param2 = null)
   {
-    $args = [
-      "is_login" => null,
-      "is_signup" => null
-    ];
 
-    if (isset($_POST["submit_login"])) {
-      $user_email = $_POST['user_email'];
-      $user_password = $_POST['user_password'];
-
-      $result = User::login($user_email, $user_password);
-
-      if ($result) {
-        header("Location: " . URLROOT . "/home/index");
-        exit();
-      } else {
-        $args["is_login"] = "failed";
-      }
+    $data =  array();
+    if (isset($_SESSION['user_id'])) {
+      //ログインしてたら
+      $allPosts = $this->postModel->getAllPosts();
+      $data = array_merge($data, array("allPosts" => $allPosts));
     }
 
-    View::render(
-      ['includes/head.php', 'includes/navigation.php', 'Home/login.php', 'includes/footer.php'],
-      $args
-    );
-  }
-
-  public function logoutAction()
-  {
-    User::logout();
-    $this->indexAction();
-  }
-
-
-
-  public function signupAction()
-  {
-
-    $args = [
-      "is_signup" => null
-
-    ];
-
-    if (isset($_POST["submit_signup"])) {
-
-      $user_nickname = $_POST['user_nickname'];
-      $user_email = $_POST['user_email'];
-      $user_password = $_POST['user_password'];
-
-      $result = User::signup($user_nickname, $user_email, $user_password);
-
-      if ($result) {
-        $args["is_signup"] = true;
-        $args["is_login"] = false;
-
-        View::render(
-          ['includes/head.php', 'includes/navigation.php', 'Home/login.php', 'includes/footer.php'],
-          $args
-        );
-        exit();
-      } else {
-        $args["is_signup"] = "failed";
-      }
-    }
-
-    View::render(
-      ['includes/head.php', 'includes/navigation.php', 'Home/signup.php', 'includes/footer.php'],
-      $args
-    );
+    $this->view('Home/index', $data);
   }
 }

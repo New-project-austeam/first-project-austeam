@@ -1,0 +1,368 @@
+@import "variable.scss";
+
+.bg-img{
+   @include bg-img();
+}
+
+
+.contents-wrapper{
+  @include contents-wrapper();
+  .side {
+    @include wrap();
+  }
+  .main-content {
+    @include wrap();
+
+  }
+}
+
+
+@media (min-width: 769px) {
+  .contents-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .side{
+      width: 30%;
+      min-width: 300px;
+    }
+
+    .main-content{
+      width: 80%;
+      min-width: 500px;
+
+      .event-content{
+        width:95%;
+        margin: 0 auto;
+      }
+
+    }
+
+
+
+  }
+}
+
+
+
+/* Icon */
+
+@mixin icon {
+
+
+
+  .icon-border2{
+    border:$button-color 4px double;
+    width:100px;
+    height:100px;
+    border-radius: 50%;
+
+    img{
+
+      width:90px;
+      height:90px;
+      border-radius: 50%;
+      border:5px solid white;
+    }
+
+    }
+
+}
+
+/* イベントのタイトルとお気に入り */
+
+/* タイトル */
+.poseted-event-contents{
+  width:100%;
+  padding-left:20px;
+
+}
+
+  .posted-event-title{
+
+    width:100%;
+    margin:20px 0;
+    display: flex;
+    flex-direction:row ;
+
+   text-align: center;
+
+
+    .event-title{
+
+       width:100%;
+
+       padding-top: 5px;
+       h4{
+        font-size: 1.3rem;/* -------------フォントサイズ　仮------------- */
+       }
+
+
+    }
+
+
+    /* お気に入り */
+    .favorite-icon{
+
+
+      padding-top:5px;
+       width:15%;
+
+       font-size:1.2rem;
+
+
+    }
+    .favorite{
+      font-size: 1rem;
+
+    }
+  }
+
+
+  /* タイトル　PC */
+  @media(min-width:768px){
+    .event-title{
+
+       font-size: 1.5rem;/* -------------フォントサイズ　仮------------- */
+
+  }
+}
+
+
+/* Icon/* リスト */
+.event-detail-page{
+  padding:20px 0 50px;
+
+  .posted-event-detail{
+
+
+
+    .event-detail-icon{
+        text-align: center;
+      .icon-border2{
+        border:$button-color 4px double;
+        width:100px;
+        height:100px;
+        border-radius: 50%;
+        margin: 0 auto;
+
+
+
+        img{
+          display: block;
+          width:90px;
+          height:90px;
+          border-radius: 50%;
+          border:5px solid white;
+        }
+      }
+
+      .joinning-ppl{
+        margin-top:20px;
+        display: flex;
+
+       justify-content: center;
+       position: relative;
+
+
+        p{
+
+          padding:10px 130px 0 0;
+        }
+
+        .icon-border3{
+
+
+
+          &.joinning1{
+            z-index:10;
+            position:absolute;
+            right:40%;
+          }
+
+          &.joinning2{
+            z-index:20;
+            position:absolute;
+            right:34%;
+
+          }
+
+          &.joinning3{
+            z-index:30;
+            position:absolute;
+            right:28%;
+
+          }
+
+
+
+          img{
+            display: block;
+            width:40px;
+            height:40px;
+            border-radius: 50%;
+            border:5px solid white;
+          }
+        }
+      }
+
+
+    }
+  }
+}
+
+
+/* list */
+
+
+.event-info{
+  font-weight: bold;
+  width:90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content:space-evenly;
+  flex-direction: column;
+
+
+  .event-info-list{
+
+   li{
+        padding-top: 9px;
+
+  }
+}
+}
+
+/* event info PC */
+@media(min-width:768px){
+  .event-info{
+        display: flex;
+
+  }
+}
+
+
+/* about-event */
+
+.about-event{
+  margin:0 auto;
+  width:95%;
+  padding:20px 0;
+
+}
+
+
+.extra-info{
+  width:95%;
+  margin: 0 auto;
+  display: flex;
+
+}
+
+
+/*               掲示版　　　　　　　　　 */
+.notice-board-content{
+  width:95%;
+  margin: 0 auto;
+    .notice-board-title{
+      border-left:10px solid $button-color;
+
+      font-size:1.2rem;
+
+
+
+    }
+    .notice-board{
+
+      width:100%;
+      margin: 30px auto;
+      padding:20px;
+      border:1px rgb(189, 185, 185,0.3) solid;
+
+
+        /* アイコン */
+        .icon{
+          border:$button-color 4px double;
+          width:70px;
+          height:70px;
+          border-radius: 50%;
+
+
+
+
+          img{
+            display: block;
+            width:60px;
+            height:60px;
+            border-radius: 50%;
+            border:5px solid white;
+
+        }
+
+
+
+    }
+}
+}
+
+
+/* chat表示 */
+.chatting1{
+
+
+  display: flex;
+  flex-direction: row;
+ justify-content: flex-start;
+
+
+    .says{
+      border:1px solid rgb(158, 153, 153,0.5);
+      border-radius: 5px;
+      margin:0 8px;
+    }
+}
+
+.chatting2{
+  margin:50px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+
+
+    .says{
+      border:1px solid rgb(158, 153, 153,0.5);
+      border-radius: 5px;
+      margin:0 8px;
+    }
+}
+
+
+
+
+.comment{
+ text-align: center;
+  textarea{
+  width:95%;
+  border: 1px rgb(187, 178, 178,0.5) solid;
+}
+}
+
+.comment-button{
+  text-align: center;
+  margin-top:20px;
+.comment-btn{
+
+  color: $button-color;
+  background-color: $button-color;
+      padding: 6px 15px;
+      border-radius: 2px;
+      border: none;
+      color: $main-letter-color;
+      padding:5px 100px;
+      &:hover {
+        color: black;
+        box-shadow:1px 1px rgb(12, 128, 12) ;
+      }
+}
+}
