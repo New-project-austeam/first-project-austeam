@@ -18,7 +18,7 @@ class User
     $this->db->bind(':email', $data['user_email']);
 
     if ($this->db->execute()) {
-      return true;
+      return $this->db->getLastInsertedId();
     } else {
       return false;
     }

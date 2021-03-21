@@ -20,6 +20,10 @@ class Users extends Controller
     // Check for Post
     if ($_SERVER['REQUEST_METHOD']  == 'POST') {
 
+
+
+
+
       $data = [
         "title" => "Register Page",
         'user_name' => trim($_POST['user_nickname']),
@@ -62,7 +66,10 @@ class Users extends Controller
         $data['user_password'] = password_hash($data['user_password'], PASSWORD_DEFAULT);
 
         // Register User
-        if ($this->userModel->register($data)) {
+        $lastInsertedId = $this->userModel->register($data);
+        if ($lastInsertedId) {
+          $this->make_user_image_dir($lastInsertedId);
+
           flash('register_success', 'You are successfully registered!! Please login with  the your account ');
           redirect('users/login');
         } else {
@@ -153,6 +160,7 @@ class Users extends Controller
     $_SESSION['user_id'] = $user->id;
     $_SESSION['user_email'] = $user->user_email;
     $_SESSION['user_name'] = $user->user_name;
+    $_SESSION['user_image'] = $user->user_image;
     redirect('home/index');
   }
 

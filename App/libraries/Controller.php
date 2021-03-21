@@ -26,4 +26,14 @@ class Controller
       die('View ' . $view . ' file does not exist');
     }
   }
+
+  public function make_user_image_dir($user_id)
+  {
+    mkdir(ROOT . "/public/dist/uploads/user_" . $user_id, 0700);
+    chmod(ROOT . "/public/dist/uploads/user_" . $user_id, 0777);
+    mkdir(ROOT . "/public/dist/uploads/user_" . $user_id . "/events", 0700);
+    chmod(ROOT . "/public/dist/uploads/user_" . $user_id . "/events", 0777);
+    mkdir(ROOT . "/public/dist/uploads/user_" . $user_id . "/profile", 0700);
+    chmod(ROOT . "/public/dist/uploads/user_" . $user_id . "/profile", 0777);
+  }
 }

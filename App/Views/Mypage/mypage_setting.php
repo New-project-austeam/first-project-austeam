@@ -15,12 +15,19 @@
       <li><a href="#">そのほか</a></li>
     </ul>
 
-    <form style="flex: 0 0 60%;" method="post" action="<?php echo URLROOT; ?>/mypage/setting">
+    <form style="flex: 0 0 60%;" method="post" action="<?php echo URLROOT; ?>/mypage/setting"
+      enctype='multipart/form-data'>
+
       <h2>あなたのプロフィール</h2>
       <?php flash('edit_intro_success'); ?>
       <div class="row">
         <div for="email">ニックネーム</div>
         <input type="text" id="email" name="user_name" value="<?php echo $data['user_info']->user_name; ?>">
+      </div>
+
+      <div class="row">
+        <label for='user_image'>ユーザーアイコン</dt>
+          <dd><input id="user_image" type="file" name="user_image"></dd>
       </div>
 
       <div class="row">

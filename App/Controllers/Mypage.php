@@ -32,6 +32,13 @@ class Mypage extends Controller
     if ($_SERVER['REQUEST_METHOD']  == 'POST') {
       //ユーザーのプロフィールを編集した時。
       $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+
+      if (isset($_FILES['user_image'])) {
+        $user_image_url = image_uploader($_FILES['user_image'], "user_image");
+        $_SESSION['user_image'] = $user_image_url;
+      }
+
       $data = [
         'user_email' => $_SESSION['user_email'],
         'user_name' => trim($_POST['user_name']),
@@ -47,6 +54,7 @@ class Mypage extends Controller
         "user_location" => nl2br(
           trim($_POST['user_location'])
         ),
+        "user_image" => $user_image_url
       ];
 
       $result = $this->userModel->editUserInfo($data);
@@ -169,6 +177,11 @@ class Mypage extends Controller
     if ($_SERVER['REQUEST_METHOD']  == 'POST') {
       //編集や新しく投稿を作成した時にその投稿データを確認ページに飛ばす。
       $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+      // if (isset($_FILES['event_image'])) {
+      //   image_uploader($_FILES['event_image']);
+      // }
+
       $data = [
         "event_title" => trim($_POST["event_title"]),
         "event_date" => trim($_POST["event_date"]),
@@ -219,6 +232,10 @@ class Mypage extends Controller
       } else {
         //新しく投稿を作成してそのデータを確認ページに飛ばす。
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+
+
+
         $data = [
           "event_title" => trim($_POST["event_title"]),
           "event_date" => trim($_POST["event_date"]),

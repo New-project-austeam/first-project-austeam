@@ -31,11 +31,17 @@
 
 
      <h2 class="mypage-section-title"><?php echo $title; ?></h2>
-     <form action="<?php echo URLROOT; ?>/mypage/confirm" method="post" class="event-form">
+     <form action="<?php echo URLROOT; ?>/mypage/confirm" method="post" class="event-form"
+       enctype='multipart/form-data'>
        <dl class="event-form-list">
          <div class="form-items">
            <dt>イベントのタイトル :</dt>
            <dd><input id="event_title" type="text" name="event_title"></dd>
+         </div>
+
+         <div class="form-items">
+           <dt>イベントのイメージ画像 :</dt>
+           <dd><input id="event_title" type="file" name="event_image"></dd>
          </div>
 
          <div class="form-items">
