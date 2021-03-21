@@ -4,3 +4,4 @@ node_modules
 vendor
 
 brewcon
+public/dist/uploads/user_*
