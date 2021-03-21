@@ -31,8 +31,11 @@ class Mypage_M
 
     $sql = 'UPDATE users SET user_name = :user_name, ';
     $sql .= 'user_intro = :user_intro, user_experience = ';
-    $sql .= ':user_experience, user_hobbies = :user_hobbies, user_location = :user_location, user_image = :user_image ';
-    $sql .= 'WHERE  user_email = :user_email;';
+    $sql .= ':user_experience, user_hobbies = :user_hobbies, user_location = :user_location';
+    if (isset($data['user_image'])) {
+      $sql .= ', user_image = :user_image';
+    }
+    $sql .= ' WHERE  user_email = :user_email;';
 
     $this->db->query($sql);
 
@@ -42,7 +45,9 @@ class Mypage_M
     $this->db->bind(':user_hobbies', $data['user_hobbies']);
     $this->db->bind(':user_location', $data['user_location']);
     $this->db->bind(':user_email', $data['user_email']);
-    $this->db->bind(':user_image', $data['user_image']);
+    if (isset($data['user_image'])) {
+      $this->db->bind(':user_image', $data['user_image']);
+    }
     $result = $this->db->execute();
 
     if ($result) {

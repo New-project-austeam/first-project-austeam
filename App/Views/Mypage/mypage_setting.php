@@ -20,6 +20,7 @@
 
       <h2>あなたのプロフィール</h2>
       <?php flash('edit_intro_success'); ?>
+
       <div class="row">
         <div for="email">ニックネーム</div>
         <input type="text" id="email" name="user_name" value="<?php echo $data['user_info']->user_name; ?>">
@@ -28,6 +29,7 @@
       <div class="row">
         <label for='user_image'>ユーザーアイコン</dt>
           <dd><input id="user_image" type="file" name="user_image"></dd>
+          <?php flash('edit_err'); ?>
       </div>
 
       <div class="row">

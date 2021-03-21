@@ -32,11 +32,23 @@ class Mypage extends Controller
     if ($_SERVER['REQUEST_METHOD']  == 'POST') {
       //ユーザーのプロフィールを編集した時。
       $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+      $image_url = null;
 
+      if ($_FILES['user_image']["name"] != "") {
 
-      if (isset($_FILES['user_image'])) {
-        $user_image_url = image_uploader($_FILES['user_image'], "user_image");
-        $_SESSION['user_image'] = $user_image_url;
+        $result = image_uploader($_FILES['user_image'], "user_image");
+
+        if ($result->err_message) {
+          flash('edit_err', $result->err_message);
+          $data = [
+            "user_info" => (object)$_POST
+          ];
+          $this->view('Mypage/mypage_setting', $data);
+          exit();
+        } else {
+          $_SESSION['user_image'] = $result->url;
+          $image_url = $result->url;
+        }
       }
 
       $data = [
@@ -53,9 +65,13 @@ class Mypage extends Controller
         ),
         "user_location" => nl2br(
           trim($_POST['user_location'])
-        ),
-        "user_image" => $user_image_url
+        )
       ];
+
+      if ($image_url) {
+        $data["user_image"] = $image_url;
+      }
+
 
       $result = $this->userModel->editUserInfo($data);
 

@@ -85,8 +85,8 @@ function loginModal() {
     template += ''
     template += '<button class="submit-btn">ログイン</button>'
     template += '</div>'
-    　template += '<a href="#" class="signup-btn">アカウント登録はこちら</a>'
-    loginmodal2.innerHTML = template; */
+     template += '<a href="#" class="signup-btn">アカウント登録はこちら</a>'
+      loginmodal2.innerHTML = template; */
 
     /*
        上記のようにinnerHTMLで書き換える場合は上のHTMLフォームを表示する関数のなかに以下を記述しないと、クリックイベントで表示するようにしている場合はこのように描かないと実行できない　※なぜならsignup要素がこの関数外には存在していないから、文字列は表示されててもクリックしないと遷移できない。

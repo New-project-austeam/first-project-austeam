@@ -5,7 +5,12 @@
 function image_uploader($file_data = null, $type = null)
 {
 
-  delete_image_file();
+  $result = (object)[
+    "err_message" => null,
+    "url" => null
+  ];
+
+
   $user_id = $_SESSION['user_id'];
   $fileName = $file_data['name'];
   $fileTmpName = $file_data['tmp_name'];
@@ -14,6 +19,7 @@ function image_uploader($file_data = null, $type = null)
   $fileType = $file_data['type'];
   $errorMessage = null;
 
+
   $fileExt = explode('.', $fileName);
   $fileActualExt = strtolower(end($fileExt));
 
@@ -21,8 +27,8 @@ function image_uploader($file_data = null, $type = null)
 
   if (in_array($fileActualExt, $allowed)) {
     if ($fileError === 0) {
-      if ($fileSize < 1000000) {
-
+      if ($fileSize < 2000000) {
+        delete_image_file();
         if ($type === "user_image") {
           $fileDestination = '/public/dist/uploads/user_' .  $user_id . "/profile/user_prof_icon." . $fileActualExt;
           $fullFileDestination = ROOT . $fileDestination;
@@ -33,7 +39,8 @@ function image_uploader($file_data = null, $type = null)
 
 
         move_uploaded_file($fileTmpName, $fullFileDestination);
-        return $fileDestination;
+        $result->url = $fileDestination;
+        return $result;
 
         // echo "suceess";
       } else {
@@ -45,7 +52,8 @@ function image_uploader($file_data = null, $type = null)
   } else {
     $errorMessage = "対応した画像ではありません。";
   }
-  return $errorMessage;
+  $result->err_message = $errorMessage;
+  return $result;
 }
 
 
