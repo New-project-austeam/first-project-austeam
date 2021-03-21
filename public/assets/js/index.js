@@ -4,6 +4,7 @@ const slideshowFnc = require('./modules/slideshow.js');
 const setPostData = require('./modules/setPostData.js');
 
 
+
 if (typeof parsedJson !== "undefined") {
   console.log(12345);
   setPostData(parsedJson);
@@ -14,6 +15,7 @@ if (document.querySelector("#slideshow")) {
   slideshowFnc();
   backTopFnc();
 }
+
 
 
 

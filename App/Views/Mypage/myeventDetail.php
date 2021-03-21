@@ -3,11 +3,14 @@
 
  <div class="wrap">
    <h2>My Post Edit Page</h2>
+   <?php flash('edit_new_event'); ?>
    <?php require APPROOT . '/views/inc/postForm.php'; ?>
-
    <a href="<?php echo URLROOT . "/mypage/myevents"; ?>"><button>戻る</button></a>
+
    <br>
-   <?php print_r($data); ?>
+   <?php var_dump($data);
+    echo $_SESSION['post_id'];
+    ?>
  </div>
 
 

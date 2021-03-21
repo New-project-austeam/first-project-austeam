@@ -35,3 +35,17 @@ function flash($name = '', $message = '', $class = 'alert alert-success')
     }
   }
 }
+
+
+
+
+/// イベント投稿の編集の際にpost_idをkeepしておく機能
+function post_id_keeper($post_id = null)
+{
+
+  if (isset($post_id)) {
+    $_SESSION['post_id'] = $post_id;
+  } else if (isset($_SESSION['post_id'])) {
+    unset($_SESSION['post_id']);
+  }
+}

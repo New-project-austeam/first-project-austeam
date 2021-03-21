@@ -4,14 +4,11 @@
 class Mypage extends Controller
 {
 
-  function test2()
-  {
-    echo "test2";
-  }
 
 
   public function __construct()
   {
+
     $this->userModel = $this->model('Mypage_M');
     $this->postsModel = $this->model('Post');
   }
@@ -26,8 +23,6 @@ class Mypage extends Controller
     $data = [
       "user_info" => $userInfo
     ];
-
-
     $this->view('Mypage/mypage_main', $data);
   }
 
@@ -35,6 +30,7 @@ class Mypage extends Controller
   {
 
     if ($_SERVER['REQUEST_METHOD']  == 'POST') {
+      //ユーザーのプロフィールを編集した時。
       $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
       $data = [
         'user_email' => $_SESSION['user_email'],
@@ -67,6 +63,7 @@ class Mypage extends Controller
         echo "failed";
       }
     } else {
+      //ユーザーのプロフィールに初めて飛んできた時。
 
       $userInfo = $this->userModel->getUserInfo();
       $data = [
@@ -81,7 +78,7 @@ class Mypage extends Controller
 
   public function myevents()
   {
-
+    //現在登録されている自分の投稿一覧を出力するページ。
     $user_id = $_SESSION['user_id'];
     $allPosts = $this->postsModel->getUserPosts($user_id);
 
@@ -96,32 +93,70 @@ class Mypage extends Controller
   public function post_edit($postId = null)
   {
     if ($_SERVER['REQUEST_METHOD']  == 'POST') {
+      $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
 
-      //削除の場合
       if (isset($_POST['d_post_id'])) {
-        echo "naoko";
+        //削除の場合
         $post_id = $_POST['d_post_id'];
         $result = $this->postsModel->delete($post_id);
         if ($result["result"]) {
+          //削除することに確認した時。
           flash('delete_myevent', $result['post_data']->event_title . 'は削除されました。');
           redirect("mypage/myevents");
         }
-        // 編集の場合
       } else if (isset($_POST['e_post_id'])) {
-        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-        echo "submit";
-      }
-      //編集ページに飛んできたとき。
-    } else {
+        // 編集ページで確定ボタンを押した時。
 
+        $data = [
+
+          "event_title" => trim($_POST["event_title"]),
+          "event_date" => trim($_POST["event_date"]),
+          "event_location" => trim($_POST["event_location"]),
+          "event_category" => trim($_POST["event_category"]),
+          "event_clothe" => nl2br(
+            trim($_POST["event_clothe"])
+          ),
+          "event_equipment" => nl2br(
+            trim($_POST["event_equipment"])
+          ),
+          "event_level" => trim($_POST["event_level"]),
+          "event_details" => nl2br(
+            trim($_POST["event_details"])
+          ),
+          "is_edit" => true
+        ];
+
+        $this->view('Mypage/confirm', $data);
+      } else if (isset($_POST['editConfirm'])) {
+        //編集ページの確認ページで確定した時。
+
+
+
+        $result = $this->postsModel->edit($_POST);
+
+        if ($result) {
+          flash('edit_new_event', '投稿の編集は成功しました。');
+          $this->view('Mypage/myeventDetail', null);
+        } else {
+          die('something went wrong...');
+        }
+        exit();
+      } else if (isset($_POST['editReturn'])) {
+        //編集の確認ページから戻ってきたとき。
+
+        $this->view('Mypage/myeventDetail', null);
+      }
+    } else {
+      //編集ページに最初に飛んできたとき。
       $result = $this->postsModel->getPostDetails($postId);
 
       $data = [
+        "post_id" => $postId,
         "post_detail" => $result,
         "isEditPage" => true
       ];
-      echo "hondasan";
+
 
       $this->view('Mypage/myeventDetail', $data);
     }
@@ -132,6 +167,7 @@ class Mypage extends Controller
   public function confirm()
   {
     if ($_SERVER['REQUEST_METHOD']  == 'POST') {
+      //編集や新しく投稿を作成した時にその投稿データを確認ページに飛ばす。
       $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
       $data = [
         "event_title" => trim($_POST["event_title"]),
@@ -150,8 +186,9 @@ class Mypage extends Controller
         ),
       ];
 
-      $this->view('Posts/confirm', $data);
+      $this->view('Mypage/confirm', $data);
     } else {
+      // URLで直接確認ページに飛んできた時は404ページに飛ばす。
       redirect("Forzerofor/index");
       exit();
     }
@@ -162,9 +199,11 @@ class Mypage extends Controller
     if ($_SERVER['REQUEST_METHOD']  == 'POST') {
       $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
       if (isset($_POST['submitReturn'])) {
+        //新しく投稿を作成して確認ページで戻ってきた時。
         header('Location:' .  URLROOT . '/mypage/mypageTop', true, 307);
         exit();
       } else if (isset($_POST['submitConfirm'])) {
+        //新しく投稿を作成して確認ページで確定した時。
         $data = [
           "post_data" => $_POST,
         ];
@@ -178,7 +217,8 @@ class Mypage extends Controller
         }
         exit();
       } else {
-
+        //新しく投稿を作成してそのデータを確認ページに飛ばす。
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         $data = [
           "event_title" => trim($_POST["event_title"]),
           "event_date" => trim($_POST["event_date"]),
@@ -196,14 +236,9 @@ class Mypage extends Controller
           ),
         ];
 
-        $this->view('Posts/confirm', $data);
+        $this->view('Mypage/confirm', $data);
       }
     } else {
     }
-  }
-
-  private function test()
-  {
-    echo "test";
   }
 }

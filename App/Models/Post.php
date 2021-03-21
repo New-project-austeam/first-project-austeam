@@ -11,7 +11,9 @@ class Post
 
   public function getAllPosts()
   {
-    $this->db->query("SELECT * FROM posts ");
+
+    $sql = 'SELECT posts.*, users.user_name FROM posts JOIN users on posts.user_id = users.id';
+    $this->db->query($sql);
 
     return $this->db->resultSet();
   }
@@ -28,7 +30,7 @@ class Post
   public function getPostDetails($postID)
   {
 
-    $sql = "SELECT * FROM posts WHERE post_id = :post_id";
+    $sql = "SELECT posts.*, users.user_name FROM posts JOIN users on posts.user_id = users.id WHERE post_id = :post_id";
     $this->db->query($sql);
     $this->db->bind(':post_id', $postID);
     return $this->db->single();
@@ -63,5 +65,35 @@ class Post
       "post_data" => $post_data
     ];
     return $result;
+  }
+
+  public function edit($data)
+  {
+
+
+
+    $sql = 'UPDATE Posts SET ';
+    $sql .= 'event_title = :event_title, ';
+    $sql .= 'event_date = :event_date, ';
+    $sql .= 'event_location = :event_location, ';
+    $sql .= 'event_category = :event_category, ';
+    $sql .= 'event_clothe = :event_clothe, ';
+    $sql .= 'event_equipment = :event_equipment, ';
+    $sql .= 'event_level = :event_level, ';
+    $sql .= 'event_details = :event_details ';
+    $sql .= 'WHERE post_id = :post_id ';
+
+
+    $this->db->query($sql);
+    $this->db->bind(':event_title', $data['event_title']);
+    $this->db->bind(':event_date', $data['event_date']);
+    $this->db->bind(':event_location', $data['event_location']);
+    $this->db->bind(':event_category', $data['event_category']);
+    $this->db->bind(':event_clothe', $data['event_clothe']);
+    $this->db->bind(':event_equipment', $data['event_equipment']);
+    $this->db->bind(':event_level', $data['event_level']);
+    $this->db->bind(':event_details', $data['event_details']);
+    $this->db->bind(':post_id', $_SESSION['post_id']);
+    return $this->db->execute();
   }
 }

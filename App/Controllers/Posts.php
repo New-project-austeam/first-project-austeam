@@ -17,10 +17,6 @@ class Posts extends Controller
     // echo $id;
   }
 
-  // public function about($id = null, $id2 = null)
-  // {
-  //   echo "about " . $id . " " . $id2;
-  // }
 
   public function details($post_id = null)
   {

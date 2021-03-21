@@ -51,111 +51,121 @@
         foreach ($myposts as $post) {
 
         ?>
-          <div class="posted">
-<!--  -->
+        <div class="posted">
+          <!--  -->
 
-            <div class="posted-event">
-              <!-- flex -->
-              <div class="openning">
-                <p>募集中<!DOCTYPE html>
+          <div class="posted-event">
+            <!-- flex -->
+            <div class="openning">
+              <p>募集中
+                <!DOCTYPE html>
                 <html lang="ja">
+
                 <head>
                   <meta charset="UTF-8">
                   <meta name="viewport" content="width=device-width, initial-scale=1.0">
                   <title>Document</title>
                 </head>
+
                 <body>
 
                 </body>
-                </html><!DOCTYPE html>
+
+                </html>
+                <!DOCTYPE html>
                 <html lang="ja">
+
                 <head>
                   <meta charset="UTF-8">
                   <meta name="viewport" content="width=device-width, initial-scale=1.0">
                   <title>Document</title>
                 </head>
+
                 <body>
 
                 </body>
-                </html></p>
+
+                </html>
+              </p>
+            </div>
+            <div class="icon">
+              <div class="icon-border">
+                <img src="<?php echo URLROOT; ?>/dist/images/woman-332278_1920.jpg">
               </div>
-              <div class="icon">
-                <div class="icon-border">
-                  <img src="<?php echo URLROOT; ?>/dist/images/woman-332278_1920.jpg">
+              <p class="nickname"><a href="#"><?php echo $post->user_name ?></a></p>
+            </div>
+
+
+            <div class="poseted-event-contents">
+
+              <div class="posted-event-title">
+                <!-- flex -->
+                <div class="event-title">
+
+                  <h4><a><?php echo $post->event_title ?></a></h4>
                 </div>
-                <p class="nickname"><a href="#">name</a></p>
+                <div class="favorite-icon">
+                  <h3><a href="#">☆</a></h3><!-- 仮 -->
+                </div>
+              </div><!-- イベントタイトル -->
+
+
+              <ul class="event-info-list">
+                <!-- flex -->
+                <li><i class="fas fa-trash-alt"></i> 開催日:<?php echo $post->event_date; ?></li>
+                <li><i class="fas fa-trash-alt"></i> 場所:<?php echo $post->event_location; ?></li>
+                <li><i class="fas fa-trash-alt"></i> 環境テーマ:<?php echo $post->event_category; ?></li>
+              </ul>
+
+
+
+            </div><!-- posted-event-contents -->
+
+
+
+          </div>
+          <!--class="posted-event"  -->
+
+          <div class="event-detail">
+            <span style="font-weight: bold;">詳細:　</span>
+            <p> <?php echo $post->event_details; ?></p>
+          </div>
+
+
+
+
+          <div class="joinning-ppl">
+
+            <span style="font-weight: bold;">参加予定:　3人</span>
+
+            <div class="joinner-icons">
+              <div class="icon-border3 joinning1">
+                <img src="<?php echo URLROOT; ?>/dist/images/woman-332278_1920.jpg">
               </div>
-
-
-              <div class="poseted-event-contents">
-
-                <div class="posted-event-title">
-                  <!-- flex -->
-                  <div class="event-title">
-
-                    <h4><a><?php echo $post->event_title ?></a></h4>
-                  </div>
-                  <div class="favorite-icon">
-                    <h3><a href="#">☆</a></h3><!-- 仮 -->
-                  </div>
-                </div><!-- イベントタイトル -->
-
-
-                <ul class="event-info-list">
-                  <!-- flex -->
-                  <li><i class="fas fa-trash-alt"></i> 開催日:<?php echo $post->event_date; ?></li>
-                  <li><i class="fas fa-trash-alt"></i> 場所:<?php echo $post->event_location; ?></li>
-                  <li><i class="fas fa-trash-alt"></i> 環境テーマ:<?php echo $post->event_category; ?></li>
-                </ul>
-
-
-
-              </div><!-- posted-event-contents -->
-
-
-
-            </div>
-            <!--class="posted-event"  -->
-
-            <div class="event-detail">
-              <span style="font-weight: bold;">詳細:　</span>
-              <p> <?php echo $post->event_details; ?></p>
-            </div>
-
-
-
-
-            <div class="joinning-ppl">
-
-                <span style="font-weight: bold;">参加予定:　3人</span>
-
-              <div class="joinner-icons">
-                <div class="icon-border3 joinning1">
-                  <img src="<?php echo URLROOT; ?>/dist/images/woman-332278_1920.jpg">
-                </div>
-                <div class="icon-border3 joinning2">
-                  <img src="<?php echo URLROOT; ?>/dist/images/kiss-1489654_1920.jpg">
-                </div>
-                <div class="icon-border3 joinning3">
-                  <img src="<?php echo URLROOT; ?>/dist/images/CEE67B79-1B39-4F5D-AD01-54568C0413BC_1_105_c.jpeg">
-                </div>
-              </div><!-- joinner-icons -->
-            </div>
+              <div class="icon-border3 joinning2">
+                <img src="<?php echo URLROOT; ?>/dist/images/kiss-1489654_1920.jpg">
+              </div>
+              <div class="icon-border3 joinning3">
+                <img src="<?php echo URLROOT; ?>/dist/images/CEE67B79-1B39-4F5D-AD01-54568C0413BC_1_105_c.jpeg">
+              </div>
+            </div><!-- joinner-icons -->
+          </div>
 
 
 
 
 
 
-            <div class="detail">
-              <button class="detail-btn"><a href="<?php echo URLROOT . "/posts/details/" . $post->post_id; ?>">詳細</a></button>
-            </div>
+          <div class="detail">
+            <button class="detail-btn"><a
+                href="<?php echo URLROOT . "/posts/details/" . $post->post_id; ?>">詳細</a></button>
+          </div>
 
 
 
 
 
-          </div><!-- posted-->
+        </div><!-- posted-->
 
         <?php
         }
@@ -249,14 +259,16 @@
       foreach ($myposts as $post) {
 
       ?>
-        <a href="#" class="myevent_list">
+      <a href="#" class="myevent_list">
 
-          <p>
-            <span class="title">イベントタイトル</span><?php echo $post->event_title ?><span class="title mg-l">開催日</span><?php echo $post->event_date; ?><span class="title mg-l">イベント作成日</span><?php echo $post->created_at; ?>
-          </p>
-          <p><span class="title">詳細</span><?php echo $post->event_details; ?></p>
+        <p>
+          <span class="title">イベントタイトル</span><?php echo $post->event_title ?><span
+            class="title mg-l">開催日</span><?php echo $post->event_date; ?><span
+            class="title mg-l">イベント作成日</span><?php echo $post->created_at; ?>
+        </p>
+        <p><span class="title">詳細</span><?php echo $post->event_details; ?></p>
 
-        </a>
+      </a>
 
       <?php
       }

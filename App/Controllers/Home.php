@@ -1,5 +1,5 @@
 <?php
-
+/// トップページの機能
 class Home extends Controller
 {
   public function __construct()
@@ -13,27 +13,11 @@ class Home extends Controller
 
     $data =  array();
     if (isset($_SESSION['user_id'])) {
+      //ログインしてたら
       $allPosts = $this->postModel->getAllPosts();
       $data = array_merge($data, array("allPosts" => $allPosts));
     }
 
     $this->view('Home/index', $data);
-    // echo $id;
   }
-
-  // public function about()
-  // {
-  //   $data = [
-  //     "title" => 'About Page'
-  //   ];
-  //   $this->view('pages/about', $data);
-  // }
-
-  // public function contact()
-  // {
-  //   $data = [
-  //     "title" => 'Contact Page'
-  //   ];
-  //   $this->view('pages/about', $data);
-  // }
 }

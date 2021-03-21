@@ -5,11 +5,15 @@
     $delete_btn = null;
 
 
-    switch (isset($data["isEditPage"])) {
+
+
+
+    switch (isset($data["isEditPage"]) || isset($_POST['editReturn']) || isset($_POST['editConfirm'])) {
       case true:
         $title = "イベントを編集する";
         $btn_title = "確定";
         $delete_btn = '<input class="delete_btn" style="background-color: rgba(115, 115, 115, .7) ;margin-top: 10px;" name="event_delete" type="submit" value="削除">';
+
         break;
       case false:
         $title = "イベントを作成する";
@@ -91,16 +95,18 @@
          <?php
 
           ///ここから下は投稿確認ページに戻ってきたケース
-          if (isset($_POST['submitReturn']) || isset($data["isEditPage"])) {
+          if (isset($_POST['submitReturn']) || isset($data["isEditPage"]) || isset($_POST['editReturn']) || isset($_POST['editConfirm'])) {
 
 
-            if (isset($_POST['submitReturn'])) {
+            if (isset($_POST['submitReturn']) || isset($_POST['editReturn']) || isset($_POST['editConfirm'])) {
               $data = $_POST;
             } else if (isset($data["isEditPage"])) {
               $data = $data["post_detail"];
             }
             $json = json_encode($data, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
             // print_r($json);
+            $json = escapeJsonString($json);
+
 
           ?>
 

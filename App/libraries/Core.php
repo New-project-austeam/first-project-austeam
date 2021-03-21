@@ -12,6 +12,8 @@ class Core
     $url = $this->getUrl();
     $controller = null;
 
+    $this->data_keeper();
+
     if (!$url) {
 
       $this->setController("home");
@@ -106,6 +108,19 @@ class Core
       $this->setController("Forzerofor");
       $this->setMethod("index");
       exit();
+    }
+  }
+
+
+  // urlがpost_editのページならpost_idを編集が終わるまでkeepしておく。
+  public function data_keeper()
+  {
+    $url = $this->getUrl();
+    if ($url[0] == "mypage" && $url[1] == "post_edit" && isset($url[2])) {
+
+      post_id_keeper($url[2]);
+    } else if ($url[1] != "post_edit" && isset($_SESSION['post_id'])) {
+      post_id_keeper();
     }
   }
 }

@@ -1,6 +1,9 @@
 <?php require APPROOT . '/views/inc/head.php'; ?>
 <?php require APPROOT . '/views/inc/header.php'; ?>
 
+<?php
+$post = $data['postData'];
+?>
 
 <main class="bg-img">
   <span class="space">スペース</span>
@@ -26,7 +29,7 @@
             <div class="posted-event-title">
               <!-- flex -->
               <div class="event-title">
-                <h4>"<?php echo $post->event_title ?> 仮ごみ拾いにいく "</h4>
+                <h4>"<?php echo $post->event_title ?> "</h4>
               </div>
 
               <div class="favorite-icon">
@@ -44,7 +47,7 @@
                 </div>
 
                 <div>
-                  <li>開催者：<?php echo $post->event_date; ?></li>
+                  <li>開催者：<?php echo $post->user_name; ?></li>
                 </div>
 
                 <div class="joinning-ppl">
@@ -91,9 +94,7 @@
           <!--"  -->
 
           <div class="about-event">
-            <p><?php echo $post->event_details; ?>フレックスアイテムのデフォルトの order は 0 です。したがって 0 より大きい order をもつアイテムは、明示的に order を指定されていないアイテムの後ろに表示されます。
-
-              order には負の値を指定することもでき、ほかのアイテムはそのままの順序を保ちながら一つのアイテムだけを先頭に表示したい場合になどに有用です。先頭に表示したいアイテムに order: -1 を設定することで、0 より小さい order のこのアイテムが常に先頭に表示されるようになります。
+            <p><?php echo $post->event_details; ?>
 
 
             </p>
@@ -116,8 +117,8 @@
 
           <!-- 参加するボタン。クラス名変更するかボタンは同じクラスつけて揃えるようにする -->
           <div class="comment-button">
-              <input type="submit" class="comment-btn" value="参加する">
-            </div>
+            <input type="submit" class="comment-btn" value="参加する">
+          </div>
 
         </div><!-- detail-page--->
 
