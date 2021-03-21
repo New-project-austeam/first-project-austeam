@@ -71,3 +71,4 @@ function slideshowFnc() {
 }
 
 module.exports = slideshowFnc;
+//インポートする時の文言

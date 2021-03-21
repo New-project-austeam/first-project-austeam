@@ -1848,4 +1848,295 @@ a:hover {
   box-shadow: 1px 1px #0c800c;
 }
 
+/* タイムライン・イベント詳細ページ　共通 */
+/* a */
+/* 　　　　　　2カラムの時に使える【　枠　】テンプレートと背景
+　　　　　　　　　　　　timelineとrecommendationの共通設定から拝借 */
+/* ２カラム両方の【　枠　】設定 */
+/*  ↓↓↓↓↓↓使用例  それぞれのコンテンツに指定する
+ .side {
+    @include wrap();
+
+  }
+  .main-content {
+    @include wrap();
+
+  }
+*/
+/* 背景*/
+.bg-img {
+  background-image: url(../images/4858794.jpg);
+  background-size: cover;
+  background-repeat: repeat-y;
+  width: 100%;
+  height: 100％;
+}
+
+/* sideとmain-contentのモバイルのレスポンシブの共通設定　モバイルファースト */
+/*
+.contents-wrapper {　　←２カラム入ってる親に指定することで、２カラムがレスポンシブされる
+    @include contents-wrapper();
+}
+
+/* wrap PC　version 　　コピペで貼り付けOK*/
+@media (min-width: 769px) {
+  .contents-wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+  .contents-wrapper .side {
+    width: 30%;
+    min-width: 300px;
+  }
+  .contents-wrapper .mian-content {
+    width: 80%;
+    min-width: 500px;
+  }
+}
+/* icon */
+main {
+  position: relative;
+}
+
+.login-modal {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+  background-color: rgba(58, 59, 58, 0.8);
+  color: #635a5a;
+}
+.login-modal .login-form {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  width: clamp(400px,50vw,700px);
+  text-align: center;
+}
+.login-modal .login-form h3 {
+  padding-top: 30px;
+}
+.login-modal form {
+  padding-top: 15px;
+}
+.login-modal form div {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0 20px 0;
+  width: 95%;
+  margin: 0 auto;
+}
+[dir="ltr"] .login-modal form div dt{
+  text-align: left;
+}
+[dir="rtl"] .login-modal form div dt{
+  text-align: right;
+}
+.login-modal form div dt {
+  width: 40%;
+}
+.login-modal form div dd {
+  width: 70%;
+}
+.login-modal form div dd [type=email], .login-modal form div dd [type=password], .login-modal form div dd [type=text] {
+  width: 90%;
+  height: 30px;
+}
+.login-modal form .login-btn {
+  color: #19eeb9;
+  background-color: #19eeb9;
+  padding: 6px 15px;
+  border-radius: 2px;
+  border: none;
+  color: #635a5a;
+}
+.login-modal form .login-btn:hover {
+  color: black;
+  box-shadow: 1px 1px #0c800c;
+}
+
+.signup-btn {
+  display: block;
+  padding: 10px 0 30px;
+}
+.signup-btn:hover {
+  border-bottom: rgba(128, 128, 128, 0.2) 1px solid;
+}
+
+/* close-modal */
+.close-modal,
+.close-modal2,
+.close-modal3 {
+  position: relative;
+  margin-right: 5px;
+}
+.close-modal a,
+.close-modal2 a,
+.close-modal3 a {
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+.close-modal a:hover,
+.close-modal2 a:hover,
+.close-modal3 a:hover {
+  color: #19eeb9;
+}
+
+/* jsでクラス付与しログインフォームを表示 */
+.login-modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/*             log in ⏩ sign up                  */
+.signup-modal {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+  color: #635a5a;
+}
+.signup-modal .login-form {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  background-color: white;
+  width: clamp(400px,50vw,700px);
+  text-align: center;
+}
+.signup-modal .login-form h3 {
+  padding-top: 30px;
+}
+.signup-modal form {
+  padding: 15px 0 15px;
+}
+.signup-modal form div {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0 20px 0;
+  width: 95%;
+  margin: 0 auto;
+}
+[dir="ltr"] .signup-modal form div dt{
+  text-align: left;
+}
+[dir="rtl"] .signup-modal form div dt{
+  text-align: right;
+}
+.signup-modal form div dt {
+  width: 40%;
+}
+.signup-modal form div dd {
+  width: 70%;
+}
+.signup-modal form div dd [type=email], .signup-modal form div dd [type=password], .signup-modal form div dd [type=text] {
+  width: 90%;
+  height: 30px;
+}
+.signup-modal form .login-btn {
+  color: #19eeb9;
+  background-color: #19eeb9;
+  padding: 6px 15px;
+  border-radius: 2px;
+  border: none;
+  color: #635a5a;
+}
+.signup-modal form .login-btn:hover {
+  color: black;
+  box-shadow: 1px 1px #0c800c;
+}
+
+.signup-btn {
+  display: block;
+  padding: 10px 0 30px;
+}
+.signup-btn:hover {
+  border-bottom: rgba(128, 128, 128, 0.2) 1px solid;
+}
+
+/*              sign up 2                  */
+.signup-modal2 {
+  opacity: 1;
+  visibility: hidden;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+  background-color: rgba(58, 59, 58, 0.8);
+  color: #635a5a;
+}
+.signup-modal2 .login-form {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  width: clamp(400px,50vw,700px);
+  text-align: center;
+}
+.signup-modal2 .login-form h3 {
+  padding-top: 30px;
+}
+.signup-modal2 form {
+  padding-top: 15px;
+}
+.signup-modal2 form div {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0 20px 0;
+  width: 95%;
+  margin: 0 auto;
+}
+[dir="ltr"] .signup-modal2 form div dt{
+  text-align: left;
+}
+[dir="rtl"] .signup-modal2 form div dt{
+  text-align: right;
+}
+.signup-modal2 form div dt {
+  width: 40%;
+}
+.signup-modal2 form div dd {
+  width: 70%;
+}
+.signup-modal2 form div dd [type=email], .signup-modal2 form div dd [type=password], .signup-modal2 form div dd [type=text] {
+  width: 90%;
+  height: 30px;
+}
+.signup-modal2 form .login-btn {
+  color: #19eeb9;
+  background-color: #19eeb9;
+  padding: 6px 15px;
+  border-radius: 2px;
+  border: none;
+  color: #635a5a;
+}
+.signup-modal2 form .login-btn:hover {
+  color: black;
+  box-shadow: 1px 1px #0c800c;
+}
+
+.signup-btn {
+  display: block;
+  padding: 10px 0 30px;
+}
+.signup-btn:hover {
+  border-bottom: rgba(128, 128, 128, 0.2) 1px solid;
+}
+
+.signup-modal2.active {
+  opacity: 1;
+  visibility: visible;
+}
+
 /*# sourceMappingURL=main.css.map*/
