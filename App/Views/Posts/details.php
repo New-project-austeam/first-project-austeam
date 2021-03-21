@@ -15,6 +15,7 @@ $post = $data['postData'];
       <p>参加予定の人</p>
     </aside>
 
+
     <section class="main-content">
       <div class="event-content">
 
@@ -68,10 +69,10 @@ $post = $data['postData'];
               <ul class="event-info-list">
                 <!-- flex -->
 
-                <li><i class="fas fa-trash-alt"></i> 開催日：<?php echo $post->event_date; ?></li>
+                <li><i class="fas fa-trash-alt"></i> 開催日：<?php echo $data["postData"]->event_date; ?></li>
 
-                <li><i class="fas fa-trash-alt"></i> 場所：<?php echo $post->event_location; ?></li>
-                <li><i class="fas fa-trash-alt"></i> 環境テーマ：<?php echo $post->event_category; ?></li>
+                <li><i class="fas fa-trash-alt"></i> 場所：<?php echo $data["postData"]->event_location; ?></li>
+                <li><i class="fas fa-trash-alt"></i> 環境テーマ：<?php echo $data["postData"]->event_category; ?></li>
 
               </ul>
 
