@@ -1,8 +1,14 @@
+
+import $ from "jquery";
+window.$ = $;
 console.log("js loaded")
 const backTopFnc = require('./modules/backTop.js');
 const slideshowFnc = require('./modules/slideshow.js');
 const setPostData = require('./modules/setPostData.js');
 const loginModal = require('./modules/loginform.js')
+
+const ajaxTest = require('./modules/ajax_test.js')
+
 
 
 

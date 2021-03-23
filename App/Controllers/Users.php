@@ -102,13 +102,29 @@ class Users extends Controller
 
     // Check for Post
     if ($_SERVER['REQUEST_METHOD']  == 'POST') {
-      $data = [
+      // print_r(getallheaders());
+      $post_body = json_decode(file_get_contents('php://input'));
+      if (isset($_POST['user_email'])) {
+        $data = [
 
-        'user_email' => trim($_POST['user_email']),
-        "user_password" => trim($_POST['user_password']),
-        "email_err" => "",
-        "password_err" => "",
-      ];
+          'user_email' => trim($_POST['user_email']),
+          "user_password" => trim($_POST['user_password']),
+          "email_err" => "",
+          "password_err" => "",
+        ];
+      } else if (isset($post_body->email)) {
+
+
+        $data = [
+
+          'user_email' => trim($post_body->email),
+          "user_password" => trim($post_body->password),
+          "email_err" => "",
+          "password_err" => "",
+        ];
+      }
+
+
 
       if (empty($data['user_email'])) {
         $data['email_err'] = 'Please enter email';
@@ -140,6 +156,7 @@ class Users extends Controller
       }
     } else {
       // Load form;
+
       $data = [
 
         'user_email' => "",
