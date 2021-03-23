@@ -1,103 +1,13 @@
-<<<<<<< HEAD
-<!-- サインアップモーダル→→loginform.jsに記述 -->
-=======
-
->>>>>>> タイムラインに機能追加、ヘッダー修正
 
 
 
 
-<<<<<<< HEAD
-<main>
-  <section class="signup-modal2">
-    <span class="space">スペース</span>
-    <div class="login-form">
-      <div class="close-modal3">
-        <a class=close-moddal3>×</a>
-      </div>
-      <h3>Sign Up</h3>
-      <p>アカウント登録</p>
-      <form method="post">
-        <dl>
-
-          　<div>
-            <dt><label for="nickname">アカウント名</label></dt>
-            <dd><input type="text" id="nickname" name="user_nickname" value="<?php echo $data['user_name'] ?>"></dd>
-            <p style="color:orange;"><?php echo $data['password_err'] ?></p>
-
-          </div>
-          <div>
-            <dt><label for="email">Email</label></dt>
-            <dd><input type="email" id="email" name="user_email"></dd>
-          </div>
-
-          <div>
-            <dt><label for="password">Password</label></dt>
-            <dd><input type="password" id="password" name="user_password"></dd>
-          </div>
-
-          <div>
-            <dt><label for="confirm_password">パスワード確認</label></dt>
-            <dd><input type="password" id="confirm_password" name="confirm_password"></dd>
-            <p style="color:orange;"><?php echo $data['confirm_password_err'] ?></p>
-          </div>
-
-        </dl>
-        <div>
-          <button class="login-btn" name="submit_login">Sign In</button>
-        </div>
-      </form>
-
-      <div class="login-modal2">
-      </div>
-    </div>
-    <!--class="login-form"  -->
-    <span class="space">スペース</span>
-  </section><!-- singin-modal-->
-
-
-
-  <section class="login-modal">
-    <span class="space">スペース</span>
-    <div class="login-form">
-
-      <div class="close-modal">
-        <a class="close-moddal">×</a>
-      </div>
-
-      <h3>Log In</h3>
-      <p>ログイン</p>
-      <form method="post">
-        <dl>
-          <div>
-            <dt><label for="email">Email</label></dt>
-            <dd><input type="email" id="email" name="user_email"></dd>
-            <p style="color:orange;"><?php echo $data['email_err'] ?></p>
-          </div>
-
-          <div>
-            <dt><label for="password">Password</label></dt>
-            <dd><input type="password" id="password" name="user_password"></dd>
-            <p style="color:orange;"><?php echo $data['password_err'] ?></p>
-          </div>
-        </dl>
-        <div>
-          <button class="login-btn" name="submit_login">Log In</button>
-        </div>
-      </form>
-
-      <div><a href="#" class="signup-btn">アカウント登録はこちら</a></div>
-    </div><!--  class="login-form" -->
-    <span class="space">スペース</span>
-  </section>
-=======
 
 <main>
 
 <section class="login-show">
 <!-- login/saignupモーダル→→loginform.jsに記述 -->
 </section>
->>>>>>> タイムラインに機能追加、ヘッダー修正
 
 
   <section id="slideshow" class="top-visual">
