@@ -4,6 +4,7 @@ const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
 
 
 module.exports = {
+  devtool: 'source-map',
   entry: {
     "index": "./public/assets/js/index.js",
     "main": "./public/assets/sass/main.scss"
@@ -14,8 +15,22 @@ module.exports = {
     filename: "[name].js",
     path: path.resolve(__dirname, './public/dist/js')
   },
+  mode: "development",
   module: {
+
     rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env']
+            }
+          }
+        ]
+      },
       {
         test: /\.(svf|png|jpg|gif|jpeg)$/,
         use: [
