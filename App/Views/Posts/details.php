@@ -33,28 +33,32 @@ $post = $data['postData'];
                 <h4>"<?php echo $post->event_title ?> "</h4>
               </div>
 
-              <div class="favorite-icon">
-                <h3><a href="#">☆</a></h3><!-- 仮 -->
-              </div>
+
             </div><!-- イベントタイトル -->
 
             <div class="event-info">
+            <div class="favorite-icon">
+                <h3><a href="#">☆</a></h3><!-- 仮 -->
+              </div>
               <div class="event-detail-icon">
 
 
-
+               <div class="host">
+               <div>
+                  <li>開催者：<?php echo $post->user_name; ?></li>
+                </div>
                 <div class="icon-border2">
                   <img src="<?php echo URLROOT; ?>/dist/images/woman-332278_1920.jpg">
                 </div>
 
-                <div>
-                  <li>開催者：<?php echo $post->user_name; ?></li>
-                </div>
+
+                </div><!-- host -->
 
                 <div class="joinning-ppl">
                   <p>参加予定：3人</p>
                   <div class="icon-border3 joinning1">
                     <img src="<?php echo URLROOT; ?>/dist/images/woman-332278_1920.jpg">
+
                   </div>
                   <div class="icon-border3 joinning2">
                     <img src="<?php echo URLROOT; ?>/dist/images/kiss-1489654_1920.jpg">
@@ -140,6 +144,7 @@ $post = $data['postData'];
 
               <div class="icon">
                 <img src="<?php echo URLROOT; ?>/dist/images/woman-332278_1920.jpg">
+                <p class="nickname"><a href="#"><?php echo $post->user_name ?></a></p>
               </div><!-- icon -->
 
 
@@ -158,6 +163,7 @@ $post = $data['postData'];
 
               <div class="icon">
                 <img src="<?php echo URLROOT; ?>/dist/images/kiss-1489654_1920.jpg">
+                <p class="nickname">name</p>
               </div><!-- icon -->
 
 
@@ -168,6 +174,7 @@ $post = $data['postData'];
             <div class="chatting1">
               <div class="icon">
                 <img src="<?php echo URLROOT; ?>/dist/images/CEE67B79-1B39-4F5D-AD01-54568C0413BC_1_105_c.jpeg">
+                <p class="nickname">name</p>
               </div><!-- icon -->
 
 

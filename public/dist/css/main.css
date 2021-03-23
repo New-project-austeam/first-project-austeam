@@ -645,9 +645,12 @@ a {
   padding: 15px;
 }
 #hidden-message.show {
-  animation-name: fadeIn;
-  animation-duration: 3s;
-  animation-fill-mode: forwards;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   /* toで止める */
 }
 #hidden-message .message-content {
@@ -656,6 +659,17 @@ a {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 70%;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+    /*  transform: translateY(-500px); */
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @keyframes fadeIn {
@@ -948,11 +962,23 @@ a {
 /* ーーーーーーーーーーーーーーーアニメーーーテストーーーーーーーーーーーーーーーー */
 /* スクロールしたらフワッ出てくるようにしたい */
 .section-title {
-  animation: test 2s;
+  -webkit-animation: test 2s;
+          animation: test 2s;
 }
 
 .section-wrapper {
-  animation: test 4s;
+  -webkit-animation: test 4s;
+          animation: test 4s;
+}
+
+@-webkit-keyframes test {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes test {
@@ -1654,26 +1680,28 @@ a:hover {
 .posted-event-title {
   width: 100%;
   margin: 20px 0;
-  display: flex;
-  flex-direction: row;
   text-align: center;
-  /* お気に入り */
 }
 .posted-event-title .event-title {
   width: 100%;
+  margin: 0 auto;
   padding-top: 5px;
 }
 .posted-event-title .event-title h4 {
   font-size: 1.3rem;
   /* -------------フォントサイズ　仮------------- */
 }
-.posted-event-title .favorite-icon {
-  padding-top: 5px;
-  width: 15%;
+
+/* お気に入り */
+.favorite {
+  font-size: 1rem;
   font-size: 1.2rem;
 }
-.posted-event-title .favorite {
-  font-size: 1rem;
+
+.favorite-icon {
+  text-align: right;
+  padding-top: 5px;
+  width: 100%;
 }
 
 /* タイトル　PC */
@@ -1688,16 +1716,17 @@ a:hover {
   padding: 20px 0 50px;
 }
 .event-detail-page .posted-event-detail .event-detail-icon {
+  padding: 10px 0 10px;
   text-align: center;
 }
-.event-detail-page .posted-event-detail .event-detail-icon .icon-border2 {
+.event-detail-page .posted-event-detail .event-detail-icon .host .icon-border2 {
   border: #19eeb9 4px double;
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  margin: 0 auto;
+  margin: 15px auto;
 }
-.event-detail-page .posted-event-detail .event-detail-icon .icon-border2 img {
+.event-detail-page .posted-event-detail .event-detail-icon .host .icon-border2 img {
   display: block;
   width: 90px;
   height: 90px;
@@ -1709,8 +1738,10 @@ a:hover {
   display: flex;
   justify-content: center;
   position: relative;
+  padding-bottom: 20px;
 }
 .event-detail-page .posted-event-detail .event-detail-icon .joinning-ppl p {
+  font-size: 1rem;
   padding: 10px 130px 0 0;
 }
 .event-detail-page .posted-event-detail .event-detail-icon .joinning-ppl .icon-border3.joinning1 {
@@ -1797,12 +1828,18 @@ a:hover {
   border-radius: 50%;
   border: 5px solid white;
 }
+.notice-board-content .notice-board .icon .nickname {
+  text-align: center;
+  font-size: 1.1vw;
+  /* 仮 */
+}
 
 /* chat表示 */
 .chatting1 {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  padding: 10px;
 }
 .chatting1 .says {
   border: 1px solid rgba(158, 153, 153, 0.5);
@@ -1899,8 +1936,8 @@ main {
 }
 
 .login-modal {
-  opacity: 0;
-  visibility: hidden;
+  /*  opacity:0;
+   visibility:hidden; */
   position: absolute;
   height: 100%;
   width: 100%;
@@ -2002,6 +2039,7 @@ main {
   height: 100%;
   width: 100%;
   z-index: 100;
+  background-color: rgba(58, 59, 58, 0.8);
   color: #635a5a;
 }
 .signup-modal .login-form {
@@ -2088,7 +2126,7 @@ main {
   padding-top: 30px;
 }
 .signup-modal2 form {
-  padding-top: 15px;
+  padding: 15px 0 15px;
 }
 .signup-modal2 form div {
   display: flex;
