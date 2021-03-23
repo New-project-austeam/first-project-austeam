@@ -1,1 +1,45 @@
-(()=>{console.log("js loaded");const e=["./dist/images/sunset-4937813_1920.jpg","./dist/images/beach-4914403_1920.jpg","./dist/images/garbage-3745004_1920.jpg","./dist/images/nature-4202702_1920.jpg","./dist/images/flowers-1190773_1920.jpg"];let o=-1;setInterval((function(){4===o?o=0:o++,document.getElementById("slideshow").style.backgroundImage="url("+e[o]}),3500);const t=()=>{$(window).scrollTop()>=150?$(".back-to-top").fadeIn():$(".back-to-top").fadeOut()};$(window).on("scroll",t),$(".go-to-top").on("click",(e=>{e.preventDefault(),$("html,body").animate({scrollTop:0},600)})),t()})();
+/******/ (function() { // webpackBootstrap
+var __webpack_exports__ = {};
+/*!***********************************!*\
+  !*** ./public/assets/js/index.js ***!
+  \***********************************/
+console.log("js loaded");
+/* 配列に画像 */
+
+var setImage = ['./dist/images/sunset-4937813_1920.jpg', './dist/images/beach-4914403_1920.jpg', './dist/images/garbage-3745004_1920.jpg', './dist/images/nature-4202702_1920.jpg', './dist/images/flowers-1190773_1920.jpg'];
+var num = -1;
+
+function slideimage() {
+  if (num === 4) {
+    num = 0;
+  } else {
+    num++;
+  }
+
+  document.getElementById("slideshow").style.backgroundImage = "url(" + setImage[num];
+}
+
+setInterval(slideimage, 3500);
+/*  画像は最初の一枚に戻ってから、ループを止めて、htmlとcssで用意したメッセージを表示する。　cssで非表示にしておいて、JSで０（最初の画像）に戻ったらループを止めて、メッセージを表示する。*/
+
+/* トップ戻るボタン　Jquery */
+
+var backTop = function backTop() {
+  if ($(window).scrollTop() >= 150) {
+    $('.back-to-top').fadeIn();
+  } else {
+    $('.back-to-top').fadeOut();
+  }
+};
+
+$(window).on('scroll', backTop);
+$('.go-to-top').on('click', function (e) {
+  e.preventDefault();
+  $('html,body').animate({
+    scrollTop: 0
+  }, 600);
+});
+backTop();
+/******/ })()
+;
+//# sourceMappingURL=index.js.map
