@@ -4,10 +4,12 @@
 main{
   position: relative;
 }
+
+
 .login-modal
  {
-   opacity:0;
-   visibility:hidden;
+  /*  opacity:0;
+   visibility:hidden; */
 
   position: absolute;
   height:100%;
@@ -18,11 +20,15 @@ main{
   background-color: rgba(58, 59, 58, 0.8);
   color: $main-letter-color;
 
+
+
      .login-form{
+
        position: fixed;
        top:40%;
        left:50%;
        transform:translate(-50%, -50%);
+
 
 
        background-color: white;
@@ -125,10 +131,9 @@ a{
    height:100%;
    width:100%;
    z-index:100;
+   background-color: rgba(58, 59, 58, 0.8);
+  color: $main-letter-color;
 
-
-
-   color: $main-letter-color;
 
       .login-form{
         position: fixed;
@@ -230,8 +235,8 @@ a{
          }
  form{
 
+  padding:15px 0 15px;
 
-   padding-top:15px;
    div{
      display: flex;
      justify-content: center;
@@ -269,6 +274,7 @@ a{
 .signup-btn{
 
  display: block;
+
  padding:10px 0 30px;
  &:hover{
    border-bottom:rgb(128, 128, 128,0.2) 1px solid;
