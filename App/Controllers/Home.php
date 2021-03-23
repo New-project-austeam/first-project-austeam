@@ -20,4 +20,10 @@ class Home extends Controller
 
     $this->view('Home/index', $data);
   }
+
+  public function ajaxtest($data = null)
+  {
+
+    echo "hondda";
+  }
 }
