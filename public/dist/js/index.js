@@ -48,103 +48,110 @@ module.exports = backTopFnc;
 /***/ (function(module) {
 
 function loginModal() {
-  var loginmodal = document.querySelector('.login-modal');
-  /* HTMLログインフォーム要素を取得 */
-
-  /* const loginmodal2 = document.querySelector('.login-modal2')　（練習）HTMLログインフォームのサインアップ要素を取得 */
-
-  var loginTest = document.querySelector('#login-test');
-  loginTest.addEventListener('click', loginform);
-  /* ログイン要素を取得してクリックイベントを実行しloginformファンクションを呼び出す */
-
-  /*  const signupTest = document.querySelector('#signup-test');
-   signupTest.addEventListener('click',signupform); */
-
-  /* loginform();//⏪完成したら消す */
-
+  /* ログイン */
+  var loginmodal = document.querySelector('.login-show');
+  var loginBtn = document.querySelector('#login-test');
+  loginBtn.addEventListener('click', loginform);
   var signup = null;
-  /* 空の値nullを入れておく */
+  /* サインアップ */
 
-  /* アカウント登録をクリックしたらsignupform関数が呼び出される */
-
-  signup = document.querySelector('.signup-btn');
-  signup.addEventListener('click', signupform);
+  var signupBtn = document.querySelector('#signup-test');
+  signupBtn.addEventListener('click', signupform);
+  /* login modal */
 
   function loginform() {
-    loginmodal.classList.add('show');
-    /* ログインフォームにクラスを付与して表示するようにしてる */
-
-    var closeModal = document.querySelector('.close-modal');
-    closeModal.addEventListener('click', function () {
-      loginmodal.classList.remove('show');
-    });
-    /* loginmodal2.classList.add('show-loginmodal'); sign upにクラス付与して下記のinnerHTMLで、定義してtemplateに書き換えてる（練習） */
-
-    /* こういう記述でも可能　↓　↓　↓let template = '<h1>Log In</h1>'
-    template += '<p>ログイン</p>'
-    template += ''
-    template += '<button class="submit-btn">ログイン</button>'
-    template += '</div>'
-     template += '<a href="#" class="signup-btn">アカウント登録はこちら</a>'
-      loginmodal2.innerHTML = template; */
-
-    /*
-       上記のようにinnerHTMLで書き換える場合は上のHTMLフォームを表示する関数のなかに以下を記述しないと、クリックイベントで表示するようにしている場合はこのように描かないと実行できない　※なぜならsignup要素がこの関数外には存在していないから、文字列は表示されててもクリックしないと遷移できない。
-      signup = document.querySelector('.signup-btn');
-      signup.addEventListener('click',signupform);
-      */
-
-    /* アカウント登録をクリックしたらsignupform関数が呼び出される */
-
-    /* signup = document.querySelector('.signup-btn');
-    signup.addEventListener('click',signupform); */
-  }
-
-  function signupform() {
-    var template = '<section class="signup-modal">';
+    loginmodal.style.opacity = "1";
+    var template = '<section class="login-modal">';
     template += '<span class="space">スペース</span>';
     template += '<div class="login-form">';
     template += '<div class="close-modal">';
-    template += '<a href="#" class="close-moddal">×</a>';
+    template += '<a>×</a>';
     template += '</div>';
-    template += '<h3>Sign Up</h3>';
-    template += '<p>アカウント登録</p>';
-    template += '<form method="post">';
-    template += '<dl>';
-    template += '<div>';
-    template += '<dt><label for="nickname">アカウント名</label></dt>';
-    template += '<dd><input type="text" id="nickname" name="user_nickname" ></dd>';
-    template += '<p style="color:orange;"></p>';
+    template += '<h3>Log In</h3>';
+    template += ' <p>ログイン</p>';
+    template += ' <form method="post">';
+    template += '  <dl>';
+    template += ' <div>';
+    template += '  <dt><label for="email">Email</label></dt>';
+    template += '  <dd><input type="email" id="email" name="user_email"></dd>';
+    template += '  <p style="color:orange;"></p>';
     template += '</div>';
-    template += '<div>';
-    template += '<dt><label for="email">Email</label></dt>';
-    template += '<dd><input type="email" id="email" name="user_email"></dd>';
-    template += '</div>';
-    template += '<div>';
-    template += '<dt><label for="password">Password</label></dt>';
+    template += ' <div>';
+    template += '   <dt><label for="password">Password</label></dt>';
     template += '<dd><input type="password" id="password" name="user_password"></dd>';
-    template += '</div>';
-    template += '<div>';
-    template += '<dt><label for="confirm_password">パスワード確認</template +=label></dt>';
-    template += '<dd><input type="password" id="confirm_password" name="confirm_password"></dd>';
     template += '<p style="color:orange;"></p>';
-    template += '</div>';
-    template += '</dl>';
-    template += '<div>';
-    template += '<button class="login-btn" name="submit_login">Sign Up</button>';
-    template += '</div>';
+    template += '   </div>';
+    template += ' </dl>';
+    template += ' <div>';
+    template += '  <button class="login-btn" name="submit_login">Log In</button>';
+    template += ' </div>';
     template += '</form>';
-    template += '<div class="login-modal2">';
-    template += '</div>';
+    template += '<div><a href="#" class="signup-btn">アカウント登録はこちら</a></div>';
     template += '</div><!--  class="login-form" -->';
     template += '<span class="space">スペース</span>';
-    template += '</section><!-- singin-modal -->';
+    template += '</section>';
     loginmodal.innerHTML = template;
-    var closeModal = document.querySelector('.close-modal');
-    closeModal.addEventListener('click', function () {
-      clearInterval();
-      loginmodal.classList.remove('show');
-      /* 再度クリックするとログインフォームじゃなくて、サインアップが出てくる・・・・ */
+    /* show signupform  */
+
+    signup = document.querySelector('.signup-btn');
+    signup.addEventListener('click', signupform);
+    /* とりあえず❌クリックしたら消えるようにするーーーー後々、モーダル以外クリックしたら消えるようにする*/
+
+    var closeBtn = document.querySelector('.close-modal');
+    closeBtn.addEventListener('click', function () {
+      loginmodal.style.opacity = "0";
+    });
+  }
+  /* signup modal */
+
+
+  function signupform() {
+    loginmodal.style.opacity = "1";
+    var template1 = '<section class="signup-modal">';
+    template1 += '<span class="space">スペース</span>';
+    template1 += '<div class="login-form">';
+    template1 += '<div class="close-modal">';
+    template1 += '<a href="#" class="close-moddal">×</a>';
+    template1 += '</div>';
+    template1 += '<h3>Sign Up</h3>';
+    template1 += '<p>アカウント登録</p>';
+    template1 += '<form method="post">';
+    template1 += '<dl>';
+    1;
+    template1 += '<div>';
+    template1 += '<dt><label for="nickname">アカウント名</label></dt>';
+    template1 += '<dd><input type="text" id="nickname" name="user_nickname" ></dd>';
+    template1 += '<p style="color:orange;"></p>';
+    template1 += '</div>';
+    template1 += '<div>';
+    template1 += '<dt><label for="email">Email</label></dt>';
+    template1 += '<dd><input type="email" id="email" name="user_email"></dd>';
+    template1 += '</div>';
+    template1 += '<div>';
+    template1 += '<dt><label for="password">Password</label></dt>';
+    template1 += '<dd><input type="password" id="password" name="user_password"></dd>';
+    template1 += '</div>';
+    template1 += '<div>';
+    template1 += '<dt><label for="confirm_password">パスワード確認</template +=label></dt>';
+    template1 += '<dd><input type="password" id="confirm_password" name="confirm_password"></dd>';
+    template1 += '<p style="color:orange;"></p>';
+    template1 += '</div>';
+    template1 += '</dl>';
+    template1 += '<div>';
+    template1 += '<button class="login-btn" name="submit_login">Sign Up</button>';
+    template1 += '</div>';
+    template1 += '</form>';
+    template1 += '<div class="login-modal2">';
+    template1 += '</div>';
+    template1 += '</div><!--  class="login-form" -->';
+    template1 += '<span class="space">スペース</span>';
+    template1 += '</section><!-- singin-modal -->';
+    loginmodal.innerHTML = template1;
+    /* とりあえず❌クリックしたら消えるようにするーーーー後々、モーダル以外クリックしたら消えるようにする*/
+
+    var closeBtn = document.querySelector('.close-modal');
+    closeBtn.addEventListener('click', function () {
+      loginmodal.style.opacity = "0";
     });
   }
 }
@@ -192,29 +199,6 @@ function setPostData(parsedJson) {
 }
 
 module.exports = setPostData;
-
-/***/ }),
-
-/***/ "./public/assets/js/modules/signupform.js":
-/*!************************************************!*\
-  !*** ./public/assets/js/modules/signupform.js ***!
-  \************************************************/
-/***/ (function(module) {
-
-function signupModal() {
-  var signupmodal2 = document.querySelector('.signup-modal2');
-  var signupTest = document.querySelector('#signup-test');
-  signupTest.addEventListener('click', signupform2);
-
-  function signupform2() {
-    signupmodal2.classList.add('active');
-    document.querySelector('.close-modal3').addEventListener('click', function () {
-      signupmodal2.classList.remove('active');
-    });
-  }
-}
-
-module.exports = signupModal;
 
 /***/ }),
 
@@ -320,8 +304,6 @@ var setPostData = __webpack_require__(/*! ./modules/setPostData.js */ "./public/
 
 var loginModal = __webpack_require__(/*! ./modules/loginform.js */ "./public/assets/js/modules/loginform.js");
 
-var signupModal = __webpack_require__(/*! ./modules/signupform.js */ "./public/assets/js/modules/signupform.js");
-
 if (typeof parsedJson !== "undefined") {
   console.log(12345);
   setPostData(parsedJson);
@@ -331,7 +313,6 @@ if (document.querySelector("#slideshow")) {
   slideshowFnc();
   backTopFnc();
   loginModal();
-  signupModal();
 }
 /*  画像は最初の一枚に戻ってから、ループを止めて、htmlとcssで用意したメッセージを表示する。　cssで非表示にしておいて、JSで０（最初の画像）に戻ったらループを止めて、メッセージを表示する。*/
 }();

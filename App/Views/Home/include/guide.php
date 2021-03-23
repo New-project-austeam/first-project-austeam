@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 <!-- サインアップモーダル→→loginform.jsに記述 -->
+=======
+
+>>>>>>> タイムラインに機能追加、ヘッダー修正
 
 
 
 
+<<<<<<< HEAD
 <main>
   <section class="signup-modal2">
     <span class="space">スペース</span>
@@ -85,6 +90,14 @@
     </div><!--  class="login-form" -->
     <span class="space">スペース</span>
   </section>
+=======
+
+<main>
+
+<section class="login-show">
+<!-- login/saignupモーダル→→loginform.jsに記述 -->
+</section>
+>>>>>>> タイムラインに機能追加、ヘッダー修正
 
 
   <section id="slideshow" class="top-visual">
