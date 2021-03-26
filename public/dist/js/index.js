@@ -110,8 +110,9 @@ function loginModal() {
   /* login modal */
 
   function loginform() {
-    loginmodal.style.opacity = "1";
-    var template = '<section class="login-modal">';
+    loginmodal.style.visibility = "visible";
+    var template = '<span class="modal-bg"></span>';
+    template += '<section class="login-modal">';
     template += '<span class="space">スペース</span>';
     template += '<div class="login-form">';
     template += '<div class="close-modal">';
@@ -141,23 +142,30 @@ function loginModal() {
     template += '<span class="space">スペース</span>';
     template += '</section>';
     loginmodal.innerHTML = template;
+    /* とりあえず❌クリックしたら消えるようにするーーーー後々、モーダル以外クリックしたら消えるようにする*/
+
+    /* close modal*/
+
+    var closeModal = document.querySelector('.modal-bg');
+    closeModal.addEventListener('click', function () {
+      loginmodal.style.visibility = "hidden";
+    });
+    var closeBtn = document.querySelector('.close-modal');
+    closeBtn.addEventListener('click', function () {
+      loginmodal.style.visibility = "hidden";
+    });
     /* show signupform  */
 
     signup = document.querySelector('.signup-btn');
     signup.addEventListener('click', signupform);
-    /* とりあえず❌クリックしたら消えるようにするーーーー後々、モーダル以外クリックしたら消えるようにする*/
-
-    var closeBtn = document.querySelector('.close-modal');
-    closeBtn.addEventListener('click', function () {
-      loginmodal.style.opacity = "0";
-    });
   }
   /* signup modal */
 
 
   function signupform() {
-    loginmodal.style.opacity = "1";
-    var template1 = '<section class="signup-modal">';
+    loginmodal.style.visibility = "visible";
+    var template1 = '<span class="modal-bg"></span>';
+    template1 += '<section class="signup-modal">';
     template1 += '<span class="space">スペース</span>';
     template1 += '<div class="login-form">';
     template1 += '<div class="close-modal">';
@@ -167,7 +175,6 @@ function loginModal() {
     template1 += '<p>アカウント登録</p>';
     template1 += '<form method="post">';
     template1 += '<dl>';
-    1;
     template1 += '<div>';
     template1 += '<dt><label for="nickname">アカウント名</label></dt>';
     template1 += '<dd><input type="text" id="nickname" name="user_nickname" ></dd>';
@@ -193,15 +200,24 @@ function loginModal() {
     template1 += '</form>';
     template1 += '<div class="login-modal2">';
     template1 += '</div>';
+    template1 += '<div><a href="#" class="login">ログインはこちら</a></div>';
     template1 += '</div><!--  class="login-form" -->';
     template1 += '<span class="space">スペース</span>';
     template1 += '</section><!-- singin-modal -->';
     loginmodal.innerHTML = template1;
-    /* とりあえず❌クリックしたら消えるようにするーーーー後々、モーダル以外クリックしたら消えるようにする*/
+    /* show login-form */
 
+    var login = document.querySelector('.login');
+    login.addEventListener('click', loginform);
+    /* close modal*/
+
+    var closeModal = document.querySelector('.modal-bg');
+    closeModal.addEventListener('click', function () {
+      loginmodal.style.visibility = "hidden";
+    });
     var closeBtn = document.querySelector('.close-modal');
     closeBtn.addEventListener('click', function () {
-      loginmodal.style.opacity = "0";
+      loginmodal.style.visibility = "hidden";
     });
   }
 }

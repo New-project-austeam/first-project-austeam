@@ -3,6 +3,7 @@ function loginModal(){
     const loginmodal = document.querySelector('.login-show');
     const loginBtn = document.querySelector('#login-test');
 
+
     loginBtn.addEventListener('click',loginform);
 
     let signup = null;
@@ -14,10 +15,16 @@ function loginModal(){
 
 
 
+
+
+
 　　　/* login modal */　
     function loginform(){
-      loginmodal.style.opacity = "1";
-      let template = '<section class="login-modal">'
+      loginmodal.style.visibility = "visible";
+
+      let template ='<span class="modal-bg"></span>'
+      template += '<section class="login-modal">'
+
   template +='<span class="space">スペース</span>'
   template +='<div class="login-form">'
 
@@ -53,28 +60,35 @@ template +=' <div>'
 
     loginmodal.innerHTML = template;
 
-     /* show signupform  */
-     signup = document.querySelector('.signup-btn');
-     signup.addEventListener('click',signupform);
 
 
      /* とりあえず❌クリックしたら消えるようにするーーーー後々、モーダル以外クリックしたら消えるようにする*/
-          const closeBtn = document.querySelector('.close-modal');
 
-     　　　closeBtn.addEventListener('click',function(){
-                   loginmodal.style.opacity= "0";
+
+          /* close modal*/
+            const closeModal = document.querySelector('.modal-bg');
+            closeModal.addEventListener('click',function(){
+              loginmodal.style.visibility= "hidden";
             });
 
+            const closeBtn = document.querySelector('.close-modal');
+     　　    　closeBtn.addEventListener('click',function(){
+                   loginmodal.style.visibility= "hidden";
+            });
 
+        /* show signupform  */
+     signup = document.querySelector('.signup-btn');
+     signup.addEventListener('click',signupform);
 
     }
 
      /* signup modal */　
     function signupform(){
 
-      loginmodal.style.opacity = "1";
+      loginmodal.style.visibility = "visible";
 
-      let template1 ='<section class="signup-modal">'
+      let template1 ='<span class="modal-bg"></span>'
+      template1 +='<section class="signup-modal">'
       template1 += '<span class="space">スペース</span>'
       template1 +='<div class="login-form">'
       template1 +='<div class="close-modal">'
@@ -84,7 +98,7 @@ template +=' <div>'
         template1 += '<p>アカウント登録</p>'
         template1 += '<form method="post">'
         template1 += '<dl>'
-  1
+
         template1 +=　'<div>'
         template1 += '<dt><label for="nickname">アカウント名</label></dt>'
         template1 +=  '<dd><input type="text" id="nickname" name="user_nickname" ></dd>'
@@ -115,20 +129,37 @@ template +=' <div>'
 
             template1+=   '<div class="login-modal2">'
             template1+=    '</div>'
+            template1 +=  '<div><a href="#" class="login">ログインはこちら</a></div>'
             template1+=   '</div><!--  class="login-form" -->'
       template1 +=  '<span class="space">スペース</span>'
       template1 += '</section><!-- singin-modal -->'
 
     loginmodal.innerHTML = template1;
 
-    /* とりあえず❌クリックしたら消えるようにするーーーー後々、モーダル以外クリックしたら消えるようにする*/
+
+    /* show login-form */
+    const login = document.querySelector('.login');
+    login.addEventListener('click',loginform);
+
+
+    /* close modal*/
+
+    const closeModal = document.querySelector('.modal-bg');
+    closeModal.addEventListener('click',function(){
+      loginmodal.style.visibility= "hidden";
+    });
+
     const closeBtn = document.querySelector('.close-modal');
-
     　　　closeBtn.addEventListener('click',function(){
-                  loginmodal.style.opacity= "0";
+                  loginmodal.style.visibility = "hidden";
            });
+          }
 
-    }
+
+
+
+
+
 
   }
   module.exports = loginModal;
