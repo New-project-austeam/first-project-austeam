@@ -2,12 +2,8 @@
 
 
 
-
 <main>
 
-<section class="login-show">
-<!-- login/saignupモーダル→→loginform.jsに記述 -->
-</section>
 
 
   <section id="slideshow" class="top-visual">
