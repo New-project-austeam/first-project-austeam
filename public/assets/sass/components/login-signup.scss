@@ -7,7 +7,10 @@
   position: relative;
 
 
+
 }
+
+
 
 /* .login-show{
   position: relative;
@@ -19,15 +22,21 @@
   height:100%;
   width:100%;
   z-index:100;
+  opacity: 0;
+  display: none;
+  transition:all 2s ease;
+
+
 }
+
+
 
 .login-modal
  {
   /*  opacity:0;
    visibility:hidden; */
    position: absolute;
-
-
+   /* transition: all .5s ease; */
 
 
 
@@ -42,7 +51,7 @@
        top:45%;
        left:50%;
        transform:translate(-50%, -50%);
-       z-index: 200;
+
 
 
 
@@ -86,7 +95,7 @@
 
     .login-btn{
       @include button();
-
+      padding:5px 40px;
     }
   }
 
@@ -152,7 +161,7 @@ a{
       .login-form,
       .signup-form{
         position: fixed;
-        top:50%;
+        top:45%;
         left:50%;
         transform:translate(-50%, -50%);
         z-index: 200;
@@ -197,6 +206,7 @@ a{
 
      .login-btn{
        @include button();
+       padding:5px 40px;
 
      }
    }
@@ -208,8 +218,8 @@ a{
 
  .signup-btn{
    display: block;
-   padding:10px 0 30px;
-   font-size:1.2rem;
+   padding:0 0 30px;
+   font-size:1.1rem;
    &:hover{
      border-bottom:rgb(128, 128, 128,0.2) 1px solid;
    }
@@ -217,3 +227,27 @@ a{
 
 
  /* animation */
+
+ .loginmodal{
+   position: relative;
+  z-index: 200;
+   transition:all 5s ease;
+   opacity: 0;
+ }
+ .modal-bg{
+  position: absolute;
+   background-color: rgba(58, 59, 58, 0.8);
+   height:100%;
+   width:100%;
+   z-index:100;
+   opacity: 0;
+   display: none;
+   transition:all 2s ease;
+
+
+ }
+ .active{
+   opacity: 1;
+
+
+ }

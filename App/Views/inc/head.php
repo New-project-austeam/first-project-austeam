@@ -12,4 +12,5 @@
 
 <body id="index">
 
-<section class="login-show"></section><!--  login/signup modal -->
+<section class="loginmodal"></section><!--  login/signup modal -->
+<span class="modal-bg"></span>
