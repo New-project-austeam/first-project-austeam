@@ -72,13 +72,16 @@
 @mixin button {
   color: $button-color;
   background-color: $button-color;
+  box-shadow:1px 1px rgb(12, 128, 12) ;
       padding: 6px 500px;
       border-radius: 2px;
       border: none;
       color: $main-letter-color;
       &:hover {
         color: black;
-        box-shadow:1px 1px rgb(12, 128, 12) ;
+
+        background-color: $button-color;
+        box-shadow: none;
       }
 }
 
@@ -386,7 +389,7 @@ text-align: center;
 @media(min-width:768px){
   .event-title{
     h4{
-      font-size: 1.5rem;/* -------------フォントサイズ　仮------------- */
+      font-size: 1.4rem;/* -------------フォントサイズ　仮------------- */
     }
 
   }
@@ -462,14 +465,14 @@ text-align: center;
 
     .icon-border{
       border:$button-color 4px double;
-      width:100px;
-      height:100px;
+      width:80px;
+      height:80px;
       border-radius: 50%;
 
       img{
 
-        width:90px;
-        height:90px;
+        width:70px;
+        height:70px;
         border-radius: 50%;
         border:5px solid white;
       }
@@ -490,6 +493,7 @@ text-align: center;
   padding-top:10px;
   font-size: 0.9rem;
   width:90%;
+  margin: 0 auto;
 }
  }
 

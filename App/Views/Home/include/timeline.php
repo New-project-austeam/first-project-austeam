@@ -232,12 +232,14 @@
                     <a class="like-it"><i class="fas fa-star"></i></a>
                   </div>
                 </div><!-- イベントタイトル -->
-                <p class="record-summary">台風１０号により被害が大きかった地域での清掃活動を行ってきました！台風１０号により被害が大きかった地域での清掃活動を行ってきました！</p>
+
               </div><!-- posted-event-contents -->
+
 
 
             </div>
             <!--class="posted-event"  -->
+            <p class="record-summary">台風１０号により被害が大きかった地域での清掃活動を行ってきました！台風１０号により被害が大きかった地域での清掃活動を行ってきました！</p>
 
             <div class="detail">
               <button class="detail-btn"><a>詳細</a></button>
