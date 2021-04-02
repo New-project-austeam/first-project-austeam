@@ -217,7 +217,7 @@ body {
     right: 15px;
     background-color: #635a5a;
     height: 1.5px;
-    width: 30px;
+    width: 27px;
     transition: 0.2s;
   }
   .navBtn div:nth-of-type(1) {
@@ -441,7 +441,7 @@ body {
     right: 15px;
     background-color: #635a5a;
     height: 1.5px;
-    width: 30px;
+    width: 27px;
     transition: 0.2s;
   }
   .navBtn div:nth-of-type(1) {
@@ -1605,7 +1605,7 @@ a:hover {
   margin: auto;
   width: 70%;
   color: #635a5a;
-  font-size: 1.5vw;
+  font-size: 1rem;
   /* -------------フォントサイズ　仮------------- */
 }
 .search form {
