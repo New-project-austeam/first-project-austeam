@@ -157,18 +157,33 @@ height: 60vh;
 
 /* --------------------MAIN-CONTENTS---------------------- */
 
-/* モバイル版ーー全体共通*/
-@mixin mobile-section-setting {
-  /* max-width:1200px;
-  min-width:345px; */
-  width:clamp(345px,50vw,1200px);
-  margin: 0 auto;
-  background-color: white;
-  padding-bottom: 30px;
-  font-family: $font;
+/* main-contentsの全体共通 */
+
+.space {
+  opacity: 0;
 }
 
-@mixin mobile-section-title {
+main{
+  background-color: $background-color;
+  font-family: $font;
+  color: $main-letter-color;
+}
+
+/* section の枠*/
+.section-wrapper{
+  max-width:850px;
+  width:90%;
+  margin: 0 auto;
+  background-color: white;
+  font-family: $font;
+  padding-bottom: 30px;
+
+}
+
+
+
+/* section title  */
+@mixin section-title {
   font-size: 0.9rem;
   color: $main-letter-color;
   text-align: center;
@@ -176,169 +191,228 @@ height: 60vh;
   padding: 20px;
   transition: all 1s ease;
 }
-
-@mixin mobile-section-title-ja {
-  font-size: 0.5rem;
+.section-title{
+  @include section-title();
+  p{
+    font-size: 0.7rem;
+  }
 }
 
-.space {
-  opacity: 0;
+/* ---------------------ABOUT--------------------- */
+
+.about-contents{
+  width:80%;
+  margin:0 auto;
+
+  .first-image{
+    text-align: center;
+  }
+  .secound-image{
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+
+
+   .about-list{
+   text-align: center;
+    text-align: left;
+
+    li:first-child{
+      margin-top: 20px;
+
+    }
+    li:not(:first-of-type){
+      margin-top: 10px;
+    }
+
+   }
+   img{
+
+     margin:0 15px;
+
+   }
+}
 }
 
-/* モバイル版ーーーー全体共通　終 */
 
-/*---------------MAIN-CONTENTS INSTRUCTION------------- */
-/* -----------------※要、768px PCサイズの編集 ！！！！ーーー*/
-/* step1-4は折り目付きリボンのデザインにする */
+/*-------------------- INSTRUCTION------------- */
+
 /* section-title　と　step1-4はアニメーションつけたい */
 /* step1-4の下はフワッとコンテンツ出てくる */
 
 /*----------モバイル版　MAIN-CONTENTS-INSTRUCTION--------- */
-/* instruction & about モバイル版--全体共通 */
 
-@mixin mobile-how-to-section {
+/* @mixin mobile-how-to-section {
   text-align: center;
   color: $main-letter-color;
   padding: 20px;
   font-size: 0.9rem;
-}
-
-/* instruction モバイル版--全体共通 */
-
-/* -------------- モバイル版 about----------- */
-
-.main-contents {
-  background-color: $background-color;
-  .about {
-    @include mobile-section-setting();
-    .section-title {
-
-      @include mobile-section-title();
-      p {
-        @include mobile-section-title-ja();
-      }
-    }
-  }
-  .about-contents {
-    text-align: center;
-    color: $main-letter-color;
-    padding: 20px;
-    margin-top: -46px;
-    font-size: 0.9rem;
-
-    p {
-      margin-top: -10px;
-      text-align: start;
-    }
-  }
-}
-
-.about-list li {
-  text-align: left;
-}
+} */
 
 
 
-/* -------------- モバイル版 instruction----------- */
 
-.main-contents {
-  background-color: $background-color;
-  .instruction {
-    @include mobile-section-setting();
-    .section-title {
-      @include mobile-section-title();
-      p {
-        @include mobile-section-title-ja();
-      }
-    }
 
-    .how-to {
-      /* step　候補１
-      .step-ribbon {
-        position: absolute;
-        left: -20px;
-        padding: 10px 40px;
-        margin: 10px 0 10px;
-        text-align: start;
-        color: $main-letter-color;
-        display: inline-block;
-        position: relative;
-        background:#19eeb9;
-        &::before {
-          position: absolute;
-          content: "";
-          top: 100%;
-          left: 0;
-          border: none;
-          border-bottom: solid 15px transparent;
-          border-right: solid 20px rgb(149, 158, 155);
+      .steps1234{
+        margin-top:50px;
+       width: 90%;
 
-        }
-      }*/
+        display: flex;
+        flex-direction:wrap;
+        /* margin-right:100px ; */
+        justify-content: space-around ;
 
-      /* 候補２ */
-      .step-ribbon {
-        margin-left: 5px;
-        border-bottom: black;
-        position: relative;
-        padding: 1rem 2rem calc(1rem + 10px);
-        background: $button-color;
-        width: 40%;
-        height: 30px;
-        font-family: $font;
-        text-align: center;
-        color: $main-letter-color;
-        &::before {
-          position: absolute;
-          top: -7px;
-          left: -7px;
-          width: 100%;
-          height: 100%;
-          content: "";
-          border: 1px solid #000;
+
+        .steps12,
+        .steps34{
+         display: flex;
+         justify-content: space-between;
         }
       }
-
-      .how-to-contents {
-        @include mobile-how-to-section();
-        a {
-          color: $main-letter-color;
-          font-size: 0.3rem;
-          &:hover {
-            color: rgb(20, 190, 241);
+      @media(max-width:768px){
+        .steps1234{
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          .steps12{
+            border-bottom: 1px solid rgb(187, 181, 181,0.3);
+            margin-bottom: 20px;
           }
         }
       }
+
+      @media(max-width:480px){
+        .steps1234{
+
+          .steps12,
+        .steps34{
+
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          border: none;
+
+          .how-to{
+            width:100%;
+          }
+        }
+
+        }
+
+      }
+   /* 各ステップとリボン */
+      .how-to {
+
+        font-size: 0.9rem;
+
+        width:50%;
+        padding:0 20px;
+        margin-right: 5px;
+        text-align: center;
+        .step-ribbon {
+          margin-left: 5px;
+          border-bottom: black;
+          position: relative;
+          text-align: center;
+          background: $button-color;
+          width: 100px;
+          height: 30px;
+          font-family: $font;
+          color: $main-letter-color;
+
+          &::before {
+            position: absolute;
+            top: -7px;
+            left: -7px;
+            width: 100%;
+            height: 30px;
+            content: "";
+            border: 1px solid #000;
+          }
+
+        }
+        .how-to-contents {
+
+          margin: 20px 0;
+          padding:0 8px;
+
+
+        }
+
+
+      }
+
+/* steps以降 */
+.how-to-contents{
+  text-align: center;
+  .arrow{
+
+
+    font-size: 3rem;
+    padding: 20px 0;
+    .fa-angle-double-down{
+      text-align: center;
     }
   }
+  /* quotation */
+  a {
+
+    color: $main-letter-color;
+    font-size: 0.3rem;
+    &:hover {
+      color: rgb(20, 190, 241);
+    }
+  }
+
 }
 
-.fa-angle-double-down {
-  font-size: 3rem;
-  padding-bottom: 40px;
-}
 
 /* -------------- モバイル版 NEW-EVENT----------- */
-.new-event {
-  @include mobile-section-setting();
-  .section-title {
-    @include mobile-section-title();
-    p {
-      @include mobile-section-title-ja();
-    }
+.newEventContents{
+  width:90%;
+  margin: 0 auto;
+  .posted{
+    width:300px;
+    margin: 0 auto;
+    padding:0 15px;
+    border-right: rgb(240, 232, 232,0.5) 1px solid;
+    border-left: rgb(240, 232, 232,0.5) 1px solid;
   }
+
+  .icon{
+
+    text-align: center;
+
+
+  .icon-border{
+    border:$button-color 4px double;
+    width:60px;
+    height:60px;
+    border-radius: 50%;
+
+    img{
+
+      width:50px;
+      height:50px;
+      border-radius: 50%;
+      border:5px solid white;
+    }
+
+    }
+
+
 }
+
+
+}
+
 
 /* ----------モバイル版 registration------------- */
 
 .registration {
-  @include mobile-section-setting();
-  .section-title {
-    @include mobile-section-title();
-    p {
-      @include mobile-section-title-ja();
-    }
-  }
+
+
 
   .join-button,
   .sns {
@@ -346,12 +420,19 @@ height: 60vh;
   }
 
   .join-button {
-    padding: 5px 0 20px;
-
+    padding: 5px 0 30px;
+   margin-bottom: 25px;
     button {
-      padding: 10px 30px;
-      background: $button-color;
+      border-radius: 2px;
+      border: none;
+      padding: 6px 90px;
+      background: rgb(26,238,185);
+      box-shadow:1px 1px rgb(12, 128, 12) ;
       border: transparent;
+      &:hover{
+        background: rgb(26,238,185);
+        box-shadow:none;
+      }
     }
   }
   & a {
@@ -363,10 +444,11 @@ height: 60vh;
   }
 
   .sns {
+    margin-bottom: 10px;
     font-size: 1.8rem;
 
     & a {
-      margin: 15px;
+      margin: 20px;
     }
     & .fa-facebook:hover {
       color: #1a77f2;
@@ -383,6 +465,10 @@ height: 60vh;
   .eco-image {
     @include quote();
   }
+}
+.team-image{
+  margin: 0 auto 25px;
+  text-align: center;
 }
 
 /* トップ戻るボタン　back-to-top */
