@@ -91,34 +91,238 @@ module.exports = backTopFnc;
 
 /***/ }),
 
+/***/ "./public/assets/js/modules/createEvent.js":
+/*!*************************************************!*\
+  !*** ./public/assets/js/modules/createEvent.js ***!
+  \*************************************************/
+/***/ (function(module) {
+
+function createEvent() {
+  var createEventBtn = document.querySelector('.createEventBtn');
+  var eventModal = document.querySelector('.event-modal');
+  var modalbg = document.querySelector('.modal-bg-event');
+  var closeModal = document.querySelector('.close-modal');
+  /* show event-form */
+
+  createEventBtn.addEventListener('click', function () {
+    eventModal.style.display = "block";
+    modalbg.style.display = "block";
+    /* アニメ用 */
+
+    setTimeout(function () {
+      eventModal.classList.add('active-modal');
+      modalbg.classList.add('active-modal');
+    }, 500);
+  });
+  /* close-modal */
+
+  modalbg.addEventListener('click', function () {
+    eventModal.classList.remove('active-modal');
+    modalbg.classList.remove('active-modal');
+    /* アニメ用 */
+
+    setTimeout(function () {
+      eventModal.style.display = "none";
+      modalbg.style.display = "none";
+    }, 1000);
+  });
+  closeModal.addEventListener('click', function () {
+    eventModal.classList.remove('active-modal');
+    modalbg.classList.remove('active-modal');
+    /* アニメ用 */
+
+    setTimeout(function () {
+      eventModal.style.display = "none";
+      modalbg.style.display = "none";
+    }, 1000);
+  });
+}
+
+module.exports = createEvent;
+
+/***/ }),
+
 /***/ "./public/assets/js/modules/loginform.js":
 /*!***********************************************!*\
   !*** ./public/assets/js/modules/loginform.js ***!
   \***********************************************/
 /***/ (function(module) {
 
-function loginModal() {
+function loginModal(data) {
   /* ログイン */
+  //ここで要素を変数に代入
   var loginmodal = document.querySelector(".loginmodal");
   var loginBtn = document.querySelector("#login-test");
-  loginBtn.addEventListener("click", loginform);
-  var signup = null;
-  /* サインアップ */
+  var modal_bg = document.querySelector(".modal-bg");
+  var signupBtn = document.querySelector("#signup-test"); //クリックしたらモーダル表示
 
-  var signupBtn = document.querySelector("#signup-test");
-  signupBtn.addEventListener("click", signupform);
-  /* login modal */
+  loginBtn.addEventListener("click", loginform);
+  signupBtn.addEventListener("click", signupform); //サインアップに空の値を代入
+
+  var signup = null; //loginformとsignupform内で使う関数
+  //login-modal-animation
+  //①モーダルと背景にblock要素を追加する②モーダルと背景は予めopacity:0;が設定されているのでblockが追加されても見えない。③setTimeoutで1秒かけてモーダルと背景に予め用意してあるactiveクラスを付④activeクラスにはopacity:1;が設定され、モーダルと背景はtransition:all 1s easeが設定されているのでゆっくり表示される
+
+  function showModal(bg, modal) {
+    bg.style.display = "block";
+    modal.style.display = "block";
+    setTimeout(function () {
+      bg.classList.add("active");
+      modal.classList.add("active");
+    }, 1000);
+  } //モーダルの背景.modal-bgをクリックすると、背景とモーダルが消えるように設定してる
+  //display:noneとactiveクラスを時間差で取り除き消える時もアニメーションができる
+
+
+  function closeModal(bg, modal) {
+    bg.addEventListener("click", function () {
+      setTimeout(function () {
+        bg.classList.remove("active");
+        modal.classList.remove("active");
+      }, 500);
+      setTimeout(function () {
+        bg.style.display = "none";
+        modal.style.display = "none";
+      }, 1000);
+    }); //モーダルの❌をクリックするとモーダると背景が消える
+
+    var closeBtn = document.querySelector(".close-modal");
+    closeBtn.addEventListener("click", function () {
+      setTimeout(function () {
+        bg.classList.remove("active");
+        modal.classList.remove("active");
+      }, 500);
+      setTimeout(function () {
+        bg.style.display = "none";
+        loginmodal.style.display = "none";
+      }, 1000);
+    });
+  } // validation
+
+  /* ログインJSONのデータが格納されててHTMLの中に＃slideshowがあったらLOGINmodal（）を呼び出してデータを渡してる。エラーがあったら
+  エラーが怒った時。ログインモーダルは表示しておきたい
+  postするとリフレッシュされてしまうからモダールが消える
+  データという引数をモーダルを渡して
+  １、モーダルを消えないする - OK
+  ２、エラーメッセージを出す。-OK
+  ３、ログイン一つ消す -OK
+  ４、サインアップいらない - まだ消してない*/
+
+  /* わからない */
+  //urlのパスがhttp://localhost:8888/first-project-austeam/の時loignJsonのデータ使えず、一部のバリデーションが機能しない・どうする？
+  //urlパスがhttp://localhost:8888/first-project-austeam/users/loginの時、①以前より登録指定たアドレスでログインできない。②新規でアカウント登録できない
+
+  /*
+   console.log(loginJson.user_email);
+   console.log(loginJson.user_password); */
+  // login validation
+
+
+  function loginValidation() {
+    var form = document.querySelector(".form");
+    var email = document.querySelector("#email");
+    var password = document.querySelector("#password");
+    var emailError = document.querySelector(".email-error");
+    var passwordError = document.querySelector(".password-error");
+    form.addEventListener("submit", function (e) {
+      var errorMessages = [];
+      var errorMessages2 = [];
+      /* email error */
+
+      if (email.value == "" || email.value == null) {
+        errorMessages.push('<i class="fas fa-exclamation-triangle"></i>　Enter your e-mail');
+      } else if (email.value !== loginJson.user_email) {
+        errorMessages.push('<i class="fas fa-exclamation-triangle"></i>　E-mail is not registered. please sign up');
+      }
+
+      ;
+      /* password error */
+
+      if (password.value == "" || password.value == null) {
+        errorMessages2.push('<i class="fas fa-exclamation-triangle"></i>　Enter your password');
+      }
+      /* 🌟既存のパスワードと一致しない場合 */
+      else if (password.value !== loginJson.user_password) {
+          errorMessages2.push('<i class="fas fa-exclamation-triangle"></i>　Password is incorrect');
+        }
+      /*errorを表示  */
+
+
+      if (errorMessages.length > 0 || errorMessages2.length > 0) {
+        e.preventDefault();
+        emailError.innerHTML = errorMessages.join(',');
+        /* join(',')配列に入れて繋げることも可能 */
+
+        passwordError.innerHTML = errorMessages2.join(',');
+      }
+    });
+  } //signup validation
+
+
+  function signupValidation() {
+    var email = document.querySelector("#email");
+    var password = document.querySelector("#password");
+    var passwordConfirmation = document.querySelector("#confirm_password");
+    var form = document.querySelector(".form");
+    var emailError = document.querySelector(".email-error");
+    var passwordError = document.querySelector(".password-error");
+    var nicknName = document.querySelector("#nickname");
+    var nicknameError = document.querySelector(".nickname-error");
+    var passwordConfirtmError = document.querySelector(".password-confirm-error");
+    form.addEventListener("submit", function (e) {
+      var errorMessages = [];
+      var errorMessages2 = [];
+      var errorMessages3 = [];
+      var errorMessages4 = [];
+      /* email error */
+
+      /* 🌟you already has an account  */
+
+      if (email.value == "" || email.value == null) {
+        errorMessages.push('<i class="fas fa-exclamation-triangle"></i>　Enter your e-mail');
+      } else if (email.value === loginJson.user_email) {
+        errorMessages.push('<i class="fas fa-exclamation-triangle"></i> You already have an account, please login');
+      }
+      /* password error */
+
+
+      if (password.value.length <= 6) {
+        errorMessages2.push('<i class="fas fa-exclamation-triangle"></i>　Password must be more than 6 charactor');
+      }
+      /* signup nick name error */
+
+
+      if (nicknName.value == "" || nicknName.value == null) {
+        errorMessages3.push('<i class="fas fa-exclamation-triangle"></i>　Enter your nickname');
+      }
+      /* password confirmation error */
+
+
+      if (passwordConfirmation.value !== password.value) {
+        e.preventDefault();
+        errorMessages4.push('<i class="fas fa-exclamation-triangle"></i>　password doesn`t much');
+      }
+      /*errorを表示  */
+
+
+      if (errorMessages.length > 0 || errorMessages2.length > 0) {
+        e.preventDefault();
+        emailError.innerHTML = errorMessages.join(',');
+        /* join(',')配列に入れて繋げることも可能 */
+
+        passwordError.innerHTML = errorMessages2.join(',');
+        nicknameError.innerHTML = errorMessages3.join(',');
+        passwordConfirtmError.innerHTML = errorMessages4.join(',');
+      }
+      /* else{
+      }
+      */
+
+    });
+  } ///////////////////////login modal
+
 
   function loginform() {
-    /*  let test2 = "niajfid"
-     const test = `
-     <div>
-       <p>naoko${test2}</p>
-     </div>
-     `
-      document.body.innerHTML = test;
-     return; */
-    loginmodal.style.visibility = "visible";
     var template = '<section class="login-modal">';
     template += '<div class="login-form">';
     template += '<div class="close-modal">';
@@ -126,18 +330,28 @@ function loginModal() {
     template += "</div>";
     template += "<h3>Log In</h3>";
     template += " <p>ログイン</p>";
-    template += ' <form method="post">';
+    /* form */
+
+    template += ' <form class="form" method="post" action="http://localhost:8888/first-project-austeam/users/login">';
     template += "  <dl>";
+    /* email */
+
     template += " <div>";
     template += '  <dt><label for="email">Email</label></dt>';
     template += '  <dd><input type="email" id="email" name="user_email"></dd>';
-    template += '  <p style="color:orange;"></p>';
     template += "</div>";
+    /* email error message*/
+
+    template += '  <p class="email-error"></p>';
+    /* password */
+
     template += " <div>";
     template += '   <dt><label for="password">Password</label></dt>';
     template += '<dd><input type="password" id="password" name="user_password"></dd>';
-    template += '<p style="color:orange;"></p>';
     template += "   </div>";
+    /* error-msg2 */
+
+    template += '<p class="password-error"></p>';
     template += " </dl>";
     template += " <div>";
     template += '  <button class="login-btn" name="submit_login">Log In</button>';
@@ -146,43 +360,33 @@ function loginModal() {
     template += '<div><a href="#" class="signup-btn">アカウント登録はこちら</a></div>';
     template += '</div><!--  class="login-form" -->';
     template += "</section>";
-    /* template += '<span class="modal-bg"></span>'; */
-
     loginmodal.innerHTML = template;
+    /*  もっと簡単な書き方　テンプレート``を使う↓↓
+    let test2 = "niajfid"
+    const test = `
+    <div>
+      <p>naoko${test2}</p>
+    </div>｀
+    document.body.innerHTML = test;
+    */
+
     /* show signupform  */
 
     signup = document.querySelector(".signup-btn");
     signup.addEventListener("click", signupform);
-    /* close modal*/
+    /* モーダルをアニメで表示 */
 
-    var closeBtn = document.querySelector(".close-modal");
-    closeBtn.addEventListener("click", function () {
-      loginmodal.style.visibility = "hidden";
-      document.querySelector('.modal-bg').style.display = "none";
-      document.querySelector('.modal-bg').classList.remove('active');
-      loginmodal.style.display = "none";
-      loginmodal.classList.remove('active');
-    });
-    var closeModal = document.querySelector(".modal-bg");
-    closeModal.addEventListener("click", function () {
-      document.querySelector('.modal-bg').style.display = "none";
-      document.querySelector('.modal-bg').classList.remove('active');
-      loginmodal.style.display = "none";
-      loginmodal.classList.remove('active');
-    }); //アニメ///////////////////////////////////////////////
+    showModal(modal_bg, loginmodal);
+    /* モーダルをアニメで消す */
 
-    document.querySelector('.modal-bg').style.display = "block";
-    loginmodal.style.display = "block";
-    setTimeout(function () {
-      document.querySelector('.modal-bg').classList.add('active');
-      loginmodal.classList.add('active');
-    }, 1000);
-  }
-  /* signup modal */
+    closeModal(modal_bg, loginmodal);
+    /* validation */
+
+    loginValidation();
+  } //////////////////////signup modal
 
 
   function signupform() {
-    loginmodal.style.visibility = "visible";
     var template1 = '<section class="signup-modal">';
     template1 += '<div class="login-form">';
     template1 += '<div class="close-modal">';
@@ -190,30 +394,48 @@ function loginModal() {
     template1 += "</div>";
     template1 += "<h3>Sign Up</h3>";
     template1 += "<p>アカウント登録</p>";
-    template1 += '<form method="post">';
+    /* form */
+
+    template1 += '<form class="form" method="post" action="http://localhost:8888/first-project-austeam/users/login">';
     template1 += "<dl>";
     1;
     template1 += "<div>";
     template1 += '<dt><label for="nickname">アカウント名</label></dt>';
-    template1 += '<dd><input type="text" id="nickname" name="user_nickname" ></dd>';
-    template1 += '<p style="color:orange;"></p>';
+    /* nickname */
+
+    template1 += '<dd><input type="text" id="nickname" name="user_nickname"></dd>';
     template1 += "</div>";
+    /* Nickname error message */
+
+    template1 += '<p class="nickname-error"></p>';
     template1 += "<div>";
+    /* email */
+
     template1 += '<dt><label for="email">Email</label></dt>';
     template1 += '<dd><input type="email" id="email" name="user_email"></dd>';
     template1 += "</div>";
+    /* email error message */
+
+    template1 += '  <p class="email-error"></p>';
+    /* password */
+
     template1 += "<div>";
     template1 += '<dt><label for="password">Password</label></dt>';
     template1 += '<dd><input type="password" id="password" name="user_password"></dd>';
     template1 += "</div>";
+    /* password error message */
+
+    template1 += '<p class="password-error"></p>';
     template1 += "<div>";
     template1 += '<dt><label for="confirm_password">パスワード確認</template +=label></dt>';
     template1 += '<dd><input type="password" id="confirm_password" name="confirm_password"></dd>';
-    template1 += '<p style="color:orange;"></p>';
     template1 += "</div>";
+    /* password confirmation error */
+
+    template1 += '<p class="password-confirm-error"></p>';
     template1 += "</dl>";
     template1 += "<div>";
-    template1 += '<button class="login-btn" name="submit_login">Create account</button>';
+    template1 += '<button class="login-btn" name="submit_signup">Create account</button>';
     template1 += "</div>";
     template1 += "</form>";
     template1 += '<div><a href="#" class="signup-btn gotologin">ログインはこちら</a></div>';
@@ -221,27 +443,46 @@ function loginModal() {
     template1 += "</div>";
     template1 += '</div><!--  class="login-form" -->';
     template1 += "</section><!-- singin-modal -->";
-    /* template1 += '<span class="modal-bg"></span>'; */
-
     loginmodal.innerHTML = template1;
     /* to loginform */
 
     var login = document.querySelector(".gotologin");
-    login.addEventListener("click", loginform);
-    /* close modal*/
+    login.addEventListener("click", loginform); /// モーダル表示
 
-    var closeModal = document.querySelector(".modal-bg");
-    closeModal.addEventListener("click", function () {
-      loginmodal.style.visibility = "hidden";
-    });
-    var closeBtn = document.querySelector(".close-modal");
-    closeBtn.addEventListener("click", function () {
-      loginmodal.style.visibility = "hidden";
-    });
+    showModal(modal_bg, loginmodal); ///モダール消す
+
+    closeModal(modal_bg, loginmodal); //  validation
+
+    /* const submitBtn = document.querySelector('.login-btn'); */
+
+    /* validation */
+
+    signupValidation();
   }
 }
 
 module.exports = loginModal;
+
+/***/ }),
+
+/***/ "./public/assets/js/modules/navmenu.js":
+/*!*********************************************!*\
+  !*** ./public/assets/js/modules/navmenu.js ***!
+  \*********************************************/
+/***/ (function(module) {
+
+function navmenu() {
+  var headerList = document.querySelector(".header-list2");
+  var navBtn = document.querySelector(".navBtn");
+  document.addEventListener('DOMContentLoaded', function () {
+    navBtn.addEventListener('click', function () {
+      navBtn.classList.toggle('active');
+      headerList.classList.toggle('active');
+    });
+  });
+}
+
+module.exports = navmenu;
 
 /***/ }),
 
@@ -11330,16 +11571,54 @@ var loginModal = __webpack_require__(/*! ./modules/loginform.js */ "./public/ass
 
 var ajaxTest = __webpack_require__(/*! ./modules/ajax_test.js */ "./public/assets/js/modules/ajax_test.js");
 
+var createEvent = __webpack_require__(/*! ./modules/createEvent.js */ "./public/assets/js/modules/createEvent.js");
+
+var navmenu = __webpack_require__(/*! ./modules/navmenu.js */ "./public/assets/js/modules/navmenu.js");
+/* loginJsonはデータをJS仕様に変換したもの */
+
+/* もしloginJsonがundefinedではなく、#slideshow(guide.phpのスライドショーに関するID
+  )があれば loginJsonを引数にログインモーダルを表示する*/
+
+/* loginJsonがなく、#slideshowがある場合はただのloginModalを呼ぶ */
+
+
+if (typeof loginJson !== "undefined" && document.querySelector('#slideshow')) {
+  console.log(loginJson);
+  loginModal(loginJson);
+} else if (typeof loginJson == "undefined" && document.querySelector('#slideshow')) {
+  loginModal();
+}
+
+; ////////
+
 if (typeof parsedJson !== "undefined") {
   console.log(12345);
   setPostData(parsedJson);
 }
+/* guide page */
+
 
 if (document.querySelector("#slideshow")) {
   slideshowFnc();
   backTopFnc();
   loginModal();
 }
+/* タイムライン */
+
+
+if (document.querySelector('#timeline')) {
+  createEvent();
+  navmenu();
+}
+
+;
+
+if (document.querySelector('#mypage')) {
+  createEvent();
+  navmenu();
+}
+
+;
 /*  画像は最初の一枚に戻ってから、ループを止めて、htmlとcssで用意したメッセージを表示する。　cssで非表示にしておいて、JSで０（最初の画像）に戻ったらループを止めて、メッセージを表示する。*/
 }();
 /******/ })()

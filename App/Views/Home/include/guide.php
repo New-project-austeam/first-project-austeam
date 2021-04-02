@@ -213,7 +213,7 @@
             <li>場所：沖縄</li>
             <li>日時：2021/10/20</li>
             <li>環境テーマ：ごみ拾い</li>
-            <img src="/dist/images/woman-332278_1920.jpg" width="200px">
+            <img src="<?php echo URLROOT; ?>/dist/images/woman-332278_1920.jpg" width="200px">
             <p>詳細</p>
           </ul>
 

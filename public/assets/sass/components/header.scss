@@ -7,136 +7,196 @@
 
 /* Scss記述に修正する。 */
 
+/* ログインしたときの色 */
+/* ログインしている時 いろ変えたい時 */
 /* .header-color{
-  background-color: rgb(187, 187, 223);
-}  いろ変えたい時*/
+  background-color:transparent;
+}  */
 
-.main_header{
-  background-color:$background-color;
+/* ログイン前のヘッダー */
+#index {
   position: relative;
 }
-
-
-a {
-  text-decoration: none;
-}
-
-.logo {
-  margin: 15px 10px 0;
-  padding-left: 10px;
-  letter-spacing: 0.1;
-  font-size: 1.4rem;
-}
-
-.logo-g {
-  font-size: 1.8rem;
-}
-
-.logo a {
-  color: rgb(99, 90, 90);
-}
-
-.header-content {
-  display: flex;
-  justify-content: space-between;
-
-  .header-list {
+.main_header {
+  background-color: $background-color;
+  position: relative; /* navBtn用のposition:relative */
+  .header-contents {
     display: flex;
     justify-content: space-between;
-    padding: 15px 10px 10px 40px;
-  }
-}
-.header-list li {
-  margin: 0 0 0 20px;
-  padding-top: 5px;
-  font-size: 0.7rem;
-  span {
-    font-weight: normal;
-    font-size: 0.1em;
-    margin: 0 auto;
-  }
-}
-
-.header-list li a {
-  text-decoration: none;
-  color: grey;
-  font-weight: bolder;
-}
-
-.header-list li a:hover {
-  color: rgb(24, 23, 23);
-}
-
-#header {
-  max-width: 1200px;
-  width: 100%;
-  h1 {
-    color: blue;
-  }
-}
-
-@media (max-width: 380px) {
-  .header-content {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-
-    .logo {
-      font-size: 1rem;
-    }
-  }
-}
-
-@media (max-width: 320px) {
-  /* レスポンシブ　320pxだと、headerバランス悪い 位置考える いっそのことハンバーガーにするか。*/
-
-  .header-list {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-left: 100px;
-    margin-top: -0.3px;
-  }
-
-  .logo {
-    font-size: 1rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .main_header {
-    background-color: $background-color;
-  }
-  .header-content {
-    max-width: 1200px;
     width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 5px 10px 0;
+    position: relative;
 
-    .logo {
-      margin: 5px 10px 0;
-      padding-left: 15px;
-      letter-spacing: 0.1;
-      font-size: 1.7rem;
+    /* .logo {
+      align-items: top;
+    } */
+    a {
+      font-size: 1.5rem;
+      &:hover {
+        color: black;
+        cursor: pointer;
+      }
+    }
+    .header-list {
 
-      .logo-g {
-        font-size: 2.3rem;
+      display: flex;
+      li:not(:last-of-type) {
+        padding-right: 40px;
+      }
+      li {
+        text-align: center;
+
+        a {
+          font-size: 0.9rem;
+          font-weight: bold;
+
+          span {
+            font-size: 0.7vw;
+          }
+          &:hover {
+            color: black;
+            cursor: pointer;
+          }
+        }
       }
     }
   }
+}
 
-  .header-list li {
-    font-size: 1.1em;
-    margin-right: 20px;
-    line-height: 1;
+.header-list2 {
+  display: flex;
+  text-align: right;
 
-    span {
-      font-size: 0.8rem;
-      line-height: 0.5;
-      margin-left: 5px;
+  font-size: 0.5rem;
+  padding-top:10px;
+
+  /*   li:not(:first-of-type) {
+    padding-right: 40px;
+
+  } */
+  li {
+
+  /*   padding-left: 40px; */
+    text-align: right;
+    .list {
+      font-size: 1rem;
+      font-weight: bold;
+
     }
+
+    &:hover {
+      color: black;
+      cursor: pointer;
+    }
+  }
+  li:not(:first-of-type) {
+    margin-left: 40px;
+
   }
 }
 
+/* ログイン後 */
+.account-name {
+  color: $main-letter-color;
+  font-weight: bold;
+  font-size: 1rem;
+  padding-top: 10px;
+  /* margin-left: 50px; */
+
+}
+
+/* navigation menu ハンバーガー */
+
+@media (max-width: 768px) {
+  .header-contents {
+    height: 50px;
+
+    .logo {
+      margin-top: -8px;
+
+      a {
+        font-size: 1.1rem;
+      }
+    }
+  }
+  .account-name {
+    margin-right: 90px;
+  }
+
+  /* ハンバーガーメニュー */
+
+  .header-list2 {
+    display: none;
+    opacity: 0;
+    z-index: 200;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    height: 6vh;
+    background-color:rgb(234,233,231);
+    width: 100%;
+    transition: ease 0.3s;
+    position: fixed;
+
+    li {
+      margin-top: 5px;
+
+   /*    text-align: center; */
 
 
-/* ログインしたときの色 */
+      &:last-child {
+        margin-right:45px;
+      }
+    }
+    .header-list2.active {
+      opacity: 1;
+
+    }
+  }
+
+  /* クリック前のボタン */
+  .navBtn {
+    z-index: 300;
+    display: block;
+    transition: 0.2s;
+
+  }
+  .navBtn div {
+
+    position: absolute;
+    z-index: 300;
+    top: 25px;
+    right: 15px;
+    background-color: $main-letter-color;
+    height: 1.5px;
+    width: 30px;
+    transition: 0.2s;
+
+    &:nth-of-type(1) {
+      transform: translate(0%, -10px);
+    }
+    &:nth-of-type(3) {
+      transform: translate(0%, 10px);
+    }
+  }
+
+  .navBtn.active div:nth-of-type(2) {
+    opacity: 0;
+  }
+  .navBtn.active div:nth-of-type(1) {
+    transform: rotate(45deg);
+  }
+  .navBtn.active div:nth-of-type(3) {
+    transform: rotate(-45deg);
+  }
+   .navBtn.active{
+    position: fixed;
+
+  }
+}

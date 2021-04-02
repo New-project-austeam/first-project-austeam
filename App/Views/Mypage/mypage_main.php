@@ -2,8 +2,13 @@
  <?php require APPROOT . '/views/inc/header.php'; ?>
 
 
+<!-- イベントモーダル createEvent.phpをインポート -->
+<?php require APPROOT . '/views/home/include/createEvent.php'; ?>
 
 
+<section  id="mypage" >
+  <!-- イベント作成ボタン -->
+  <?php require APPROOT . '/views/home/include/eventbtn.php'; ?>
  <div style="width: 80%;margin: 50px auto;">
 
    <h1 style="margin-bottom:10px;">My Page</h1>
@@ -76,6 +81,8 @@
      </div>
    </div>
 
+
+   </section><!-- #mypage -->
 
    <?php require APPROOT . '/views/inc/postForm.php'; ?>
 

@@ -155,8 +155,8 @@ text-align: center;
 
         P{
           font-size: 0.8rem;
-          font-weight: bold;
-          background-color:$button-color;
+
+          background-color:rgb(202,250,234);
 
           padding:3px;
         }
@@ -231,10 +231,7 @@ text-align: center;
 
 
     }
-    .favorite{
-      font-size: 1rem;
 
-    }
   }
 
   .event-info-list{
@@ -243,7 +240,7 @@ text-align: center;
 
 
     li{
-      padding: 5px;
+      padding: 5px 15px 0 0;
       font-weight: bold;
       font-size: 0.75rem;
     }
@@ -489,4 +486,15 @@ text-align: center;
   font-size: 0.9rem;
   width:90%;
 }
+ }
+
+ /* favorite */
+ .like-it i{
+   display: none;
+   color: $button-color;
+
+ }
+
+ .active-star{
+   display: block;
  }
