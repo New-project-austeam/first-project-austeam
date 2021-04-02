@@ -9,6 +9,7 @@ const loginModal = require('./modules/loginform.js')
 const ajaxTest = require('./modules/ajax_test.js')
 const createEvent = require('./modules/createEvent.js')
 const navmenu = require('./modules/navmenu.js')
+const search = require('./modules/search.js')
 
 
 /* loginJsonはデータをJS仕様に変換したもの */
@@ -46,14 +47,21 @@ if (document.querySelector("#slideshow")) {
 if(document.querySelector('#timeline')){
   　createEvent();
     navmenu();
+    search();
 
 };
 
+/* マイページ */
 if(document.querySelector('#mypage')){
   　createEvent();
   navmenu();
 
 };
 
+/* イベント詳細ページ */
+if(document.querySelector('#detailPage')){
+  navmenu();
+
+};
 
 /*  画像は最初の一枚に戻ってから、ループを止めて、htmlとcssで用意したメッセージを表示する。　cssで非表示にしておいて、JSで０（最初の画像）に戻ったらループを止めて、メッセージを表示する。*/

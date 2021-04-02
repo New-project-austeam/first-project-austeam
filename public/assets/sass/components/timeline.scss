@@ -201,6 +201,8 @@ text-align: center;
 .poseted-event-contents{
   width:100%;
   padding-left:20px;
+  margin-top: -15px;
+
 
 
 
@@ -209,7 +211,7 @@ text-align: center;
     width:100%;
     display: flex;
     flex-direction: row;
-    text-align: left;
+    text-align:left;
 
 
     .event-title{
@@ -217,8 +219,6 @@ text-align: center;
       font-size: 5rem;/* -------------フォントサイズ　仮------------- */
 
        width:85%;
-       padding-top: 5px;
-
 
     }
 
@@ -272,6 +272,7 @@ text-align: center;
   }
 
   .detail{
+
     padding-top:10px;
   text-align: center;
   .detail-btn{
@@ -290,10 +291,12 @@ text-align: center;
 
 
 .event-detail{
+
   display: flex;
   font-size: 0.9rem;
   padding-top:10px;
   width:90%;
+  margin: 0 auto;
   text-align: center;
 
 }
@@ -302,6 +305,8 @@ text-align: center;
 
 
 .joinning-ppl{
+  width:90%;
+  margin: 0 auto;
 
         display: flex;
        font-size: 0.9rem;

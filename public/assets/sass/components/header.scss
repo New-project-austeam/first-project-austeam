@@ -22,12 +22,14 @@
   position: relative; /* navBtn用のposition:relative */
   .header-contents {
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 5px 10px 0;
-    position: relative;
+
+
+
 
     /* .logo {
       align-items: top;
@@ -72,6 +74,7 @@
   font-size: 0.5rem;
   padding-top:10px;
 
+
   /*   li:not(:first-of-type) {
     padding-right: 40px;
 
@@ -103,6 +106,7 @@
   font-weight: bold;
   font-size: 1rem;
   padding-top: 10px;
+
   /* margin-left: 50px; */
 
 }
@@ -130,7 +134,7 @@
   .header-list2 {
     display: none;
     opacity: 0;
-    z-index: 200;
+
     position: absolute;
     top: 0;
     right: 0;
@@ -145,13 +149,13 @@
     position: fixed;
 
     li {
-      margin-top: 5px;
+      margin-top: 3px;
 
    /*    text-align: center; */
 
 
       &:last-child {
-        margin-right:45px;
+        margin-right:38px;
       }
     }
     .header-list2.active {
@@ -165,13 +169,16 @@
     z-index: 300;
     display: block;
     transition: 0.2s;
+    top:0;
+  right:0;
+
 
   }
   .navBtn div {
 
     position: absolute;
     z-index: 300;
-    top: 25px;
+    top: 22px;
     right: 15px;
     background-color: $main-letter-color;
     height: 1.5px;

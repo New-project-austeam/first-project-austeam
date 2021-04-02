@@ -486,6 +486,26 @@ module.exports = navmenu;
 
 /***/ }),
 
+/***/ "./public/assets/js/modules/search.js":
+/*!********************************************!*\
+  !*** ./public/assets/js/modules/search.js ***!
+  \********************************************/
+/***/ (function(module) {
+
+function search() {
+  var searchBtn = document.querySelector('#search-btn');
+  var searchText = document.querySelector('#search');
+  var searchResults = document.querySelector('.search-results');
+  searchBtn.addEventListener('click', function () {
+    var template = "<d class=\"search-results\">\n    <p>".concat(searchText.value, "\u306E\u691C\u7D22\u7D50\u679C\u304C\u898B\u3064\u304B\u308A\u307E\u3057\u305F</p>\n  </d>");
+    searchResults.innerHTML = template;
+  });
+}
+
+module.exports = search;
+
+/***/ }),
+
 /***/ "./public/assets/js/modules/setPostData.js":
 /*!*************************************************!*\
   !*** ./public/assets/js/modules/setPostData.js ***!
@@ -11574,6 +11594,8 @@ var ajaxTest = __webpack_require__(/*! ./modules/ajax_test.js */ "./public/asset
 var createEvent = __webpack_require__(/*! ./modules/createEvent.js */ "./public/assets/js/modules/createEvent.js");
 
 var navmenu = __webpack_require__(/*! ./modules/navmenu.js */ "./public/assets/js/modules/navmenu.js");
+
+var search = __webpack_require__(/*! ./modules/search.js */ "./public/assets/js/modules/search.js");
 /* loginJsonはデータをJS仕様に変換したもの */
 
 /* もしloginJsonがundefinedではなく、#slideshow(guide.phpのスライドショーに関するID
@@ -11609,12 +11631,21 @@ if (document.querySelector("#slideshow")) {
 if (document.querySelector('#timeline')) {
   createEvent();
   navmenu();
+  search();
 }
 
 ;
+/* マイページ */
 
 if (document.querySelector('#mypage')) {
   createEvent();
+  navmenu();
+}
+
+;
+/* イベント詳細ページ */
+
+if (document.querySelector('#detailPage')) {
   navmenu();
 }
 

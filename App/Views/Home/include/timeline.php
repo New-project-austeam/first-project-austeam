@@ -17,8 +17,8 @@
       <form>
 
         <dl class="search-list">
-          <dd><input type="search" placeholder="イベント検索">
-            <input type="submit" value="検索">
+          <dd><input type="search" placeholder="イベント検索" id="search" >
+            <input type="submit" id="search-btn" value="検索"><!-- button -->
           </dd>
 
           <dd><input type="date">
@@ -26,9 +26,14 @@
           </dd>
         </dl>
       </form>
+
+      <div class="search-results">xxx</div>
+
       <div class="recommendation">
         <h3 class="aside-title"><i class="fas fa-trash-alt"></i> ゴミマップのおすすめ</h3>
       </div>
+
+
 
       <div class="source-quote"></div>
     </aside><!-- recommendation -->
@@ -40,7 +45,11 @@
     <section class="timeline timeline-wrap">
 
 
+
+
       <section class="wanted">
+
+
            <!-- イベント作成ボタン -->
         <?php require APPROOT . '/views/home/include/eventbtn.php'; ?>
         　　　　　<form class="filter">

@@ -91,7 +91,6 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 5px 10px 0;
-  position: relative;
   /* .logo {
     align-items: top;
   } */
@@ -179,7 +178,6 @@ body {
   .header-list2 {
     display: none;
     opacity: 0;
-    z-index: 200;
     position: absolute;
     top: 0;
     right: 0;
@@ -193,11 +191,11 @@ body {
     position: fixed;
   }
   .header-list2 li {
-    margin-top: 5px;
+    margin-top: 3px;
     /*    text-align: center; */
   }
   .header-list2 li:last-child {
-    margin-right: 45px;
+    margin-right: 38px;
   }
   .header-list2 .header-list2.active {
     opacity: 1;
@@ -208,12 +206,14 @@ body {
     z-index: 300;
     display: block;
     transition: 0.2s;
+    top: 0;
+    right: 0;
   }
 
   .navBtn div {
     position: absolute;
     z-index: 300;
-    top: 25px;
+    top: 22px;
     right: 15px;
     background-color: #635a5a;
     height: 1.5px;
@@ -315,7 +315,6 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 5px 10px 0;
-  position: relative;
   /* .logo {
     align-items: top;
   } */
@@ -403,7 +402,6 @@ body {
   .header-list2 {
     display: none;
     opacity: 0;
-    z-index: 200;
     position: absolute;
     top: 0;
     right: 0;
@@ -417,11 +415,11 @@ body {
     position: fixed;
   }
   .header-list2 li {
-    margin-top: 5px;
+    margin-top: 3px;
     /*    text-align: center; */
   }
   .header-list2 li:last-child {
-    margin-right: 45px;
+    margin-right: 38px;
   }
   .header-list2 .header-list2.active {
     opacity: 1;
@@ -432,12 +430,14 @@ body {
     z-index: 300;
     display: block;
     transition: 0.2s;
+    top: 0;
+    right: 0;
   }
 
   .navBtn div {
     position: absolute;
     z-index: 300;
-    top: 25px;
+    top: 22px;
     right: 15px;
     background-color: #635a5a;
     height: 1.5px;
@@ -1298,6 +1298,7 @@ a .detail-btn {
 .poseted-event-contents {
   width: 100%;
   padding-left: 20px;
+  margin-top: -15px;
   /* ボタン */
   /* ボタン　*/
 }
@@ -1311,7 +1312,6 @@ a .detail-btn {
   font-size: 5rem;
   /* -------------フォントサイズ　仮------------- */
   width: 85%;
-  padding-top: 5px;
 }
 .poseted-event-contents .posted-event-title .favorite-icon {
   padding-top: 5px;
@@ -1358,10 +1358,13 @@ a .detail-btn {
   font-size: 0.9rem;
   padding-top: 10px;
   width: 90%;
+  margin: 0 auto;
   text-align: center;
 }
 
 .joinning-ppl {
+  width: 90%;
+  margin: 0 auto;
   display: flex;
   font-size: 0.9rem;
   justify-content: flex-start;
@@ -2313,7 +2316,7 @@ a:hover {
   text-align: center;
   color: #635a5a;
   position: fixed;
-  top: 50%;
+  top: 52%;
   left: 50%;
   transform: translate(-50%, -50%);
   overflow: auto;

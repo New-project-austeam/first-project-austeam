@@ -5,7 +5,7 @@
 $post = $data['postData'];
 ?>
 
-<main class="bg-img">
+<main class="bg-img" id="detailPage">
   <span class="space">スペース</span>
 
   <div class="contents-wrapper">
