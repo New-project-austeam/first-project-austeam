@@ -81,7 +81,7 @@ function loginModal(data) {
 
 
   // login validation
-  function loginValidation(){
+  function loginValidation(data){
     const form = document.querySelector(".form");
     const email = document.querySelector("#email");
     const password = document.querySelector("#password");
@@ -99,7 +99,7 @@ function loginModal(data) {
         errorMessages.push(
           '<i class="fas fa-exclamation-triangle"></i>　Enter your e-mail'
         );
-      }else if (email.value !== loginJson.user_email) {
+      }else if (email.value !== data.user_email) {
         errorMessages.push(
           '<i class="fas fa-exclamation-triangle"></i>　E-mail is not registered. please sign up'
         );
@@ -113,7 +113,7 @@ function loginModal(data) {
         );
       }
       /* 🌟既存のパスワードと一致しない場合 */
-      else if (password.value !== loginJson.user_password) {
+      else if (password.value !== data.user_password) {
         errorMessages2.push(
           '<i class="fas fa-exclamation-triangle"></i>　Password is incorrect'
         );
@@ -133,7 +133,7 @@ function loginModal(data) {
 
 
  //signup validation
-  function signupValidation() {
+  function signupValidation(data) {
     const email = document.querySelector("#email");
     const password = document.querySelector("#password");
     const passwordConfirmation = document.querySelector("#confirm_password");
@@ -155,7 +155,7 @@ function loginModal(data) {
         errorMessages.push(
           '<i class="fas fa-exclamation-triangle"></i>　Enter your e-mail'
         );
-      } else if(email.value === loginJson.user_email){
+      } else if(email.value === data.user_email){
         errorMessages.push(
           '<i class="fas fa-exclamation-triangle"></i> You already have an account, please login'
         );
@@ -190,10 +190,22 @@ function loginModal(data) {
       passwordError.innerHTML = errorMessages2.join(',');
       nicknameError.innerHTML = errorMessages3.join(',');
       passwordConfirtmError.innerHTML = errorMessages4.join(',');
-      } /* else{
+      } else{
+
+       /*users.phpより */
+        /* $lastInsertedId = $this->userModel->register($data);
+        if ($lastInsertedId) {
+          $this->make_user_image_dir($lastInsertedId);
+
+          flash('register_success', 'You are successfully registered!! Please login with  the your account ');
+          redirect('users/login');
+        } else {
+          die('Something went wrong');
+        } */
+
 
       }
- */
+
     }
     );
   }
@@ -266,7 +278,7 @@ function loginModal(data) {
     closeModal(modal_bg, loginmodal);
 
     /* validation */
-    loginValidation();
+    loginValidation(loginJson);
 
 
   } //////////////////////signup modal
@@ -348,7 +360,7 @@ function loginModal(data) {
 
 
     /* validation */
-    signupValidation();
+    signupValidation(loginJson);
 
   }
 

@@ -22,7 +22,7 @@
 
 .top-visual {
   width: 100vw;
-height: 60vh;
+  height: 60vh;
 
   transition: background-image 3s ease; //2.5秒
   background-image: url(../images/sunset-4937813_1920.jpg);
@@ -35,7 +35,6 @@ height: 60vh;
   flex-direction: column;
   justify-content: space-around;
   color: white;
-
 
   .msg-1,
   .msg-2 {
@@ -163,24 +162,21 @@ height: 60vh;
   opacity: 0;
 }
 
-main{
+main {
   background-color: $background-color;
   font-family: $font;
   color: $main-letter-color;
 }
 
 /* section の枠*/
-.section-wrapper{
-  max-width:850px;
-  width:90%;
+.section-wrapper {
+  max-width: 850px;
+  width: 90%;
   margin: 0 auto;
   background-color: white;
   font-family: $font;
   padding-bottom: 30px;
-
 }
-
-
 
 /* section title  */
 @mixin section-title {
@@ -191,49 +187,43 @@ main{
   padding: 20px;
   transition: all 1s ease;
 }
-.section-title{
+.section-title {
   @include section-title();
-  p{
+  p {
     font-size: 0.7rem;
   }
 }
 
 /* ---------------------ABOUT--------------------- */
 
-.about-contents{
-  width:80%;
-  margin:0 auto;
+.about-contents {
+  width: 75%;
+  margin: 0 auto;
 
-  .first-image{
+  .first-image {
     text-align: center;
   }
-  .secound-image{
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
+  .secound-image {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 
+    .about-list {
+      text-align: center;
+      text-align: left;
 
-   .about-list{
-   text-align: center;
-    text-align: left;
-
-    li:first-child{
-      margin-top: 20px;
-
+      li:first-child {
+        margin-top: 20px;
+      }
+      li:not(:first-of-type) {
+        margin-top: 10px;
+      }
     }
-    li:not(:first-of-type){
-      margin-top: 10px;
+    img {
+      margin: 0 15px;
     }
-
-   }
-   img{
-
-     margin:0 15px;
-
-   }
+  }
 }
-}
-
 
 /*-------------------- INSTRUCTION------------- */
 
@@ -249,171 +239,144 @@ justify-content: center;
   font-size: 0.9rem;
 } */
 
+.steps1234 {
+  padding-top: 50px;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
+  /*  display: flex;
+        flex-direction:wrap; */
+  /* margin-right:100px ; */
+  /*    justify-content: space-around ; */
+  .steps12 {
+    border-bottom: 1px solid rgb(187, 181, 181, 0.3);
 
+    .how-to1{
+      border-right: 1px solid rgb(187, 181, 181, 0.3);
+    }
+  }
+  .steps34 {
 
+    .how-to3{
+      border-right: 1px solid rgb(187, 181, 181, 0.3);
+    }
 
-      .steps1234{
-        margin-top:50px;
-       width: 90%;
+  }
 
-        display: flex;
-        flex-direction:wrap;
-        /* margin-right:100px ; */
-        justify-content: space-around ;
+  .steps12,
+  .steps34 {
+    display: flex;
+    justify-content: space-between;
+  }
+}
 
+@media (max-width: 500px) {
+  .steps1234 {
+    .steps12,
+    .steps34 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: none;
 
-        .steps12,
-        .steps34{
-         display: flex;
-         justify-content: space-between;
-        }
-      }
-      @media(max-width:768px){
-        .steps1234{
-          margin: 0 auto;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          .steps12{
-            border-bottom: 1px solid rgb(187, 181, 181,0.3);
-            margin-bottom: 20px;
-          }
-        }
-      }
-
-      @media(max-width:480px){
-        .steps1234{
-
-          .steps12,
-        .steps34{
-
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          border: none;
-
-          .how-to{
-            width:100%;
-          }
-        }
-
-        }
-
-      }
-   /* 各ステップとリボン */
       .how-to {
-
-        font-size: 0.9rem;
-
-        width:50%;
-        padding:0 20px;
-        margin-right: 5px;
-        text-align: center;
-        .step-ribbon {
-          margin-left: 5px;
-          border-bottom: black;
-          position: relative;
-          text-align: center;
-          background: $button-color;
-          width: 100px;
-          height: 30px;
-          font-family: $font;
-          color: $main-letter-color;
-
-          &::before {
-            position: absolute;
-            top: -7px;
-            left: -7px;
-            width: 100%;
-            height: 30px;
-            content: "";
-            border: 1px solid #000;
-          }
-
-        }
-        .how-to-contents {
-
-          margin: 20px 0;
-          padding:0 8px;
-
-
-        }
-
-
+        width: 100%;
       }
+    }
+  }
+}
+/* 各ステップとリボン */
+.how-to {
+  font-size: 0.9rem;
+
+  width: 50%;
+  padding: 0 20px;
+  margin-right: 5px;
+  text-align: center;
+  .step-ribbon {
+    margin-left: 5px;
+    border-bottom: black;
+    position: relative;
+    text-align: center;
+    background: $button-color;
+    width: 100px;
+    height: 30px;
+    font-family: $font;
+    color: $main-letter-color;
+
+    &::before {
+      position: absolute;
+      top: -7px;
+      left: -7px;
+      width: 100%;
+      height: 30px;
+      content: "";
+      border: 1px solid #000;
+    }
+  }
+  .how-to-contents {
+    margin: 20px 0;
+    padding: 0 8px;
+  }
+}
 
 /* steps以降 */
-.how-to-contents{
+.how-to-contents {
   text-align: center;
-  .arrow{
-
-
+  .arrow {
     font-size: 3rem;
-    padding: 20px 0;
-    .fa-angle-double-down{
+    padding: 50px 0;
+    .fa-angle-double-down {
       text-align: center;
     }
   }
   /* quotation */
   a {
-
     color: $main-letter-color;
     font-size: 0.3rem;
     &:hover {
       color: rgb(20, 190, 241);
     }
   }
-
 }
-
 
 /* -------------- モバイル版 NEW-EVENT----------- */
-.newEventContents{
-  width:90%;
+.newEventContents {
+  width: 90%;
   margin: 0 auto;
-  .posted{
-    width:300px;
+  .posted {
+    width: 300px;
     margin: 0 auto;
-    padding:0 15px;
-    border-right: rgb(240, 232, 232,0.5) 1px solid;
-    border-left: rgb(240, 232, 232,0.5) 1px solid;
+    padding: 0 15px;
+    border-right: rgb(240, 232, 232, 0.5) 1px solid;
+    border-left: rgb(240, 232, 232, 0.5) 1px solid;
   }
 
-  .icon{
-
+  .icon {
     text-align: center;
 
-
-  .icon-border{
-    border:$button-color 4px double;
-    width:60px;
-    height:60px;
-    border-radius: 50%;
-
-    img{
-
-      width:50px;
-      height:50px;
+    .icon-border {
+      border: $button-color 4px double;
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
-      border:5px solid white;
+
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 5px solid white;
+      }
     }
-
-    }
-
-
+  }
 }
-
-
-}
-
 
 /* ----------モバイル版 registration------------- */
 
 .registration {
-
-
-
   .join-button,
   .sns {
     text-align: center;
@@ -421,17 +384,17 @@ justify-content: center;
 
   .join-button {
     padding: 5px 0 30px;
-   margin-bottom: 25px;
+    margin-bottom: 25px;
     button {
       border-radius: 2px;
       border: none;
       padding: 6px 90px;
-      background: rgb(26,238,185);
-      box-shadow:1px 1px rgb(12, 128, 12) ;
+      background: rgb(26, 238, 185);
+      box-shadow: 1px 1px rgb(12, 128, 12);
       border: transparent;
-      &:hover{
-        background: rgb(26,238,185);
-        box-shadow:none;
+      &:hover {
+        background: rgb(26, 238, 185);
+        box-shadow: none;
       }
     }
   }
@@ -466,7 +429,7 @@ justify-content: center;
     @include quote();
   }
 }
-.team-image{
+.team-image {
   margin: 0 auto 25px;
   text-align: center;
 }
@@ -508,24 +471,23 @@ justify-content: center;
   }
 }
 
-
 /* ーーーーーーーーーーーーーーーアニメーーーテストーーーーーーーーーーーーーーーー */
 /* スクロールしたらフワッ出てくるようにしたい */
-.section-title{
+.section-title {
   animation: test 2s;
 }
 
-.section-wrapper{
+.section-wrapper {
   animation: test 4s;
 }
 
-@keyframes test{
+@keyframes test {
   from {
     opacity: 0;
     transform: translateY(30px);
   }
 
-  to{
+  to {
     opacity: 1;
   }
 }

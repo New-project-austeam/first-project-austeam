@@ -178,6 +178,7 @@ body {
   .header-list2 {
     display: none;
     opacity: 0;
+    z-index: 100;
     position: absolute;
     top: 0;
     right: 0;
@@ -402,6 +403,7 @@ body {
   .header-list2 {
     display: none;
     opacity: 0;
+    z-index: 100;
     position: absolute;
     top: 0;
     right: 0;
@@ -789,7 +791,7 @@ main {
 
 /* ---------------------ABOUT--------------------- */
 .about-contents {
-  width: 80%;
+  width: 75%;
   margin: 0 auto;
 }
 .about-contents .first-image {
@@ -825,12 +827,25 @@ main {
   font-size: 0.9rem;
 } */
 .steps1234 {
-  margin-top: 50px;
+  padding-top: 50px;
   width: 90%;
+  margin: 0 auto;
   display: flex;
-  flex-direction: wrap;
+  flex-direction: column;
+  justify-content: center;
+  /*  display: flex;
+        flex-direction:wrap; */
   /* margin-right:100px ; */
-  justify-content: space-around;
+  /*    justify-content: space-around ; */
+}
+.steps1234 .steps12 {
+  border-bottom: 1px solid rgba(187, 181, 181, 0.3);
+}
+.steps1234 .steps12 .how-to1 {
+  border-right: 1px solid rgba(187, 181, 181, 0.3);
+}
+.steps1234 .steps34 .how-to3 {
+  border-right: 1px solid rgba(187, 181, 181, 0.3);
 }
 .steps1234 .steps12,
 .steps1234 .steps34 {
@@ -838,19 +853,7 @@ main {
   justify-content: space-between;
 }
 
-@media (max-width: 768px) {
-  .steps1234 {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .steps1234 .steps12 {
-    border-bottom: 1px solid rgba(187, 181, 181, 0.3);
-    margin-bottom: 20px;
-  }
-}
-@media (max-width: 480px) {
+@media (max-width: 500px) {
   .steps1234 .steps12,
 .steps1234 .steps34 {
     display: flex;
@@ -903,7 +906,7 @@ main {
 }
 .how-to-contents .arrow {
   font-size: 3rem;
-  padding: 20px 0;
+  padding: 50px 0;
 }
 .how-to-contents .arrow .fa-angle-double-down {
   text-align: center;

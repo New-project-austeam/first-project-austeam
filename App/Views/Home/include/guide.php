@@ -134,7 +134,7 @@
       <!-- steps -->
       <section class="steps1234">
 　　　　　<div class="steps12">
-        <div class="how-to">
+        <div class="how-to how-to1">
           <h4 class="step-ribbon">Step.1</h4>
           <div class="how-to-contents">
             <p>
@@ -158,7 +158,7 @@
         </div><!-- steps12 -->
 
         <div class="steps34">
-        <div class="how-to">
+        <div class="how-to how-to3">
           <h4 class="step-ribbon">Step.3</h4>
           <div class="how-to-contents">
             <p>準備をする。必要な持ち物を用意し天候に合わせた服装を</p>
