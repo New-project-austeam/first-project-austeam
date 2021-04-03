@@ -19,10 +19,11 @@ const search = require('./modules/search.js')
 if (typeof loginJson !== "undefined" && document.querySelector('#slideshow')) {
   console.log(loginJson);
 
-  loginModal(loginJson);
+  loginModal(loginJson); //submitした時　ログインjsonがあるかないか
 }else if(typeof loginJson == "undefined" && document.querySelector('#slideshow')){
-  loginModal();
-};
+  loginModal();//　
+
+};　
 
 
 

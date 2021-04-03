@@ -224,7 +224,7 @@ function loginModal(data) {
     var password = document.querySelector("#password");
     var emailError = document.querySelector(".email-error");
     var passwordError = document.querySelector(".password-error");
-    form.addEventListener("submit", function (e) {
+    form.addEventListener("click", function (e) {
       var errorMessages = [];
       var errorMessages2 = [];
       /* email error */
@@ -403,7 +403,7 @@ function loginModal(data) {
     template1 += "<p>アカウント登録</p>";
     /* form */
 
-    template1 += '<form class="form" method="post" action="http://localhost:8888/first-project-austeam/users/login">';
+    template1 += '<form class="form" method="post" action="http://localhost:8888/first-project-austeam/users/signup">';
     template1 += "<dl>";
     1;
     template1 += "<div>";
@@ -11613,9 +11613,9 @@ var search = __webpack_require__(/*! ./modules/search.js */ "./public/assets/js/
 
 if (typeof loginJson !== "undefined" && document.querySelector('#slideshow')) {
   console.log(loginJson);
-  loginModal(loginJson);
+  loginModal(loginJson); //submitした時　ログインjsonがあるかないか
 } else if (typeof loginJson == "undefined" && document.querySelector('#slideshow')) {
-  loginModal();
+  loginModal(); //　
 }
 
 ; ////////

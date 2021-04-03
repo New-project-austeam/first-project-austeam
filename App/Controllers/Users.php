@@ -77,7 +77,7 @@ class Users extends Controller
         }
       } else {
 
-        $this->view('users/signup', $data);
+        $this->view('users/signup', $data); //
       }
     } else {
       // Load form;

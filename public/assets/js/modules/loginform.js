@@ -90,7 +90,7 @@ function loginModal(data) {
     const passwordError = document.querySelector(".password-error");
 
 
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("click", (e) => {
       let errorMessages = [];
       let errorMessages2 = [];
 
@@ -293,7 +293,7 @@ function loginModal(data) {
     template1 += "<h3>Sign Up</h3>";
     template1 += "<p>アカウント登録</p>";
     /* form */
-    template1 += '<form class="form" method="post" action="http://localhost:8888/first-project-austeam/users/login">';
+    template1 += '<form class="form" method="post" action="http://localhost:8888/first-project-austeam/users/signup">';
     template1 += "<dl>";
     1;
     template1 += "<div>";

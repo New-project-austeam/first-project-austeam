@@ -12,6 +12,9 @@
 
 <body id="index">
   <!-- emailかパスワードのエラーがあったら -->
+
+  <!-- loginJsonを作っている ↓-->
+  <!-- ここでPHPのdataをJsonのdataに変えている -->
 <?php
   if(isset($data['email_err']) || isset($data['password_err'])){
     /*  echo print_r($data); */
@@ -19,7 +22,7 @@
      $json = json_encode($data, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
       /* print_r($json); */
      $json = escapeJsonString($json);
- ?>
+ ?>　
  <script>
    const loginJson = JSON.parse('<?php echo $json ?>')
  </script>
