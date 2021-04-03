@@ -1,0 +1,493 @@
+@import "variable.scss";
+
+/* メインパーツにid or class をindexをボディにつけ、その中に入れ子にしてCSSを記述する */
+/* プラウザのキャッシュクリア　ショートカット　Command ＋shift + R */
+
+/* 要修正：：：：320pxi　と　pad proサイズ */
+
+/* index.scss全体共通 */
+
+/* 使い回す
+ .wrap {
+  width:100%;
+  max-width:1200px;
+ } */
+
+/* font-size・line-height に　vwを使う
+  幅によってサイズ帰る
+  heightも幅によって高さを調節してくれる */
+
+/* -----------------------TOP VISUAL-------------------- */
+/* 画像スライドショーにする ---ok*/
+
+.top-visual {
+  width: 100vw;
+  height: 60vh;
+
+  transition: background-image 3s ease; //2.5秒
+  background-image: url(../images/sunset-4937813_1920.jpg);
+  background-color: $background-color;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: white;
+
+  .msg-1,
+  .msg-2 {
+    margin-left: 40px;
+    text-shadow: 0 0 40px rgb(19, 19, 18);
+    transition: all 1.5s ease;
+    z-index: 10;
+
+    &.hide {
+      opacity: 0;
+    }
+  }
+
+  .msg-1 {
+    left: 9%;
+    top: 20%;
+    position: absolute;
+  }
+  .msg-2 {
+    top: 60%;
+    right: 10%;
+    position: absolute;
+  }
+}
+
+@media (min-width: 768px) {
+  .top-visual {
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: relative;
+
+    .msg-1,
+    .msg-2 {
+      font-size: 1.5rem;
+    }
+
+    @media (min-width: 1200px) {
+      .msg-1,
+      .msg-2 {
+        font-size: 1.8rem;
+      }
+
+      .msg-1 {
+        padding-left: 150px;
+      }
+
+      .msg-2 {
+        padding-right: 200px;
+      }
+    }
+  }
+}
+
+/* hidden-message */
+#hidden-message {
+  transition: all 1s ease;
+  display: none;
+  opacity: 0;
+  background-color: rgba(66, 65, 65, 0.6);
+  text-align: center;
+  width: 100vw;
+  height: 60vh;
+  position: relative;
+  color: white;
+  font-size: 0.75rem;
+  padding: 15px;
+  &.show {
+    animation-name: fadeIn;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    /* toで止める */
+  }
+
+  .message-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    /*  transform: translateY(-500px); */
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* hidden-message 320px version */
+@media (max-width: 320px) {
+  #hidden-message {
+    font-size: 0.65rem;
+  }
+}
+
+/* hidden-message PC version*/
+@media (min-width: 768px) {
+  #hidden-message {
+    padding-top: 70px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  #hidden-message {
+    padding-top: 100px;
+    line-height: 1.6;
+  }
+}
+
+/* --------------------MAIN-CONTENTS---------------------- */
+
+/* main-contentsの全体共通 */
+
+.space {
+  opacity: 0;
+}
+
+main {
+  background-color: $background-color;
+  font-family: $font;
+  color: $main-letter-color;
+}
+
+/* section の枠*/
+.section-wrapper {
+  max-width: 850px;
+  width: 90%;
+  margin: 0 auto;
+  background-color: white;
+  font-family: $font;
+  padding-bottom: 30px;
+}
+
+/* section title  */
+@mixin section-title {
+  font-size: 0.9rem;
+  color: $main-letter-color;
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 20px;
+  transition: all 1s ease;
+}
+.section-title {
+  @include section-title();
+  p {
+    font-size: 0.7rem;
+  }
+}
+
+/* ---------------------ABOUT--------------------- */
+
+.about-contents {
+  width: 75%;
+  margin: 0 auto;
+
+  .first-image {
+    text-align: center;
+  }
+  .secound-image {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .about-list {
+      text-align: center;
+      text-align: left;
+
+      li:first-child {
+        margin-top: 20px;
+      }
+      li:not(:first-of-type) {
+        margin-top: 10px;
+      }
+    }
+    img {
+      margin: 0 15px;
+    }
+  }
+}
+
+/*-------------------- INSTRUCTION------------- */
+
+/* section-title　と　step1-4はアニメーションつけたい */
+/* step1-4の下はフワッとコンテンツ出てくる */
+
+/*----------モバイル版　MAIN-CONTENTS-INSTRUCTION--------- */
+
+/* @mixin mobile-how-to-section {
+  text-align: center;
+  color: $main-letter-color;
+  padding: 20px;
+  font-size: 0.9rem;
+} */
+
+.steps1234 {
+  padding-top: 50px;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  /*  display: flex;
+        flex-direction:wrap; */
+  /* margin-right:100px ; */
+  /*    justify-content: space-around ; */
+  .steps12 {
+    border-bottom: 1px solid rgb(187, 181, 181, 0.3);
+
+    .how-to1{
+      border-right: 1px solid rgb(187, 181, 181, 0.3);
+    }
+  }
+  .steps34 {
+
+    .how-to3{
+      border-right: 1px solid rgb(187, 181, 181, 0.3);
+    }
+
+  }
+
+  .steps12,
+  .steps34 {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 500px) {
+  .steps1234 {
+    .steps12,
+    .steps34 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: none;
+
+      .how-to {
+        width: 100%;
+      }
+    }
+  }
+}
+/* 各ステップとリボン */
+.how-to {
+  font-size: 0.9rem;
+
+  width: 50%;
+  padding: 0 20px;
+  margin-right: 5px;
+  text-align: center;
+  .step-ribbon {
+    margin-left: 5px;
+    border-bottom: black;
+    position: relative;
+    text-align: center;
+    background: $button-color;
+    width: 100px;
+    height: 30px;
+    font-family: $font;
+    color: $main-letter-color;
+
+    &::before {
+      position: absolute;
+      top: -7px;
+      left: -7px;
+      width: 100%;
+      height: 30px;
+      content: "";
+      border: 1px solid #000;
+    }
+  }
+  .how-to-contents {
+    margin: 20px 0;
+    padding: 0 8px;
+  }
+}
+
+/* steps以降 */
+.how-to-contents {
+  text-align: center;
+  .arrow {
+    font-size: 3rem;
+    padding: 50px 0;
+    .fa-angle-double-down {
+      text-align: center;
+    }
+  }
+  /* quotation */
+  a {
+    color: $main-letter-color;
+    font-size: 0.3rem;
+    &:hover {
+      color: rgb(20, 190, 241);
+    }
+  }
+}
+
+/* -------------- モバイル版 NEW-EVENT----------- */
+.newEventContents {
+  width: 90%;
+  margin: 0 auto;
+  .posted {
+    width: 300px;
+    margin: 0 auto;
+    padding: 0 15px;
+    border-right: rgb(240, 232, 232, 0.5) 1px solid;
+    border-left: rgb(240, 232, 232, 0.5) 1px solid;
+  }
+
+  .icon {
+    text-align: center;
+
+    .icon-border {
+      border: $button-color 4px double;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 5px solid white;
+      }
+    }
+  }
+}
+
+/* ----------モバイル版 registration------------- */
+
+.registration {
+  .join-button,
+  .sns {
+    text-align: center;
+  }
+
+  .join-button {
+    padding: 5px 0 30px;
+    margin-bottom: 25px;
+    button {
+      border-radius: 2px;
+      border: none;
+      padding: 6px 90px;
+      background: rgb(26, 238, 185);
+      box-shadow: 1px 1px rgb(12, 128, 12);
+      border: transparent;
+      &:hover {
+        background: rgb(26, 238, 185);
+        box-shadow: none;
+      }
+    }
+  }
+  & a {
+    color: $main-letter-color;
+  }
+
+  & a:hover {
+    color: black;
+  }
+
+  .sns {
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+
+    & a {
+      margin: 20px;
+    }
+    & .fa-facebook:hover {
+      color: #1a77f2;
+    }
+    & .fa-twitter:hover {
+      color: #1ea2f1;
+    }
+
+    & .fa-instagram-square:hover {
+      color: #9508b8;
+    }
+  }
+
+  .eco-image {
+    @include quote();
+  }
+}
+.team-image {
+  margin: 0 auto 25px;
+  text-align: center;
+}
+
+/* トップ戻るボタン　back-to-top */
+/* モバイル版 */
+.back-to-top {
+  display: none;
+  width: 40px;
+  height: 40px;
+  background-color: rgb(173, 169, 169, 0.1);
+  text-align: center;
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  .back-to-top-button {
+    border-bottom: 2px solid;
+    color: $button-color;
+    opacity: 0.6;
+    font-size: 1.3rem;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+/* PC版 */
+
+@media (min-width: 768px) {
+  .back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 200px;
+  }
+}
+
+/* ーーーーーーーーーーーーーーーアニメーーーテストーーーーーーーーーーーーーーーー */
+/* スクロールしたらフワッ出てくるようにしたい */
+.section-title {
+  animation: test 2s;
+}
+
+.section-wrapper {
+  animation: test 4s;
+}
+
+@keyframes test {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+  }
+}

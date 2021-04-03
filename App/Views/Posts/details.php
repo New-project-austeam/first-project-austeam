@@ -5,7 +5,7 @@
 $post = $data['postData'];
 ?>
 
-<main class="bg-img">
+<main class="bg-img" id="detailPage">
   <span class="space">スペース</span>
 
   <div class="contents-wrapper">
@@ -38,8 +38,9 @@ $post = $data['postData'];
 
             <div class="event-info">
             <div class="favorite-icon">
-                <h3><a href="#">☆</a></h3><!-- 仮 -->
-              </div>
+                    <a class="favorite"><i class="far fa-star"></i></a>
+                    <a class="like-it"><i class="fas fa-star"></i></a>
+                  </div>
               <div class="event-detail-icon">
 
 

@@ -1,0 +1,167 @@
+@import "variable.scss";
+
+/* イベント作成ボタン */
+.timeline {
+  position: relative;
+}
+
+.createEvent {
+  position: fixed;
+  right: 9%;
+  text-align: center;
+
+  .createEventBtn {
+    background-color: rgb(26, 238, 185, 0.3);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    font-size: 1.3rem;
+    &:hover {
+      background-color: $button-color;
+    }
+  }
+  p {
+    font-size: 0.7rem;
+  }
+}
+
+/* イベントモーダル */
+
+/* .modal-bgは設定済み　variable.scss */
+.modal-bg-event {
+  position: absolute;
+  z-index: 100;
+  background-color: rgba(58, 59, 58, 0.8);
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  display: none;
+  transition: all .8s ease;
+
+}
+
+
+.event-modal {
+  position: relative;
+  z-index: 200;
+  transition: all .8s ease;
+  display: none;
+  opacity: 0;
+  margin:0 auto;
+  text-align: center;
+  color: $main-letter-color;
+  position: fixed;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: auto;
+  height: 90%;
+
+
+  /*   display: block;
+    opacity: 1; */
+  background-color: white;
+  .event-form {
+    padding:10px;
+
+    width: clamp(360px, 50vw, 750px);
+    height: 100%;
+    margin:0 auto;
+
+    p{
+      margin-bottom:20px;
+    }
+  }
+}
+
+.active-modal {
+  opacity: 1;
+}
+
+
+/* イベント作成フォーム */
+
+  .post-event{
+
+    display: flex;
+
+
+    .form-items{
+      display: flex;
+      width:90%;
+      margin:0 auto 20px;
+      justify-content: start;
+     ;
+      dt{
+        width:60%;
+        text-align: left;
+        font-weight: bold;
+    /*     border: black 1px solid; */
+      }
+      dd{
+        width:100%;
+        text-align: left;
+
+        input[type="text"],input[type="date"]{
+          width:100%;
+        }
+      }
+
+
+    }
+
+
+
+
+    .form-items-textarea{
+      /* display: block; */
+      width:90%;
+      margin:0 auto;
+      height:200px;
+    }
+
+    .post-event-button{
+      padding-top:20px;
+      text-align: center;
+      input[type="submit"]{
+        padding:10px;
+        width:90%;
+        margin:0 auto;
+        background-color: $button-color;
+        border: none;
+
+        &:hover{
+          background-color: rgb(30, 219, 156);
+        }
+      }
+    }
+
+
+  }
+
+
+  /* selectのサイズ、うまくできないので個別で設定 */
+  .event-category{
+    display: block;
+    width:100%;
+  }
+
+  @media (max-width:768px){
+    form{
+      width:95%;
+      margin: 0 auto;
+
+
+    .form-items{
+      flex-direction: column;
+
+      width:100%;
+
+
+      }
+    }
+    }
+    .post-event-button{
+      padding-bottom:40px;
+    }

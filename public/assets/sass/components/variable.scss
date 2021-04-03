@@ -3,7 +3,7 @@ $background-color: rgb(202, 199, 195, 0.4);
 $button-color: #19eeb9;
 $font: "Tsukushi A Round Gothic";
 $mobile-section-title-font-size:0.9rem;
-$background-img:url(../images/4858794.jpg);
+
 
 @mixin quote{
   a {
@@ -17,7 +17,7 @@ $background-img:url(../images/4858794.jpg);
 
 /* タイムライン・イベント詳細ページ　共通 */
 @mixin bg-img{
-  background-image: $background-img;
+  background-color: $background-color;
   background-size: cover;
   background-repeat: repeat-y;
   width:100%;
@@ -33,9 +33,11 @@ $background-img:url(../images/4858794.jpg);
       border-radius: 2px;
       border: none;
       color: $main-letter-color;
+      box-shadow:2px 2px  rgb(12, 128, 12) ;
       &:hover {
         color: black;
-        box-shadow:1px 1px rgb(12, 128, 12) ;
+        box-shadow:1px 1px white ;
+
       }
 }
 

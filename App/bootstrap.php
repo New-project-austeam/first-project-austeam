@@ -1,6 +1,6 @@
 <?php
-
-
+//エラーになったら↓Onにする
+/* ini_set('display_errors', "On"); */
 // Load config
 require_once 'config/config.php';
 

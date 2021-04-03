@@ -148,11 +148,11 @@ class Users extends Controller
 
           $this->createUserSession($loggedInUser);
         } else {
-          $data['password_err'] = 'Password incorrect..';
-          $this->view('Users/login', $data);
+          $data['password_err'] = 'Password incorrect';
+          $this->view('Home/index', $data);
         }
       } else {
-        $this->view('Users/login', $data);
+        $this->view('Home/index', $data);
       }
     } else {
       // Load form;
@@ -165,7 +165,7 @@ class Users extends Controller
         "password_err" => "",
 
       ];
-      $this->view('Users/login', $data);
+      $this->view('Home/index', $data);
     }
   }
 

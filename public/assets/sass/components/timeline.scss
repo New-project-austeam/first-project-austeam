@@ -72,13 +72,16 @@
 @mixin button {
   color: $button-color;
   background-color: $button-color;
+  box-shadow:1px 1px rgb(12, 128, 12) ;
       padding: 6px 500px;
       border-radius: 2px;
       border: none;
       color: $main-letter-color;
       &:hover {
         color: black;
-        box-shadow:1px 1px rgb(12, 128, 12) ;
+
+        background-color: $button-color;
+        box-shadow: none;
       }
 }
 
@@ -155,8 +158,8 @@ text-align: center;
 
         P{
           font-size: 0.8rem;
-          font-weight: bold;
-          background-color:$button-color;
+
+          background-color:rgb(202,250,234);
 
           padding:3px;
         }
@@ -201,6 +204,8 @@ text-align: center;
 .poseted-event-contents{
   width:100%;
   padding-left:20px;
+  margin-top: -15px;
+
 
 
 
@@ -209,7 +214,7 @@ text-align: center;
     width:100%;
     display: flex;
     flex-direction: row;
-    text-align: left;
+    text-align:left;
 
 
     .event-title{
@@ -217,8 +222,6 @@ text-align: center;
       font-size: 5rem;/* -------------フォントサイズ　仮------------- */
 
        width:85%;
-       padding-top: 5px;
-
 
     }
 
@@ -231,10 +234,7 @@ text-align: center;
 
 
     }
-    .favorite{
-      font-size: 1rem;
 
-    }
   }
 
   .event-info-list{
@@ -243,7 +243,7 @@ text-align: center;
 
 
     li{
-      padding: 5px;
+      padding: 5px 15px 0 0;
       font-weight: bold;
       font-size: 0.75rem;
     }
@@ -275,6 +275,7 @@ text-align: center;
   }
 
   .detail{
+
     padding-top:10px;
   text-align: center;
   .detail-btn{
@@ -293,10 +294,12 @@ text-align: center;
 
 
 .event-detail{
+
   display: flex;
   font-size: 0.9rem;
   padding-top:10px;
   width:90%;
+  margin: 0 auto;
   text-align: center;
 
 }
@@ -305,6 +308,8 @@ text-align: center;
 
 
 .joinning-ppl{
+  width:90%;
+  margin: 0 auto;
 
         display: flex;
        font-size: 0.9rem;
@@ -384,7 +389,7 @@ text-align: center;
 @media(min-width:768px){
   .event-title{
     h4{
-      font-size: 1.5rem;/* -------------フォントサイズ　仮------------- */
+      font-size: 1.4rem;/* -------------フォントサイズ　仮------------- */
     }
 
   }
@@ -460,14 +465,14 @@ text-align: center;
 
     .icon-border{
       border:$button-color 4px double;
-      width:100px;
-      height:100px;
+      width:80px;
+      height:80px;
       border-radius: 50%;
 
       img{
 
-        width:90px;
-        height:90px;
+        width:70px;
+        height:70px;
         border-radius: 50%;
         border:5px solid white;
       }
@@ -488,5 +493,17 @@ text-align: center;
   padding-top:10px;
   font-size: 0.9rem;
   width:90%;
+  margin: 0 auto;
 }
+ }
+
+ /* favorite */
+ .like-it i{
+   display: none;
+   color: $button-color;
+
+ }
+
+ .active-star{
+   display: block;
  }
